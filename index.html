@@ -283,6 +283,8 @@ function etat(jid) { return SAVE.joueurs[jid] || (SAVE.joueurs[jid] = {}); }
 const $ = s => document.querySelector(s);
 const d10 = () => 1 + Math.floor(Math.random() * 10);
 const face = n => n === 10 ? '0' : String(n);
+// Tolère majuscules, accents et espaces dans les noms de fichiers
+const norm = s => String(s).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim().replace(/\s+/g, '_');
 const hasard = a => a[Math.floor(Math.random() * a.length)];
 function melanger(a) { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
 function joli(s) { return s.replace(/__.*$/, '').split('_').map(m => m.split('-').map(x => x.charAt(0).toUpperCase() + x.slice(1)).join('-')).join(' '); }
@@ -318,8 +320,8 @@ async function init() {
   if (erreurs.length) toast('Profils illisibles (erreur de syntaxe ?) : ' + erreurs.join(', '));
   // Index des images de PNJ : id = nom du fichier sans extension ni tags
   for (const [dossier, liste] of Object.entries(M.pnj || {})) for (const f of liste) {
-    const base = f.replace(/\.[^.]+$/, ''); const [id, ...tags] = base.split('__');
-    IMAGES[dossier + '/' + id] = { id, url: 'pnj/' + (dossier ? dossier + '/' : '') + f, tags: new Set(tags), dossier };
+    const base = norm(f.replace(/\.[^.]+$/, '')); const [id, ...tags] = base.split('__');
+    IMAGES[dossier + '/' + id] = { id, url: encodeURI('pnj/' + (dossier ? dossier + '/' : '') + f), tags: new Set(tags), dossier };
     if (!IMAGES[id]) IMAGES[id] = IMAGES[dossier + '/' + id];
   }
   // Lieux présents en image mais absents de lieux.json : ajoutés avec réglages neutres
@@ -327,12 +329,12 @@ async function init() {
   rendreAccueil();
 }
 // bars.jpg, bars_2.jpg, bars_3.jpg… : une variante est choisie au hasard à chaque entrée dans le lieu
-function baseLieu(f) { return f.replace(/\.[^.]+$/, '').replace(/_\d+$/, ''); }
-function imageLieu(id) { const l = (M.lieux || []).filter(f => baseLieu(f) === id); return l.length ? 'lieux/' + hasard(l) : null; }
+function baseLieu(f) { return norm(f.replace(/\.[^.]+$/, '')).replace(/_\d+$/, ''); }
+function imageLieu(id) { const l = (M.lieux || []).filter(f => baseLieu(f) === id); return l.length ? encodeURI('lieux/' + hasard(l)) : null; }
 function mediaJoueur(j) {
-  const f = (M.joueurs || []).find(f => f.replace(/\.[^.]+$/, '') === j.id);
+  const f = (M.joueurs || []).find(f => norm(f.replace(/\.[^.]+$/, '')) === norm(j.id));
   if (!f) return `<div class="initiale">${esc(j.nom.charAt(0))}</div>`;
-  return /\.(webm|mp4)$/i.test(f) ? `<video src="joueurs/${f}" autoplay loop muted playsinline></video>` : `<img src="joueurs/${f}" alt="">`;
+  return /\.(webm|mp4)$/i.test(f) ? `<video src="${encodeURI('joueurs/' + f)}" autoplay loop muted playsinline></video>` : `<img src="${encodeURI('joueurs/' + f)}" alt="">`;
 }
 function ecran(id) { document.querySelectorAll('.ecran').forEach(e => e.classList.toggle('actif', e.id === id)); }
 function fond(url) { $('#fond').style.backgroundImage = url ? `url("${url}")` : ''; }
@@ -414,7 +416,7 @@ function poolLieu(l) {
   return [...ids].filter(id => !SAVE.morts.includes(id) && !autres.includes(id));
 }
 function infosPNJ(id, l) {
-  const p = PROFILS[id] || {}, im = IMAGES[l.id + '/' + id] || IMAGES[id];
+  const p = PROFILS[id] || {}, im = IMAGES[l.id + '/' + norm(id)] || IMAGES[norm(id)];
   return { id, p, url: im ? im.url : null, tags: im ? im.tags : new Set(), nom: p.nom || joli(id) };
 }
 function accepte(info) {
@@ -447,7 +449,7 @@ function tirer(imposee) {
   let cartes = [];
   if (imposee) cartes.push(imposee);
   if (l.type === 'cadavres') {
-    const imgs = (M.pnj[l.id] || []).map(f => ({ id: f.replace(/\.[^.]+$/, '').split('__')[0], url: `pnj/${l.id}/${f}` }));
+    const imgs = (M.pnj[l.id] || []).map(f => ({ id: norm(f.replace(/\.[^.]+$/, '')).split('__')[0], url: encodeURI(`pnj/${l.id}/${f}`) }));
     const pool = melanger(imgs).map(i => ({ nom: joli(i.id), app: 'Sur la table d’acier, sous le drap.', url: i.url })).concat(melanger(CADAVRES_DEFAUT));
     cartes = pool.slice(0, n).map(c => Object.assign(c, { cadavre: true }));
   } else {
