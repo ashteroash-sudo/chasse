@@ -87,7 +87,7 @@ h1,h2,h3{font-family:var(--titre);font-weight:700;letter-spacing:.02em}
 #cartes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;flex:1;align-content:start}
 .vide{grid-column:1/-1;text-align:center;padding:4rem 1rem;font-family:var(--titre);font-size:2rem;color:var(--doux);font-style:italic}
 
-.carte{background:var(--panneau);border:2px solid var(--ligne);border-radius:5px;overflow:hidden;display:flex;flex-direction:column;cursor:pointer;transition:transform .25s,opacity .3s,border-color .3s,box-shadow .3s;position:relative;opacity:0;transform:translateY(16px)}
+.carte{background:var(--panneau);border:2px solid var(--ligne);border-radius:5px;overflow:hidden;display:flex;flex-direction:column;cursor:default;transition:transform .25s,opacity .3s,border-color .3s,box-shadow .3s;position:relative;opacity:0;transform:translateY(16px)}
 .carte.visible{opacity:1;transform:none}
 .carte:hover{border-color:var(--cyan)}
 .carte .img{height:36vh;background:#0d1620 center/cover;position:relative;transition:height .3s}
@@ -101,14 +101,20 @@ h1,h2,h3{font-family:var(--titre);font-weight:700;letter-spacing:.02em}
 .bulle{position:relative;background:#e9eef1;color:#10161c;font-family:var(--titre);font-style:italic;font-size:1.08rem;line-height:1.25;padding:.45rem .65rem;border-radius:6px;margin-top:.2rem}
 .bulle::before{content:"";position:absolute;top:-7px;left:18px;border:7px solid transparent;border-top:0;border-bottom-color:#e9eef1}
 .cache{visibility:hidden}
-.carte.refuse{filter:grayscale(1) brightness(.55);cursor:not-allowed}
-.carte.refuse::after{content:attr(data-refus);position:absolute;top:38%;left:-10%;right:-10%;text-align:center;transform:rotate(-8deg);background:rgba(0,0,0,.8);color:var(--doux);font-family:var(--titre);font-size:1.25rem;padding:.4rem;border-top:1px solid var(--gris);border-bottom:1px solid var(--gris)}
 .carte.terne{opacity:.28;transform:scale(.97)}
 .carte.doree{border-color:var(--or);box-shadow:0 0 0 1px var(--or2),0 0 28px rgba(212,165,72,.45);cursor:default}
 .carte.doree .identite{display:block}
 .identite{display:none;font-family:var(--titre);font-size:1.4rem;color:var(--or2);line-height:1.1}
 .identite small{display:block;font-family:var(--ui);font-size:.9rem;color:var(--doux)}
 
+.carte .boutons{display:flex;gap:.35rem;flex-wrap:wrap;margin-top:auto;padding-top:.3rem}
+.carte .boutons button{font-size:.88rem;padding:.3em .6em}
+.carte .boutons small{color:var(--doux);font-size:.8em}
+#chasse.choix .carte .boutons{display:none}
+.carte .corps{flex:1}
+.carte.n2 .img,.carte.n3 .img{height:22vh}
+.carte.parti{opacity:.3;cursor:default}
+.ce-soir-carte{font-size:.92rem;color:var(--texte)}.ce-soir-carte b{color:var(--or2);font-weight:500}
 /* Dé d10 */
 .d10{width:46px;height:52px;position:relative;flex-shrink:0}
 .d10 svg{position:absolute;inset:0;width:100%;height:100%}
@@ -430,6 +436,9 @@ function entrer(lieuId) {
   fond(imageLieu(lieuId)); ecran('chasse'); rendreCote();
   $('#c-lieu').textContent = S.lieu.nom; tirer();
 }
+const TEMPS = { observer: 5, aborder: 10, parler: 10 };   // minutes par tentative
+const ETAPES = [{ cle: 'observer', lab: 'Observer' }, { cle: 'aborder', lab: 'Aborder' }, { cle: 'parler', lab: 'Le faire parler' }];
+
 function tirer(imposee) {
   const l = S.lieu, n = affluence(l); S.choisie = null; $('#panneau').className = ''; $('#chasse').classList.remove('choix'); $('#panneau').innerHTML = '';
   $('#c-aff').textContent = l.type === 'cadavres' ? 'Sang mort' : `${n} passant${n > 1 ? 's' : ''} à cette heure`;
@@ -444,7 +453,7 @@ function tirer(imposee) {
     let frais = pool.filter(id => !S.vus.has(id)); if (frais.length < n) frais = pool;
     for (const id of melanger(frais).slice(0, Math.max(0, n - cartes.length))) {
       S.vus.add(id); const info = infosPNJ(id, l);
-      cartes.push(Object.assign(info, { res: tirerResonance(l), ok: accepte(info) }));
+      cartes.push(Object.assign(info, { res: tirerResonance(l), ok: accepte(info), niveau: 0 }));
     }
   }
   S.cartes = cartes; rendreCartes();
@@ -453,42 +462,64 @@ function textesHumeur(c) {
   const h = (c.p && c.p.humeurs && c.p.humeurs[c.res.type]) || {}, d = SIGNES_DEFAUT[c.res.type];
   return { signes: h.signes || d.signes, replique: h.replique || '', declencheur: h.declencheur || '' };
 }
-async function rendreCartes() {
+function valeurDe(c) { return c.res.t <= 5 ? face(c.res.t) : (c.res.r ? face(c.res.r) : '•'); }
+function carteHTML(c, i) {
+  const img = c.url ? `style="background-image:url('${c.url}')"` : '';
+  const sil = c.url ? '' : `<div class="silhouette">${SILHOUETTE}</div>`;
+  if (c.cadavre) return `<div class="carte n2" data-i="${i}"><div class="img" ${img}>${sil}</div><div class="corps">
+    <div class="identite" style="display:block">${esc(c.nom)}</div><div class="app">${esc(c.app)}</div>
+    <div class="note">Sang rance : ni Résonance, ni Dyscrasie.</div>
+    <div class="boutons"><button class="rouge" data-a="mordre">Boire</button></div></div></div>`;
+  if (c.parti) return `<div class="carte parti" data-i="${i}"><div class="img" ${img}>${sil}</div><div class="corps">
+    <div class="app">${esc(c.p.apparence || '')}</div><div class="note">${esc(c.parti)}</div></div></div>`;
+  const t = textesHumeur(c), n = c.niveau || 0, et = ETAPES[n];
+  return `<div class="carte n${n}" data-i="${i}">
+    <div class="img" ${img}>${sil}</div>
+    <div class="corps">
+      <div class="identite" ${n >= 2 ? 'style="display:block"' : ''}>${esc(c.nom)}<small>${c.p.age ? esc(c.p.age) + ' ans · ' : ''}${esc(c.p.metier || '')}</small></div>
+      <div class="app">${esc(c.p.apparence || '')}</div>
+      ${n >= 1 ? `<div class="ligne-de">${deHTML(valeurDe(c), c.res.t <= 5 ? 'ombre' : '')}<div class="signes">${esc(t.signes)}</div></div>` : ''}
+      ${n >= 2 && t.replique ? `<div class="bulle">« ${esc(t.replique)} »</div>` : ''}
+      ${n >= 3 && t.declencheur ? `<div class="ce-soir-carte"><b>Ce soir :</b> ${esc(t.declencheur)}</div>` : ''}
+      <div class="boutons">
+        ${et ? `<button data-a="ok" title="Jet réussi">✓ ${et.lab} <small>${TEMPS[et.cle]} min</small></button><button data-a="rate" title="Jet raté">✗ Raté</button>` : ''}
+        <button class="rouge" data-a="mordre">Mordre</button>
+      </div>
+    </div></div>`;
+}
+function lierCarte(el) {
+  const i = +el.dataset.i;
+  el.querySelectorAll('[data-a]').forEach(b => b.onclick = ev => {
+    ev.stopPropagation();
+    if (b.dataset.a === 'ok') reussir(i); else if (b.dataset.a === 'rate') rater(i); else choisir(i);
+  });
+}
+function majCarte(i, lancerDe) {
+  const old = document.querySelector(`.carte[data-i="${i}"]`); if (!old) return;
+  const tmp = document.createElement('div'); tmp.innerHTML = carteHTML(S.cartes[i], i);
+  const el = tmp.firstElementChild; el.classList.add('visible'); old.replaceWith(el); lierCarte(el);
+  if (lancerDe) { const de = el.querySelector('.d10'); if (de) lancer(de, valeurDe(S.cartes[i])); }
+}
+function rendreCartes() {
   const z = $('#cartes');
   if (!S.cartes.length) { z.innerHTML = `<div class="vide">Personne. Juste le vent et la pluie.</div>`; return; }
-  z.innerHTML = S.cartes.map((c, i) => {
-    const img = c.url ? `style="background-image:url('${c.url}')"` : '';
-    const sil = c.url ? '' : `<div class="silhouette">${SILHOUETTE}</div>`;
-    if (c.cadavre) return `<div class="carte" data-i="${i}"><div class="img" ${img}>${sil}</div><div class="corps">
-      <div class="identite" style="display:block">${esc(c.nom)}</div><div class="app">${esc(c.app)}</div>
-      <div class="note">Sang rance : ni Résonance, ni Dyscrasie.</div></div></div>`;
-    const t = textesHumeur(c);
-    return `<div class="carte" data-i="${i}" ${c.ok ? '' : `data-refus="${esc(S.joueur.filtre_texte || 'Ne lui convient pas')}"`}>
-      <div class="img" ${img}>${sil}</div>
-      <div class="corps">
-        <div class="identite">${esc(c.nom)}<small>${c.p.age ? esc(c.p.age) + ' ans · ' : ''}${esc(c.p.metier || '')}</small></div>
-        <div class="app">${esc(c.p.apparence || '')}</div>
-        <div class="ligne-de">${deHTML('?', c.res.t <= 5 ? 'ombre' : '')}<div class="signes cache">${esc(t.signes)}</div></div>
-        ${t.replique ? `<div class="bulle cache">« ${esc(t.replique)} »</div>` : ''}
-      </div></div>`;
-  }).join('');
-  const els = [...z.querySelectorAll('.carte')];
-  els.forEach((el, i) => { setTimeout(() => el.classList.add('visible'), 120 * i); el.onclick = () => choisir(i); });
-  await Promise.all(els.map((el, i) => new Promise(ok => setTimeout(async () => {
-    const c = S.cartes[i], de = el.querySelector('.d10');
-    if (de && !c.revele) {
-      await lancer(de, face(c.res.t <= 5 ? c.res.t : c.res.r || '?'));
-      if (c.res.t > 5 && !c.res.r) de.querySelector('span').textContent = '•';
-    }
-    el.querySelectorAll('.cache').forEach(x => x.classList.remove('cache'));
-    if (!c.cadavre && !c.ok) el.classList.add('refuse');
-    ok();
-  }, 300 + 280 * i))));
+  z.innerHTML = S.cartes.map(carteHTML).join('');
+  [...z.querySelectorAll('.carte')].forEach((el, i) => { lierCarte(el); setTimeout(() => el.classList.add('visible'), 120 * i); });
+}
+function reussir(i) {
+  const c = S.cartes[i], et = ETAPES[c.niveau || 0]; if (!et) return;
+  if (!avancer(TEMPS[et.cle])) return;
+  c.niveau = (c.niveau || 0) + 1; majCarte(i, c.niveau === 1);
+}
+function rater(i) {
+  const c = S.cartes[i], et = ETAPES[c.niveau || 0]; if (!et) return;
+  if (!avancer(TEMPS[et.cle])) return;
+  c.parti = c.niveau ? 'Il se méfie et s’éloigne.' : 'Il ne fait que passer. Déjà parti.'; majCarte(i);
 }
 
 /* ============ Choix et gorgée ============ */
 function choisir(i) {
-  const c = S.cartes[i]; if (!c || (!c.cadavre && !c.ok) || S.choisie === i) return;
+  const c = S.cartes[i]; if (!c || c.parti || S.choisie === i) return;
   S.choisie = i;
   document.querySelectorAll('.carte').forEach((el, k) => { el.classList.toggle('doree', k === i); el.classList.toggle('terne', k !== i); });
   const pan = $('#panneau'); pan.className = 'ouvert'; $('#chasse').classList.add('choix');
@@ -499,10 +530,7 @@ function choisir(i) {
       <div class="actions"><button class="rouge" id="b-boire">Boire</button><button id="b-annuler">Changer d'avis</button></div></div>`;
     $('#b-boire').onclick = () => { delete etat(S.joueur.id).reso; sauver(); finRepas('Sang mort bu. Aucune Résonance active.'); };
   } else {
-    const t = textesHumeur(c);
-    pan.innerHTML = `<div class="txt">
-      ${t.declencheur ? `<div class="ce-soir"><b>Ce soir :</b> ${esc(t.declencheur)}</div>` : ''}
-      <div id="gorgee"></div>
+    pan.innerHTML = `<div class="txt"><div id="gorgee"></div>
       <div class="actions" id="act"><button class="rouge" id="b-gorgee">Première gorgée</button><button id="b-annuler">Changer d'avis</button></div></div>`;
     $('#b-gorgee').onclick = () => gorgee(c);
   }
@@ -512,44 +540,54 @@ function annulerChoix() {
   S.choisie = null; $('#panneau').className = ''; $('#chasse').classList.remove('choix');
   document.querySelectorAll('.carte').forEach(el => el.classList.remove('doree', 'terne'));
 }
-async function gorgee(c) {
-  c.revele = true;
-  document.querySelectorAll('.carte').forEach(el => el.onclick = null);
+function gorgee(c) {
+  const j = S.joueur;
+  if (j.filtre && !c.ok) {
+    $('#gorgee').innerHTML = `<div class="verdict caillot">Le sang ne passe pas…</div><div class="note">${esc(j.fleau || 'Ce sang ne convient pas à son palais.')}</div>`;
+    $('#act').innerHTML = `<button class="or" id="b-volonte">Il dépense la Volonté</button><button class="rouge" id="b-vomit">Il ne la dépense pas</button>`;
+    $('#b-volonte').onclick = () => gorgeeSuite(c);
+    $('#b-vomit').onclick = () => {
+      c.parti = 'Il s’enfuit, couvert d’un sang qui n’est pas le sien.'; annulerChoix(); majCarte(S.cartes.indexOf(c));
+      toast(`${j.nom} vomit un sang écarlate. Morsure gâchée, aucune Soif étanchée.`);
+    };
+    return;
+  }
+  gorgeeSuite(c);
+}
+async function gorgeeSuite(c) {
   const g = $('#gorgee'), act = $('#act'), r = c.res; act.innerHTML = '';
   const H = HUMEURS[r.type];
-  if (r.t <= 5) {
-    g.innerHTML = `<div class="verdict">Un sang sans saveur particulière.</div>`;
-    return finChoix(c, null);
-  }
-  g.innerHTML = deHTML('?', 'grand rouge') + `<div id="g2"></div><div class="txt" id="gv"></div>`;
+  if (r.t <= 5) { g.innerHTML = `<div class="verdict">Un sang sans saveur particulière.</div>`; return finChoix(c, null); }
+  g.innerHTML = `<div style="display:flex;gap:.8rem;align-items:center">${deHTML('?', 'grand rouge')}<div id="g2"></div><div class="txt" id="gv"></div></div>`;
   await lancer(g.querySelector('.d10'), face(r.t), 900);
   if (r.r2) { $('#g2').innerHTML = deHTML('?', 'grand rouge'); await lancer($('#g2 .d10'), face(r.r2), 900); }
   const v = $('#gv');
   if (r.intensite === 'fugace') { v.innerHTML = `<div class="verdict">${H.nom}, fugace.</div><div class="note">Une saveur, rien de plus. Aucun dé bonus.</div>`; return finChoix(c, { type: r.type, intensite: 'fugace' }); }
   if (r.intensite === 'intense') { v.innerHTML = `<div class="verdict">${H.nom}, intense.</div><div class="note">+1 dé aux réserves utilisant ${H.disc}, jusqu'au prochain repas ou Soif 5.</div>`; return finChoix(c, { type: r.type, intensite: 'intense' }); }
-  // Caillot
   v.innerHTML = `<div class="verdict caillot">Ce sang a quelque chose de particulier…</div>
     <div class="note">${H.nom}. Un caillot : l'émotion s'est figée dans le sang. +1 dé aux réserves utilisant ${H.disc}.</div>
     <div class="note">Pour en tirer le vrai pouvoir : vider cette proie, ou revenir boire sur elle trois nuits de suite.</div>`;
+  const ancienne = etat(S.joueur.id).proie, deja = ancienne && ancienne.id === c.id;
   act.innerHTML = `<button class="rouge" id="b-vider">La vider</button><button class="or" id="b-garder">La laisser vivre (nuit 1/3)</button>`;
-  $('#b-vider').onclick = () => vider(c, 1);
+  $('#b-vider').onclick = () => vider(c);
   $('#b-garder').onclick = () => {
     const e = etat(S.joueur.id);
-    e.proie = proieDe(c, 1); e.reso = { type: r.type, intensite: 'intense' }; sauver();
-    finRepas(`${c.nom} est marquée en doré. Nuit 1 sur 3.`);
+    e.proie = proieDe(c, 1, deja ? (ancienne.visites || 0) + 1 : 0); e.reso = { type: r.type, intensite: 'intense' }; sauver();
+    finRepas(`${c.nom} est marqué en doré. Nuit 1 sur 3.`);
   };
 }
-function proieDe(c, nuits) { return { id: c.id, nom: c.nom, lieu: S.lieu.id, res: c.res, intensite: c.res.intensite, nuits: nuits || 0 }; }
+function proieDe(c, nuits, visites) { return { id: c.id, nom: c.nom, lieu: S.lieu.id, res: c.res, intensite: c.res.intensite, nuits: nuits || 0, visites: visites || 0 }; }
 function finChoix(c, reso) {
   const act = $('#act');
   act.innerHTML = `<button class="or" id="b-fin-repas">Terminer le repas</button>`;
   $('#b-fin-repas').onclick = () => {
-    const e = etat(S.joueur.id); if (reso) e.reso = reso; else delete e.reso;
-    e.proie = proieDe(c, 0); sauver(); finRepas(`${c.nom} est gardé en doré comme proie habituelle.`);
+    const e = etat(S.joueur.id), anc = e.proie; if (reso) e.reso = reso; else delete e.reso;
+    e.proie = proieDe(c, 0, anc && anc.id === c.id ? (anc.visites || 0) + 1 : 0); sauver();
+    finRepas(`${c.nom} est gardé en doré comme proie habituelle.`);
   };
 }
 function tirerDyscrasie(type) { const l = DYSC[type] || []; return l.length ? hasard(l) : { nom: 'Dyscrasie', effet: 'À définir par le conteur.' }; }
-function vider(c, nuits) {
+function vider(c) {
   const d = tirerDyscrasie(c.res.type), e = etat(S.joueur.id);
   e.reso = { type: c.res.type, intensite: 'caillot', dyscrasie: d };
   if (e.proie && e.proie.id === c.id) delete e.proie;
@@ -567,38 +605,61 @@ function reveler(d, sous) {
 function finRepas(msg) { toast(msg); rendreAccueil(); }
 
 /* ============ Retrouver la proie dorée ============ */
-function retrouverProie() {
+const EVENEMENTS = {
+  absent: "n'est pas là ce soir.",
+  accompagne: "n'est pas seul ce soir. Il faudra l'isoler.",
+  mefiant: "a remarqué les marques. Il est sur ses gardes, l'entourage pose des questions.",
+  normal: "est là, comme d'habitude."
+};
+async function retrouverProie() {
   const e = etat(S.joueur.id), p = e.proie; if (!p) return;
   S.lieu = LIEUX.find(l => l.id === p.lieu) || { id: p.lieu, nom: joli(p.lieu) };
   fond(imageLieu(p.lieu)); ecran('chasse'); rendreCote(); $('#c-lieu').textContent = S.lieu.nom;
-  const info = infosPNJ(p.id, S.lieu);
-  // Un caillot garde son humeur ; les autres changent d'humeur d'une nuit à l'autre
-  const res = p.intensite === 'caillot' ? p.res : tirerResonance(S.lieu);
-  const c = Object.assign(info, { res, ok: true });
-  S.vus = new Set([p.id]); tirer(c);
-  setTimeout(() => {
-    S.choisie = 0;
-    document.querySelectorAll('.carte').forEach((el, k) => { el.classList.toggle('doree', k === 0); el.classList.toggle('terne', k !== 0); });
-    const pan = $('#panneau'); pan.className = 'ouvert'; $('#chasse').classList.add('choix');
-    if (p.intensite === 'caillot') {
-      const n = p.nuits + 1;
-      pan.innerHTML = `<div class="txt"><div class="verdict caillot">${esc(c.nom)}, encore.</div>
-        <div class="note">Le caillot est toujours là. Si c'est bien la nuit suivante, c'est la nuit ${n} sur 3.</div>
-        <div class="actions"><button class="rouge" id="b-nuit">Boire (nuit ${n}/3)</button><button class="rouge" id="b-vider">La vider</button>
-        <button id="b-rompu">La série est rompue (recommencer à 1)</button><button id="b-lacher">Abandonner cette proie</button></div></div>`;
-      $('#b-nuit').onclick = () => {
-        if (n >= 3) { const d = tirerDyscrasie(p.res.type); e.reso = { type: p.res.type, intensite: 'caillot', dyscrasie: d }; delete e.proie; sauver(); reveler(d, `Trois nuits de suite. ${c.nom} est vivant, et ne se doute de rien.`); }
-        else { p.nuits = n; e.reso = { type: p.res.type, intensite: 'intense' }; sauver(); finRepas(`Nuit ${n} sur 3.`); }
-      };
-      $('#b-vider').onclick = () => vider(c);
-      $('#b-rompu').onclick = () => { p.nuits = 1; e.reso = { type: p.res.type, intensite: 'intense' }; sauver(); finRepas('Série recommencée : nuit 1 sur 3.'); };
-    } else {
-      pan.innerHTML = `<div class="txt"><div class="ce-soir"><b>Ce soir :</b> ${esc(textesHumeur(c).declencheur)}</div><div id="gorgee"></div>
-        <div class="actions" id="act"><button class="rouge" id="b-gorgee">Première gorgée</button><button id="b-lacher">Abandonner cette proie</button></div></div>`;
-      $('#b-gorgee').onclick = () => gorgee(c);
-    }
-    $('#b-lacher').onclick = () => { delete e.proie; sauver(); annulerChoix(); toast(`${c.nom} n'est plus sa proie.`); };
-  }, 900);
+  // Jet d'événement : plus il revient souvent, plus ça tourne mal
+  const v = p.visites || 0, jet = d10(), x = jet - Math.min(v, 4);
+  const ev = x <= 1 ? 'absent' : x === 2 ? 'accompagne' : x === 3 ? 'mefiant' : 'normal';
+  S.vus = new Set([p.id]);
+  let c = null;
+  if (ev !== 'absent') {
+    const info = infosPNJ(p.id, S.lieu);
+    const res = p.intensite === 'caillot' ? p.res : tirerResonance(S.lieu);   // un caillot garde son humeur
+    c = Object.assign(info, { res, ok: accepte(info), niveau: 2 });
+  }
+  tirer(c);
+  const pan = $('#panneau'); pan.className = 'ouvert'; $('#chasse').classList.add('choix');
+  pan.innerHTML = `<div style="display:flex;gap:1rem;align-items:center">${deHTML('?', 'grand')}<div class="txt" id="ev"></div></div>`;
+  await lancer(pan.querySelector('.d10'), face(jet), 900);
+  const troupeau = v >= 3 ? `<div class="note">Il revient souvent vers ${esc(p.nom)}. Une source de sang régulière et sûre, c'est l'Historique Troupeau : ça se paie en XP.</div>` : '';
+  const zone = $('#ev');
+  if (ev === 'absent') {
+    let rompu = '';
+    if (p.intensite === 'caillot' && p.nuits > 0) { p.nuits = 0; rompu = ' La série de nuits est rompue.'; }
+    p.visites = v + 1; sauver();
+    zone.innerHTML = `<div class="verdict">${esc(p.nom)} ${EVENEMENTS.absent}</div><div class="note">${rompu}</div>${troupeau}
+      <div class="actions"><button id="b-autre">Chasser quelqu'un d'autre</button></div>`;
+    $('#b-autre').onclick = annulerChoix; return;
+  }
+  S.choisie = 0;
+  document.querySelectorAll('.carte').forEach((el, k) => { el.classList.toggle('doree', k === 0); el.classList.toggle('terne', k !== 0); });
+  const intro = `<div class="verdict ${ev === 'normal' ? '' : 'caillot'}">${esc(p.nom)} ${EVENEMENTS[ev]}</div>${troupeau}`;
+  if (p.intensite === 'caillot') {
+    const n = p.nuits + 1;
+    zone.innerHTML = `${intro}<div class="note">Le caillot est toujours là. Si c'est bien la nuit suivante, c'est la nuit ${n} sur 3.</div>
+      <div class="actions"><button class="rouge" id="b-nuit">Boire (nuit ${n}/3)</button><button class="rouge" id="b-vider">La vider</button>
+      <button id="b-rompu">Série rompue (recommencer à 1)</button><button id="b-lacher">Abandonner cette proie</button></div>`;
+    $('#b-nuit').onclick = () => {
+      p.visites = v + 1;
+      if (n >= 3) { const d = tirerDyscrasie(p.res.type); e.reso = { type: p.res.type, intensite: 'caillot', dyscrasie: d }; delete e.proie; sauver(); reveler(d, `Trois nuits de suite. ${p.nom} est vivant, et ne se doute de rien.`); }
+      else { p.nuits = n; e.reso = { type: p.res.type, intensite: 'intense' }; sauver(); finRepas(`Nuit ${n} sur 3.`); }
+    };
+    $('#b-vider').onclick = () => vider(c);
+    $('#b-rompu').onclick = () => { p.nuits = 1; p.visites = v + 1; e.reso = { type: p.res.type, intensite: 'intense' }; sauver(); finRepas('Série recommencée : nuit 1 sur 3.'); };
+  } else {
+    zone.innerHTML = `${intro}<div id="gorgee"></div>
+      <div class="actions" id="act"><button class="rouge" id="b-gorgee">Première gorgée</button><button id="b-lacher">Abandonner cette proie</button></div>`;
+    $('#b-gorgee').onclick = () => gorgee(c);
+  }
+  $('#b-lacher').onclick = () => { delete e.proie; sauver(); annulerChoix(); toast(`${p.nom} n'est plus sa proie.`); };
 }
 
 /* ============ Colonne joueur ============ */

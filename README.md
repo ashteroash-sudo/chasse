@@ -26,5 +26,11 @@
 - `joueurs.json` : style de prédation, jet de chasse, filtre (Vito).
 - `dyscrasies.json` : la liste des Dyscrasies tirées à l'activation.
 
+## À la table
+- Chaque carte se dévoile par couches : **Observer** (humeur et signes), **Aborder** (réplique, nom, métier), **Le faire parler** (« ce soir… »). Le jet se fait à table : tu cliques ✓ s'il est réussi, ✗ s'il est raté (le PNJ s'en va). Chaque tentative fait avancer l'horloge (5 / 10 / 10 min, réglable en haut du script : `TEMPS`).
+- **Mordre** est possible à tout moment, même à l'aveugle.
+- Vito : si la proie ne lui convient pas, le fléau s'affiche à la première gorgée (texte réglable dans `data/joueurs.json`, champ `fleau`).
+- Retour sur la proie dorée : un d10 d'événement (absent, accompagné, méfiant, normal). Le risque monte à chaque visite, et au bout de 3 visites l'outil rappelle l'Historique Troupeau. Une absence rompt la série de nuits d'un caillot.
+
 ## Sauvegarde
 Les proies dorées, les Résonances actives et les PNJ tués sont gardés dans le navigateur du PC qui pilote. Avant de changer de PC ou de navigateur, utilise **Exporter la sauvegarde** sur l'écran d'accueil, puis **Importer** sur le nouveau.
