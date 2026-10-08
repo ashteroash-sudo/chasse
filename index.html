@@ -180,6 +180,7 @@ h1,h2,h3{font-family:var(--titre);font-weight:700;letter-spacing:.02em}
     <div class="outils">
       <button id="btn-export">Exporter la sauvegarde</button>
       <button id="btn-import">Importer</button>
+      <button id="btn-reset" class="rouge">Tout réinitialiser</button>
       <input type="file" id="fichier-import" accept=".json" hidden>
     </div>
   </section>
@@ -250,7 +251,8 @@ const HUMEURS = {
   flegmatique: { nom: 'Flegmatique', disc: 'Auspex, Domination' },
   atrabilaire: { nom: 'Atrabilaire', disc: "Force d'âme, Occultation" },
   bilieuse:    { nom: 'Bilieuse',    disc: 'Célérité, Puissance' },
-  sanguine:    { nom: 'Sanguine',    disc: 'Présence, Sorcellerie du sang' }
+  sanguine:    { nom: 'Sanguine',    disc: 'Présence, Sorcellerie du sang' },
+  animale:     { nom: 'Animale',     disc: 'Animalisme, Protéisme' }
 };
 const ORDRE = ['flegmatique', 'atrabilaire', 'bilieuse', 'sanguine'];
 const POIDS_DEFAUT = { flegmatique: 3, atrabilaire: 3, bilieuse: 2, sanguine: 2 };
@@ -402,7 +404,9 @@ function rendreLieux() {
     return `<div class="lieu" data-id="${l.id}" style="background-image:url('${imageLieu(l.id) || ''}')">
       <small>${l.type === 'cadavres' ? 'sang mort' : n === 0 ? 'personne' : n + (n > 1 ? ' passants' : ' passant')}</small><span>${esc(l.nom)}</span></div>`;
   }).join('');
+  html += `<div class="lieu" data-animaux="1" style="background:linear-gradient(135deg,#0f1d17,#06100c)"><small>pour tous</small><span>Animaux</span></div>`;
   $('#grille-lieux').innerHTML = html;
+  document.querySelector('.lieu[data-animaux]').onclick = chasseAnimale;
   document.querySelectorAll('.lieu[data-id]').forEach(el => el.onclick = () => entrer(el.dataset.id));
   const r = document.querySelector('.lieu[data-retour]'); if (r) r.onclick = retrouverProie;
 }
@@ -666,6 +670,28 @@ async function retrouverProie() {
   $('#b-lacher').onclick = () => { delete e.proie; sauver(); annulerChoix(); toast(`${p.nom} n'est plus sa proie.`); };
 }
 
+/* ============ Chasse animale ============ */
+const ANIMAUX = [
+  { id: 'petit', nom: 'Petit animal', ex: 'rat, chat, pigeon', soif: "1 point de Soif pour 3 petits animaux bus" },
+  { id: 'moyen', nom: 'Animal moyen', ex: 'chien, renard, raton laveur', soif: "1 point de Soif" },
+  { id: 'gros',  nom: 'Gros animal',  ex: 'cerf, cheval, vache', soif: "2 points de Soif" }
+];
+function chasseAnimale() {
+  S.lieu = { id: 'animaux', nom: 'Animaux' }; S.choisie = null;
+  fond(null); ecran('chasse'); rendreCote();
+  $('#c-lieu').textContent = 'Chasse animale'; $('#c-aff').textContent = 'Résonance animale : Animalisme, Protéisme. Jamais de Dyscrasie.';
+  $('#chasse').classList.remove('choix'); $('#panneau').className = ''; $('#panneau').innerHTML = '';
+  $('#cartes').innerHTML = ANIMAUX.map(a => `<div class="carte visible n2" style="cursor:default"><div class="corps" style="padding:1.2rem">
+    <div class="identite" style="display:block;font-size:1.8rem">${a.nom}<small>${a.ex}</small></div>
+    <div class="signes" style="font-size:1.2rem">${a.soif}</div>
+    <div class="boutons"><button class="rouge" data-animal="${a.id}">Boire</button></div></div></div>`).join('');
+  document.querySelectorAll('[data-animal]').forEach(b => b.onclick = () => {
+    const a = ANIMAUX.find(x => x.id === b.dataset.animal), e = etat(S.joueur.id);
+    e.reso = { type: 'animale', intensite: 'fugace' }; sauver();
+    finRepas(`${S.joueur.nom} boit sur un ${a.nom.toLowerCase()} : ${a.soif}. Résonance animale.`);
+  });
+}
+
 /* ============ Colonne joueur ============ */
 function rendreCote() {
   const j = S.joueur, e = etat(j.id);
@@ -678,7 +704,7 @@ function rendreCote() {
 }
 
 /* ============ Boutons ============ */
-$('#btn-attendre').onclick = () => { if (avancer(60)) tirer(); };
+$('#btn-attendre').onclick = () => { if (avancer(60) && S.lieu.id !== 'animaux') tirer(); };
 $('#btn-changer').onclick = () => { if (avancer(30)) rendreLieux(); };
 $('#btn-fin').onclick = rendreAccueil;
 $('#btn-retour-accueil').onclick = rendreAccueil;
@@ -690,6 +716,10 @@ $('#btn-export').onclick = () => {
   const a = document.createElement('a');
   a.href = URL.createObjectURL(new Blob([JSON.stringify(SAVE, null, 1)], { type: 'application/json' }));
   a.download = 'sauvegarde-chasse.json'; a.click();
+};
+$('#btn-reset').onclick = () => {
+  if (!confirm("Tout réinitialiser ?\n\nProies dorées, Résonances actives et PNJ tués seront effacés pour tous les vampires. Les PNJ tués reviendront dans les tirages.\n\nPense à exporter la sauvegarde avant si tu veux la garder.")) return;
+  SAVE = { joueurs: {}, morts: [] }; sauver(); rendreAccueil(); toast('Sauvegarde remise à zéro.');
 };
 $('#btn-import').onclick = () => $('#fichier-import').click();
 $('#fichier-import').onchange = async ev => {
