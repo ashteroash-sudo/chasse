@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La Chasse — Gary</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Barlow+Condensed:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --nuit:#05080d; --nuit2:#0b121b; --panneau:rgba(8,14,22,.82); --ligne:rgba(120,170,200,.18);
+  --texte:#d6e2ea; --doux:#8ea3b3; --cyan:#6fc3d9; --sang:#b3122a; --sang2:#e0344b;
+  --or:#d4a548; --or2:#f3d58b; --gris:#4b5560;
+  --titre:'Cormorant Garamond',Georgia,serif; --ui:'Barlow Condensed','Arial Narrow',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:var(--nuit);color:var(--texte);font-family:var(--ui);font-size:18px;overflow:hidden}
+button{font:inherit;color:inherit;cursor:pointer;border:1px solid var(--ligne);background:rgba(20,32,44,.75);
+  padding:.45em 1em;border-radius:3px;letter-spacing:.04em;transition:background .15s,border-color .15s}
+button:hover{background:rgba(40,62,80,.9);border-color:var(--cyan)}
+button.rouge{border-color:var(--sang);background:rgba(90,8,20,.7)}
+button.rouge:hover{background:rgba(150,15,35,.85);border-color:var(--sang2)}
+button.or{border-color:var(--or);background:rgba(80,58,15,.6)}
+button.or:hover{background:rgba(130,95,25,.8)}
+button:disabled{opacity:.35;cursor:not-allowed}
+input{font:inherit;color:var(--texte);background:var(--nuit2);border:1px solid var(--ligne);padding:.3em .5em;border-radius:3px}
+h1,h2,h3{font-family:var(--titre);font-weight:700;letter-spacing:.02em}
+
+/* Fond */
+#fond{position:fixed;inset:0;background:radial-gradient(ellipse at 50% 30%,#13202c 0%,var(--nuit) 70%);background-size:cover;background-position:center;transition:background-image .6s}
+#fond::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,8,13,.55),rgba(5,8,13,.35) 40%,rgba(5,8,13,.92))}
+#app{position:relative;height:100%;display:flex;flex-direction:column}
+
+/* Barre du haut */
+#barre{display:flex;align-items:center;gap:1.2rem;padding:.6rem 1.2rem;background:linear-gradient(180deg,rgba(0,0,0,.7),transparent)}
+#barre .titre{font-family:var(--titre);font-size:1.6rem;color:var(--sang2);margin-right:auto;letter-spacing:.06em}
+#horloge{font-size:2rem;font-weight:600;letter-spacing:.08em;font-variant-numeric:tabular-nums}
+#soleil{font-size:1rem;color:var(--doux)}
+#soleil.proche{color:var(--or2)} #soleil.urgent{color:var(--sang2);animation:pouls 1.2s infinite}
+@keyframes pouls{50%{opacity:.45}}
+
+.ecran{flex:1;display:none;overflow:auto;padding:1rem 1.5rem 1.5rem}
+.ecran.actif{display:flex}
+
+/* Accueil */
+#accueil{flex-direction:column;align-items:center;gap:1.4rem}
+#accueil h1{font-size:3.2rem;color:var(--texte);margin-top:.5rem}
+#accueil h1 em{color:var(--sang2);font-style:italic}
+.reglages{display:flex;gap:2rem;align-items:center;background:var(--panneau);border:1px solid var(--ligne);padding:.7rem 1.4rem;border-radius:4px}
+.reglages label{display:flex;gap:.6rem;align-items:center;color:var(--doux)}
+.grille-joueurs{display:grid;grid-template-columns:repeat(4,minmax(0,250px));gap:1.2rem}
+.joueur{background:var(--panneau);border:1px solid var(--ligne);border-radius:4px;overflow:hidden;cursor:pointer;transition:transform .2s,border-color .2s;display:flex;flex-direction:column}
+.joueur:hover{transform:translateY(-4px);border-color:var(--sang)}
+.joueur .media{aspect-ratio:3/4;background:#0d1620;position:relative;overflow:hidden}
+.joueur video,.joueur img,.portrait-j video,.portrait-j img{width:100%;height:100%;object-fit:cover;display:block}
+.initiale{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--titre);font-size:5rem;color:#2a3a48}
+.joueur .info{padding:.6rem .8rem}
+.joueur .nom{font-family:var(--titre);font-size:1.6rem}
+.joueur .style{color:var(--doux);font-size:.95rem}
+.etiquette{display:inline-block;margin-top:.4rem;font-size:.85rem;padding:.15em .5em;border-radius:2px;border:1px solid}
+.etiquette.reso{border-color:var(--cyan);color:var(--cyan)}
+.etiquette.proie{border-color:var(--or);color:var(--or2)}
+.outils{display:flex;gap:.6rem;font-size:.9rem;opacity:.7}
+
+/* Lieux */
+#choix-lieu{flex-direction:column;gap:1rem}
+#choix-lieu h2{font-size:2.2rem}
+.grille-lieux{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem}
+.lieu{position:relative;aspect-ratio:16/9;border-radius:4px;overflow:hidden;border:1px solid var(--ligne);cursor:pointer;background:#0d1620 center/cover}
+.lieu:hover{border-color:var(--cyan)}
+.lieu span{position:absolute;left:0;right:0;bottom:0;padding:1.4rem .8rem .5rem;font-family:var(--titre);font-size:1.5rem;background:linear-gradient(transparent,rgba(0,0,0,.85))}
+.lieu small{position:absolute;top:.5rem;right:.6rem;font-size:.85rem;background:rgba(0,0,0,.6);padding:.1em .5em;border-radius:2px;color:var(--doux)}
+
+/* Chasse */
+#chasse{gap:1.2rem;align-items:stretch}
+#cote{width:230px;flex-shrink:0;display:flex;flex-direction:column;gap:.8rem}
+.portrait-j{aspect-ratio:3/4;border-radius:4px;overflow:hidden;border:1px solid var(--sang);position:relative;background:#0d1620}
+.bloc{background:var(--panneau);border:1px solid var(--ligne);border-radius:4px;padding:.6rem .8rem;font-size:.95rem}
+.bloc .lab{color:var(--doux);font-size:.8rem;text-transform:uppercase;letter-spacing:.12em}
+.bloc .val{font-size:1.05rem}
+#zone{flex:1;display:flex;flex-direction:column;gap:1rem;min-width:0}
+#entete-lieu{display:flex;align-items:baseline;gap:1rem}
+#entete-lieu h2{font-size:2.4rem}
+#entete-lieu .aff{color:var(--doux)}
+#cartes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;flex:1;align-content:start}
+.vide{grid-column:1/-1;text-align:center;padding:4rem 1rem;font-family:var(--titre);font-size:2rem;color:var(--doux);font-style:italic}
+
+.carte{background:var(--panneau);border:2px solid var(--ligne);border-radius:5px;overflow:hidden;display:flex;flex-direction:column;cursor:pointer;transition:transform .25s,opacity .3s,border-color .3s,box-shadow .3s;position:relative;opacity:0;transform:translateY(16px)}
+.carte.visible{opacity:1;transform:none}
+.carte:hover{border-color:var(--cyan)}
+.carte .img{height:36vh;background:#0d1620 center/cover;position:relative;transition:height .3s}
+#chasse.choix .carte .img{height:22vh}
+.carte .silhouette{position:absolute;inset:0;display:grid;place-items:center}
+.carte .silhouette svg{width:55%;opacity:.35}
+.carte .corps{padding:.6rem .7rem .8rem;display:flex;flex-direction:column;gap:.5rem}
+.carte .app{font-size:.92rem;color:var(--doux);font-style:italic;line-height:1.25}
+.carte .ligne-de{display:flex;align-items:center;gap:.6rem}
+.carte .signes{font-size:1rem;line-height:1.3}
+.bulle{position:relative;background:#e9eef1;color:#10161c;font-family:var(--titre);font-style:italic;font-size:1.08rem;line-height:1.25;padding:.45rem .65rem;border-radius:6px;margin-top:.2rem}
+.bulle::before{content:"";position:absolute;top:-7px;left:18px;border:7px solid transparent;border-top:0;border-bottom-color:#e9eef1}
+.cache{visibility:hidden}
+.carte.refuse{filter:grayscale(1) brightness(.55);cursor:not-allowed}
+.carte.refuse::after{content:attr(data-refus);position:absolute;top:38%;left:-10%;right:-10%;text-align:center;transform:rotate(-8deg);background:rgba(0,0,0,.8);color:var(--doux);font-family:var(--titre);font-size:1.25rem;padding:.4rem;border-top:1px solid var(--gris);border-bottom:1px solid var(--gris)}
+.carte.terne{opacity:.28;transform:scale(.97)}
+.carte.doree{border-color:var(--or);box-shadow:0 0 0 1px var(--or2),0 0 28px rgba(212,165,72,.45);cursor:default}
+.carte.doree .identite{display:block}
+.identite{display:none;font-family:var(--titre);font-size:1.4rem;color:var(--or2);line-height:1.1}
+.identite small{display:block;font-family:var(--ui);font-size:.9rem;color:var(--doux)}
+
+/* Dé d10 */
+.d10{width:46px;height:52px;position:relative;flex-shrink:0}
+.d10 svg{position:absolute;inset:0;width:100%;height:100%}
+.d10 span{position:absolute;inset:0;display:grid;place-items:center;font-weight:600;font-size:1.25rem;padding-top:4px}
+.d10.roule{animation:secoue .12s infinite}
+@keyframes secoue{0%{transform:rotate(-12deg)}50%{transform:rotate(10deg) translateY(-2px)}100%{transform:rotate(-12deg)}}
+.d10.grand{width:80px;height:90px}.d10.grand span{font-size:2.1rem}
+.d10 .face{fill:#14222f;stroke:var(--cyan);stroke-width:2}
+.d10.rouge .face{fill:#3a0710;stroke:var(--sang2)}
+.d10.ombre .face{fill:#12161a;stroke:#3a444e}
+
+/* Panneau proie */
+#panneau{background:var(--panneau);border:1px solid var(--or);border-radius:5px;padding:1rem 1.2rem;display:none;gap:1.2rem;align-items:flex-start}
+#panneau.ouvert{display:flex}
+#panneau .txt{flex:1;display:flex;flex-direction:column;gap:.5rem}
+#panneau .ce-soir{font-size:1.1rem}
+#panneau .ce-soir b{color:var(--or2);font-weight:500}
+#panneau .actions{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.3rem}
+#gorgee{display:flex;gap:.8rem;align-items:center}
+.verdict{font-family:var(--titre);font-size:1.7rem;line-height:1.15}
+.verdict.caillot{color:var(--sang2);text-shadow:0 0 18px rgba(224,52,75,.5)}
+.note{color:var(--doux);font-size:.95rem}
+.dysc{border:1px solid var(--sang);background:rgba(70,5,15,.55);padding:.6rem .8rem;border-radius:4px}
+.dysc .n{font-family:var(--titre);font-size:1.6rem;color:var(--sang2)}
+
+/* Barre d'actions */
+#actions{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center}
+#actions .sep{flex:1}
+
+/* Aide-mémoire */
+#aide{position:fixed;inset:0;background:rgba(2,4,7,.88);display:none;place-items:center;z-index:10;padding:1rem}
+#aide.ouvert{display:grid}
+#aide .boite{background:var(--nuit2);border:1px solid var(--ligne);border-radius:6px;max-width:1000px;width:100%;max-height:92vh;overflow:auto;padding:1.4rem 1.8rem}
+#aide h2{font-size:2.2rem;margin-bottom:.6rem}
+#aide h3{font-size:1.4rem;margin:1rem 0 .4rem;color:var(--cyan)}
+#aide table{width:100%;border-collapse:collapse;font-size:1.05rem}
+#aide td,#aide th{border-bottom:1px solid var(--ligne);padding:.4rem .5rem;text-align:left}
+#aide th{color:var(--doux);font-weight:500}
+#aide ul{padding-left:1.2rem;line-height:1.5}
+#aide .fermer{float:right}
+
+#toast{position:fixed;bottom:1rem;left:50%;transform:translateX(-50%);background:#2a0a10;border:1px solid var(--sang);padding:.5rem 1rem;border-radius:4px;display:none;z-index:20;max-width:90vw}
+</style>
+</head>
+<body>
+<div id="fond"></div>
+<div id="app">
+  <div id="barre">
+    <div class="titre">LA CHASSE</div>
+    <div id="soleil"></div>
+    <div id="horloge">--:--</div>
+    <button id="btn-aide">Aide-mémoire</button>
+  </div>
+
+  <!-- Accueil -->
+  <section class="ecran actif" id="accueil">
+    <h1>Qui part <em>chasser</em> cette nuit ?</h1>
+    <div class="reglages">
+      <label>Heure de départ <input type="time" id="heure" value="22:00"></label>
+      <label>Lever du soleil <input type="time" id="aube" value="07:30"></label>
+    </div>
+    <div class="grille-joueurs" id="grille-joueurs"></div>
+    <div class="outils">
+      <button id="btn-export">Exporter la sauvegarde</button>
+      <button id="btn-import">Importer</button>
+      <input type="file" id="fichier-import" accept=".json" hidden>
+    </div>
+  </section>
+
+  <!-- Choix du lieu -->
+  <section class="ecran" id="choix-lieu">
+    <div style="display:flex;align-items:baseline;gap:1rem">
+      <h2 id="titre-lieux">Où chasser ?</h2>
+      <button id="btn-retour-accueil" style="margin-left:auto">Retour</button>
+    </div>
+    <div class="grille-lieux" id="grille-lieux"></div>
+  </section>
+
+  <!-- Chasse -->
+  <section class="ecran" id="chasse">
+    <aside id="cote">
+      <div class="portrait-j" id="portrait-j"></div>
+      <div class="bloc"><div class="lab">Style de prédation</div><div class="val" id="c-style"></div></div>
+      <div class="bloc"><div class="lab">Jet de chasse</div><div class="val" id="c-jet"></div></div>
+      <div class="bloc" id="c-reso-bloc"><div class="lab">Résonance active</div><div class="val" id="c-reso"></div></div>
+    </aside>
+    <div id="zone">
+      <div id="entete-lieu"><h2 id="c-lieu"></h2><span class="aff" id="c-aff"></span></div>
+      <div id="cartes"></div>
+      <div id="panneau"></div>
+      <div id="actions">
+        <button id="btn-attendre">Attendre 1 h</button>
+        <button id="btn-changer">Changer de lieu (30 min)</button>
+        <span class="sep"></span>
+        <button id="btn-fin">Fin de la chasse</button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div id="aide"><div class="boite">
+  <button class="fermer" id="btn-fermer-aide">Fermer</button>
+  <h2>Aide-mémoire du sang</h2>
+  <h3>Les humeurs</h3>
+  <table>
+    <tr><th>Résonance</th><th>Émotions</th><th>Disciplines</th></tr>
+    <tr><td>Flegmatique</td><td>calme, apathie, retenue</td><td>Auspex, Domination</td></tr>
+    <tr><td>Atrabilaire</td><td>tristesse, deuil, dépression</td><td>Force d'âme, Occultation</td></tr>
+    <tr><td>Bilieuse</td><td>colère, violence, passion</td><td>Célérité, Puissance</td></tr>
+    <tr><td>Sanguine</td><td>joie, excitation, désir</td><td>Présence, Sorcellerie du sang</td></tr>
+    <tr><td>Animale</td><td>sang d'animal</td><td>Animalisme, Protéisme</td></tr>
+  </table>
+  <h3>Les intensités</h3>
+  <ul>
+    <li><b>Fugace</b> : saveur seulement. Permet d'acheter des points dans les Disciplines liées.</li>
+    <li><b>Intense</b> : +1 dé aux réserves utilisant une Discipline liée.</li>
+    <li><b>Caillot (Dyscrasie)</b> : +1 dé et un effet spécial. Il faut vider la proie, ou la boire 3 nuits de suite.</li>
+    <li><b>Fin de l'effet</b> : au prochain repas, ou quand la Soif atteint 5.</li>
+    <li><b>Sans Résonance</b> : poches de sang et cadavres. Le sang animal n'a jamais de Dyscrasie.</li>
+  </ul>
+  <h3>Le jet (d10)</h3>
+  <ul>
+    <li>Tempérament : 1-5 équilibré · 6-8 fugace · 9-0 on relance : 1-8 intense, 9-0 caillot.</li>
+    <li>Une proie sur 25, en moyenne, porte un caillot.</li>
+  </ul>
+</div></div>
+<div id="toast"></div>
+
+<script>
+/* ============ Données ============ */
+const HUMEURS = {
+  equilibre:   { nom: 'Équilibré',   disc: '' },
+  flegmatique: { nom: 'Flegmatique', disc: 'Auspex, Domination' },
+  atrabilaire: { nom: 'Atrabilaire', disc: "Force d'âme, Occultation" },
+  bilieuse:    { nom: 'Bilieuse',    disc: 'Célérité, Puissance' },
+  sanguine:    { nom: 'Sanguine',    disc: 'Présence, Sorcellerie du sang' }
+};
+const ORDRE = ['flegmatique', 'atrabilaire', 'bilieuse', 'sanguine'];
+const POIDS_DEFAUT = { flegmatique: 3, atrabilaire: 3, bilieuse: 2, sanguine: 2 };
+const SIGNES_DEFAUT = {
+  equilibre:   { signes: "Rien de marquant. Une nuit ordinaire.", replique: "" },
+  flegmatique: { signes: "Gestes lents, regard las, aucune réaction au bruit.", replique: "" },
+  atrabilaire: { signes: "Épaules basses, yeux rougis, perdu dans ses pensées.", replique: "" },
+  bilieuse:    { signes: "Mâchoire serrée, voix tendue, prêt à exploser.", replique: "" },
+  sanguine:    { signes: "Rire facile, yeux brillants, une énergie communicative.", replique: "" }
+};
+const CADAVRES_DEFAUT = [
+  { nom: 'Homme, la cinquantaine', app: "Arrivé ce soir. Étiquette au pied, peau grise." },
+  { nom: 'Femme, la trentaine', app: "Accident de la route. Le corps est encore tiède." },
+  { nom: 'Vieil homme', app: "Mort de vieillesse, seul. Personne n'a réclamé le corps." },
+  { nom: 'Jeune homme', app: "Overdose. Sorti du fleuve il y a quelques heures." }
+];
+
+let JOUEURS = [], LIEUX = [], DYSC = {}, PROFILS = {}, M = { joueurs: [], lieux: [], pnj: { '': [] }, profils: [] };
+let IMAGES = {};   // id -> { url, tags:Set, dossier }
+const S = { joueur: null, lieu: null, minutes: 22 * 60, aube: 7 * 60 + 30, cartes: [], vus: new Set(), choisie: null };
+
+/* ============ Sauvegarde ============ */
+const CLE = 'chasse-gary-v1';
+let SAVE = { joueurs: {}, morts: [] };
+function charger() { try { const s = JSON.parse(localStorage.getItem(CLE)); if (s) SAVE = Object.assign({ joueurs: {}, morts: [] }, s); } catch (e) {} }
+function sauver() { try { localStorage.setItem(CLE, JSON.stringify(SAVE)); } catch (e) { toast("Sauvegarde impossible dans ce navigateur."); } }
+function etat(jid) { return SAVE.joueurs[jid] || (SAVE.joueurs[jid] = {}); }
+
+/* ============ Utilitaires ============ */
+const $ = s => document.querySelector(s);
+const d10 = () => 1 + Math.floor(Math.random() * 10);
+const face = n => n === 10 ? '0' : String(n);
+const hasard = a => a[Math.floor(Math.random() * a.length)];
+function melanger(a) { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+function joli(s) { return s.replace(/__.*$/, '').split('_').map(m => m.split('-').map(x => x.charAt(0).toUpperCase() + x.slice(1)).join('-')).join(' '); }
+function hm(str) { const [h, m] = str.split(':').map(Number); return h * 60 + (m || 0); }
+function nuit(min) { return min < 12 * 60 ? min + 1440 : min; }   // 18:00 → 1080 … 07:30 → 1890
+function affHeure(min) { min = ((min % 1440) + 1440) % 1440; return String(Math.floor(min / 60)).padStart(2, '0') + ':' + String(min % 60).padStart(2, '0'); }
+function esc(s) { return String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c])); }
+function toast(t) { const el = $('#toast'); el.textContent = t; el.style.display = 'block'; clearTimeout(toast.t); toast.t = setTimeout(() => el.style.display = 'none', 5000); }
+async function lireJSON(url) { const r = await fetch(url, { cache: 'no-store' }); if (!r.ok) throw new Error(url + ' introuvable'); return r.json(); }
+const SILHOUETTE = '<svg viewBox="0 0 100 120"><circle cx="50" cy="38" r="22" fill="#6fc3d9"/><path d="M8 120c0-30 18-48 42-48s42 18 42 48z" fill="#6fc3d9"/></svg>';
+function deHTML(val, cls = '') { return `<div class="d10 ${cls}"><svg viewBox="0 0 46 52"><polygon class="face" points="23,2 44,20 23,50 2,20"/></svg><span>${val}</span></div>`; }
+function lancer(el, final, duree = 700) {
+  return new Promise(ok => {
+    const sp = el.querySelector('span'); el.classList.add('roule');
+    const it = setInterval(() => sp.textContent = face(d10()), 55);
+    setTimeout(() => { clearInterval(it); el.classList.remove('roule'); sp.textContent = final; ok(); }, duree);
+  });
+}
+
+/* ============ Chargement ============ */
+async function init() {
+  charger();
+  try { M = await lireJSON('manifest.json'); }
+  catch (e) { toast("manifest.json absent : le site doit être mis en ligne via Vercel (ou build.js lancé)."); }
+  try { JOUEURS = await lireJSON('data/joueurs.json'); } catch (e) { toast('data/joueurs.json illisible'); }
+  try { LIEUX = await lireJSON('data/lieux.json'); } catch (e) { toast('data/lieux.json illisible'); }
+  try { DYSC = await lireJSON('data/dyscrasies.json'); } catch (e) { toast('data/dyscrasies.json illisible'); }
+  const erreurs = [];
+  for (const f of M.profils || []) {
+    try { const lot = await lireJSON('profils/' + f); for (const p of (Array.isArray(lot) ? lot : [lot])) if (p && p.id) PROFILS[p.id] = p; }
+    catch (e) { erreurs.push(f); }
+  }
+  if (erreurs.length) toast('Profils illisibles (erreur de syntaxe ?) : ' + erreurs.join(', '));
+  // Index des images de PNJ : id = nom du fichier sans extension ni tags
+  for (const [dossier, liste] of Object.entries(M.pnj || {})) for (const f of liste) {
+    const base = f.replace(/\.[^.]+$/, ''); const [id, ...tags] = base.split('__');
+    IMAGES[dossier + '/' + id] = { id, url: 'pnj/' + (dossier ? dossier + '/' : '') + f, tags: new Set(tags), dossier };
+    if (!IMAGES[id]) IMAGES[id] = IMAGES[dossier + '/' + id];
+  }
+  // Lieux présents en image mais absents de lieux.json : ajoutés avec réglages neutres
+  for (const f of M.lieux || []) { const id = f.replace(/\.[^.]+$/, ''); if (!LIEUX.find(l => l.id === id)) LIEUX.push({ id, nom: joli(id) }); }
+  rendreAccueil();
+}
+function imageLieu(id) { const f = (M.lieux || []).find(f => f.replace(/\.[^.]+$/, '') === id); return f ? 'lieux/' + f : null; }
+function mediaJoueur(j) {
+  const f = (M.joueurs || []).find(f => f.replace(/\.[^.]+$/, '') === j.id);
+  if (!f) return `<div class="initiale">${esc(j.nom.charAt(0))}</div>`;
+  return /\.(webm|mp4)$/i.test(f) ? `<video src="joueurs/${f}" autoplay loop muted playsinline></video>` : `<img src="joueurs/${f}" alt="">`;
+}
+function ecran(id) { document.querySelectorAll('.ecran').forEach(e => e.classList.toggle('actif', e.id === id)); }
+function fond(url) { $('#fond').style.backgroundImage = url ? `url("${url}")` : ''; }
+
+/* ============ Horloge ============ */
+function majHorloge() {
+  $('#horloge').textContent = affHeure(S.minutes);
+  const reste = nuit(S.aube) - nuit(S.minutes), el = $('#soleil');
+  el.className = reste <= 30 ? 'urgent' : reste <= 90 ? 'proche' : '';
+  el.textContent = reste <= 0 ? '☀ Le soleil se lève' : `☀ ${affHeure(S.aube)} · dans ${Math.floor(reste / 60)} h ${String(reste % 60).padStart(2, '0')}`;
+  return reste;
+}
+function avancer(min) {
+  S.minutes = (S.minutes + min) % 1440; const reste = majHorloge();
+  if (reste <= 0) { toast("Le soleil se lève. La chasse est terminée."); return false; }
+  return true;
+}
+
+/* ============ Accueil ============ */
+function libelleReso(r) {
+  if (!r) return '';
+  let t = `${HUMEURS[r.type].nom} ${r.intensite}`;
+  if (r.intensite !== 'fugace') t += ` · +1 dé ${HUMEURS[r.type].disc}`;
+  if (r.dyscrasie) t += ` · ${r.dyscrasie.nom}`;
+  return t;
+}
+function rendreAccueil() {
+  fond(null); ecran('accueil'); S.minutes = hm($('#heure').value); S.aube = hm($('#aube').value); majHorloge();
+  $('#grille-joueurs').innerHTML = JOUEURS.map(j => {
+    const e = etat(j.id), p = e.proie;
+    return `<div class="joueur" data-id="${j.id}">
+      <div class="media">${mediaJoueur(j)}</div>
+      <div class="info"><div class="nom">${esc(j.nom)}</div><div class="style">${esc(j.clan || '')} · ${esc(j.style || '')}</div>
+      ${e.reso ? `<div class="etiquette reso">${esc(libelleReso(e.reso))}</div>` : ''}
+      ${p ? `<div class="etiquette proie">Proie : ${esc(p.nom)}${p.intensite === 'caillot' ? ` · nuit ${p.nuits}/3` : ''}</div>` : ''}
+      </div></div>`;
+  }).join('');
+  document.querySelectorAll('.joueur').forEach(el => el.onclick = () => choisirJoueur(el.dataset.id));
+}
+function choisirJoueur(id) {
+  S.joueur = JOUEURS.find(j => j.id === id); S.minutes = hm($('#heure').value); S.aube = hm($('#aube').value);
+  S.vus = new Set(); majHorloge(); rendreLieux();
+}
+
+/* ============ Lieux ============ */
+function lieuxDuJoueur() { return LIEUX.filter(l => !l.joueurs || l.joueurs.includes(S.joueur.id)); }
+function affluence(l) {
+  const a = l.affluence || [['18:00', 4]]; let n = a[0][1];
+  for (const [h, c] of a) if (nuit(S.minutes) >= nuit(hm(h))) n = c;
+  return Math.max(0, Math.min(4, n));
+}
+function rendreLieux() {
+  fond(null); ecran('choix-lieu');
+  $('#titre-lieux').textContent = `${S.joueur.nom} : où chasser ?`;
+  const p = etat(S.joueur.id).proie;
+  let html = '';
+  if (p) {
+    const l = LIEUX.find(x => x.id === p.lieu) || { nom: p.lieu };
+    html += `<div class="lieu" data-retour="1" style="background-image:url('${imageLieu(p.lieu) || ''}');border-color:var(--or)">
+      <small style="color:var(--or2)">${p.intensite === 'caillot' ? `nuit ${p.nuits}/3` : 'proie habituelle'}</small>
+      <span style="color:var(--or2)">Retrouver ${esc(p.nom)}<br><small style="position:static;background:none;padding:0;font-family:var(--ui)">${esc(l.nom)}</small></span></div>`;
+  }
+  html += lieuxDuJoueur().map(l => {
+    const n = affluence(l);
+    return `<div class="lieu" data-id="${l.id}" style="background-image:url('${imageLieu(l.id) || ''}')">
+      <small>${l.type === 'cadavres' ? 'sang mort' : n === 0 ? 'personne' : n + (n > 1 ? ' passants' : ' passant')}</small><span>${esc(l.nom)}</span></div>`;
+  }).join('');
+  $('#grille-lieux').innerHTML = html;
+  document.querySelectorAll('.lieu[data-id]').forEach(el => el.onclick = () => entrer(el.dataset.id));
+  const r = document.querySelector('.lieu[data-retour]'); if (r) r.onclick = retrouverProie;
+}
+
+/* ============ Tirage ============ */
+function poolLieu(l) {
+  const ids = new Set();
+  for (const p of Object.values(PROFILS)) if ((p.lieux || []).includes(l.id)) ids.add(p.id);
+  for (const k in IMAGES) { const im = IMAGES[k]; if (im.dossier === l.id) ids.add(im.id); }
+  const autres = Object.values(SAVE.joueurs).map(e => e.proie && e.proie.id).filter(Boolean);
+  return [...ids].filter(id => !SAVE.morts.includes(id) && !autres.includes(id));
+}
+function infosPNJ(id, l) {
+  const p = PROFILS[id] || {}, im = IMAGES[l.id + '/' + id] || IMAGES[id];
+  return { id, p, url: im ? im.url : null, tags: im ? im.tags : new Set(), nom: p.nom || joli(id) };
+}
+function accepte(info) {
+  const f = S.joueur.filtre; if (!f) return true;
+  return info.tags.has(f) || info.p['compatible_' + f] === true;
+}
+function tirerResonance(l) {
+  const t = d10(); let type = 'equilibre', r = null, intensite = 'aucune', r2 = null;
+  if (t >= 6) {
+    const w = Object.assign({}, POIDS_DEFAUT, l.resonance || {}); const tot = ORDRE.reduce((s, k) => s + w[k], 0);
+    let x = Math.random() * tot; type = ORDRE.find(k => (x -= w[k]) < 0) || 'sanguine';
+    // Numéro du dé affiché selon la table du lieu (si elle fait 10)
+    if (tot === 10) { let lo = 1; for (const k of ORDRE) { if (k === type) { r = lo + Math.floor(Math.random() * w[k]); break; } lo += w[k]; } }
+    if (t <= 8) intensite = 'fugace';
+    else { r2 = d10(); intensite = r2 <= 8 ? 'intense' : 'caillot'; }
+  }
+  return { t, r, r2, type, intensite };
+}
+function entrer(lieuId) {
+  S.lieu = LIEUX.find(l => l.id === lieuId); S.choisie = null;
+  fond(imageLieu(lieuId)); ecran('chasse'); rendreCote();
+  $('#c-lieu').textContent = S.lieu.nom; tirer();
+}
+function tirer(imposee) {
+  const l = S.lieu, n = affluence(l); S.choisie = null; $('#panneau').className = ''; $('#chasse').classList.remove('choix'); $('#panneau').innerHTML = '';
+  $('#c-aff').textContent = l.type === 'cadavres' ? 'Sang mort' : `${n} passant${n > 1 ? 's' : ''} à cette heure`;
+  let cartes = [];
+  if (imposee) cartes.push(imposee);
+  if (l.type === 'cadavres') {
+    const imgs = (M.pnj[l.id] || []).map(f => ({ id: f.replace(/\.[^.]+$/, '').split('__')[0], url: `pnj/${l.id}/${f}` }));
+    const pool = melanger(imgs).map(i => ({ nom: joli(i.id), app: 'Sur la table d’acier, sous le drap.', url: i.url })).concat(melanger(CADAVRES_DEFAUT));
+    cartes = pool.slice(0, n).map(c => Object.assign(c, { cadavre: true }));
+  } else {
+    let pool = poolLieu(l).filter(id => !imposee || id !== imposee.id);
+    let frais = pool.filter(id => !S.vus.has(id)); if (frais.length < n) frais = pool;
+    for (const id of melanger(frais).slice(0, Math.max(0, n - cartes.length))) {
+      S.vus.add(id); const info = infosPNJ(id, l);
+      cartes.push(Object.assign(info, { res: tirerResonance(l), ok: accepte(info) }));
+    }
+  }
+  S.cartes = cartes; rendreCartes();
+}
+function textesHumeur(c) {
+  const h = (c.p && c.p.humeurs && c.p.humeurs[c.res.type]) || {}, d = SIGNES_DEFAUT[c.res.type];
+  return { signes: h.signes || d.signes, replique: h.replique || '', declencheur: h.declencheur || '' };
+}
+async function rendreCartes() {
+  const z = $('#cartes');
+  if (!S.cartes.length) { z.innerHTML = `<div class="vide">Personne. Juste le vent et la pluie.</div>`; return; }
+  z.innerHTML = S.cartes.map((c, i) => {
+    const img = c.url ? `style="background-image:url('${c.url}')"` : '';
+    const sil = c.url ? '' : `<div class="silhouette">${SILHOUETTE}</div>`;
+    if (c.cadavre) return `<div class="carte" data-i="${i}"><div class="img" ${img}>${sil}</div><div class="corps">
+      <div class="identite" style="display:block">${esc(c.nom)}</div><div class="app">${esc(c.app)}</div>
+      <div class="note">Sang rance : ni Résonance, ni Dyscrasie.</div></div></div>`;
+    const t = textesHumeur(c);
+    return `<div class="carte" data-i="${i}" ${c.ok ? '' : `data-refus="${esc(S.joueur.filtre_texte || 'Ne lui convient pas')}"`}>
+      <div class="img" ${img}>${sil}</div>
+      <div class="corps">
+        <div class="identite">${esc(c.nom)}<small>${c.p.age ? esc(c.p.age) + ' ans · ' : ''}${esc(c.p.metier || '')}</small></div>
+        <div class="app">${esc(c.p.apparence || '')}</div>
+        <div class="ligne-de">${deHTML('?', c.res.t <= 5 ? 'ombre' : '')}<div class="signes cache">${esc(t.signes)}</div></div>
+        ${t.replique ? `<div class="bulle cache">« ${esc(t.replique)} »</div>` : ''}
+      </div></div>`;
+  }).join('');
+  const els = [...z.querySelectorAll('.carte')];
+  els.forEach((el, i) => { setTimeout(() => el.classList.add('visible'), 120 * i); el.onclick = () => choisir(i); });
+  await Promise.all(els.map((el, i) => new Promise(ok => setTimeout(async () => {
+    const c = S.cartes[i], de = el.querySelector('.d10');
+    if (de && !c.revele) {
+      await lancer(de, face(c.res.t <= 5 ? c.res.t : c.res.r || '?'));
+      if (c.res.t > 5 && !c.res.r) de.querySelector('span').textContent = '•';
+    }
+    el.querySelectorAll('.cache').forEach(x => x.classList.remove('cache'));
+    if (!c.cadavre && !c.ok) el.classList.add('refuse');
+    ok();
+  }, 300 + 280 * i))));
+}
+
+/* ============ Choix et gorgée ============ */
+function choisir(i) {
+  const c = S.cartes[i]; if (!c || (!c.cadavre && !c.ok) || S.choisie === i) return;
+  S.choisie = i;
+  document.querySelectorAll('.carte').forEach((el, k) => { el.classList.toggle('doree', k === i); el.classList.toggle('terne', k !== i); });
+  const pan = $('#panneau'); pan.className = 'ouvert'; $('#chasse').classList.add('choix');
+  if (c.cadavre) {
+    pan.innerHTML = `<div class="txt"><div class="verdict">${esc(c.nom)}</div>
+      <div class="note">Le sang a tourné. Il calme la Soif comme une poche de sang, sans aucune Résonance, et aucune Dyscrasie n'est possible : un corps ne passe pas trois nuits.</div>
+      <div class="note">Pour le vrai repas, il faut les vivants : les endeuillés des cimetières et de l'hôpital.</div>
+      <div class="actions"><button class="rouge" id="b-boire">Boire</button><button id="b-annuler">Changer d'avis</button></div></div>`;
+    $('#b-boire').onclick = () => { delete etat(S.joueur.id).reso; sauver(); finRepas('Sang mort bu. Aucune Résonance active.'); };
+  } else {
+    const t = textesHumeur(c);
+    pan.innerHTML = `<div class="txt">
+      ${t.declencheur ? `<div class="ce-soir"><b>Ce soir :</b> ${esc(t.declencheur)}</div>` : ''}
+      <div id="gorgee"></div>
+      <div class="actions" id="act"><button class="rouge" id="b-gorgee">Première gorgée</button><button id="b-annuler">Changer d'avis</button></div></div>`;
+    $('#b-gorgee').onclick = () => gorgee(c);
+  }
+  const a = $('#b-annuler'); if (a) a.onclick = annulerChoix;
+}
+function annulerChoix() {
+  S.choisie = null; $('#panneau').className = ''; $('#chasse').classList.remove('choix');
+  document.querySelectorAll('.carte').forEach(el => el.classList.remove('doree', 'terne'));
+}
+async function gorgee(c) {
+  c.revele = true;
+  document.querySelectorAll('.carte').forEach(el => el.onclick = null);
+  const g = $('#gorgee'), act = $('#act'), r = c.res; act.innerHTML = '';
+  const H = HUMEURS[r.type];
+  if (r.t <= 5) {
+    g.innerHTML = `<div class="verdict">Un sang sans saveur particulière.</div>`;
+    return finChoix(c, null);
+  }
+  g.innerHTML = deHTML('?', 'grand rouge') + `<div id="g2"></div><div class="txt" id="gv"></div>`;
+  await lancer(g.querySelector('.d10'), face(r.t), 900);
+  if (r.r2) { $('#g2').innerHTML = deHTML('?', 'grand rouge'); await lancer($('#g2 .d10'), face(r.r2), 900); }
+  const v = $('#gv');
+  if (r.intensite === 'fugace') { v.innerHTML = `<div class="verdict">${H.nom}, fugace.</div><div class="note">Une saveur, rien de plus. Aucun dé bonus.</div>`; return finChoix(c, { type: r.type, intensite: 'fugace' }); }
+  if (r.intensite === 'intense') { v.innerHTML = `<div class="verdict">${H.nom}, intense.</div><div class="note">+1 dé aux réserves utilisant ${H.disc}, jusqu'au prochain repas ou Soif 5.</div>`; return finChoix(c, { type: r.type, intensite: 'intense' }); }
+  // Caillot
+  v.innerHTML = `<div class="verdict caillot">Ce sang a quelque chose de particulier…</div>
+    <div class="note">${H.nom}. Un caillot : l'émotion s'est figée dans le sang. +1 dé aux réserves utilisant ${H.disc}.</div>
+    <div class="note">Pour en tirer le vrai pouvoir : vider cette proie, ou revenir boire sur elle trois nuits de suite.</div>`;
+  act.innerHTML = `<button class="rouge" id="b-vider">La vider</button><button class="or" id="b-garder">La laisser vivre (nuit 1/3)</button>`;
+  $('#b-vider').onclick = () => vider(c, 1);
+  $('#b-garder').onclick = () => {
+    const e = etat(S.joueur.id);
+    e.proie = proieDe(c, 1); e.reso = { type: r.type, intensite: 'intense' }; sauver();
+    finRepas(`${c.nom} est marquée en doré. Nuit 1 sur 3.`);
+  };
+}
+function proieDe(c, nuits) { return { id: c.id, nom: c.nom, lieu: S.lieu.id, res: c.res, intensite: c.res.intensite, nuits: nuits || 0 }; }
+function finChoix(c, reso) {
+  const act = $('#act');
+  act.innerHTML = `<button class="or" id="b-fin-repas">Terminer le repas</button>`;
+  $('#b-fin-repas').onclick = () => {
+    const e = etat(S.joueur.id); if (reso) e.reso = reso; else delete e.reso;
+    e.proie = proieDe(c, 0); sauver(); finRepas(`${c.nom} est gardé en doré comme proie habituelle.`);
+  };
+}
+function tirerDyscrasie(type) { const l = DYSC[type] || []; return l.length ? hasard(l) : { nom: 'Dyscrasie', effet: 'À définir par le conteur.' }; }
+function vider(c, nuits) {
+  const d = tirerDyscrasie(c.res.type), e = etat(S.joueur.id);
+  e.reso = { type: c.res.type, intensite: 'caillot', dyscrasie: d };
+  if (e.proie && e.proie.id === c.id) delete e.proie;
+  if (!SAVE.morts.includes(c.id)) SAVE.morts.push(c.id); sauver();
+  reveler(d, `${c.nom} ne se relèvera pas. Le meurtre pèsera sur son Humanité.`);
+}
+function reveler(d, sous) {
+  const pan = $('#panneau'); pan.className = 'ouvert';
+  pan.innerHTML = `<div class="txt"><div class="verdict caillot">Le caillot se dissout dans ses veines…</div>
+    <div class="dysc"><div class="n">${esc(d.nom)}</div><div>${esc(d.effet)}</div></div>
+    <div class="note">${esc(sous)} L'effet dure jusqu'au prochain repas ou jusqu'à Soif 5.</div>
+    <div class="actions"><button class="or" id="b-ok">Fin de la chasse</button></div></div>`;
+  $('#b-ok').onclick = rendreAccueil; rendreCote();
+}
+function finRepas(msg) { toast(msg); rendreAccueil(); }
+
+/* ============ Retrouver la proie dorée ============ */
+function retrouverProie() {
+  const e = etat(S.joueur.id), p = e.proie; if (!p) return;
+  S.lieu = LIEUX.find(l => l.id === p.lieu) || { id: p.lieu, nom: joli(p.lieu) };
+  fond(imageLieu(p.lieu)); ecran('chasse'); rendreCote(); $('#c-lieu').textContent = S.lieu.nom;
+  const info = infosPNJ(p.id, S.lieu);
+  // Un caillot garde son humeur ; les autres changent d'humeur d'une nuit à l'autre
+  const res = p.intensite === 'caillot' ? p.res : tirerResonance(S.lieu);
+  const c = Object.assign(info, { res, ok: true });
+  S.vus = new Set([p.id]); tirer(c);
+  setTimeout(() => {
+    S.choisie = 0;
+    document.querySelectorAll('.carte').forEach((el, k) => { el.classList.toggle('doree', k === 0); el.classList.toggle('terne', k !== 0); });
+    const pan = $('#panneau'); pan.className = 'ouvert'; $('#chasse').classList.add('choix');
+    if (p.intensite === 'caillot') {
+      const n = p.nuits + 1;
+      pan.innerHTML = `<div class="txt"><div class="verdict caillot">${esc(c.nom)}, encore.</div>
+        <div class="note">Le caillot est toujours là. Si c'est bien la nuit suivante, c'est la nuit ${n} sur 3.</div>
+        <div class="actions"><button class="rouge" id="b-nuit">Boire (nuit ${n}/3)</button><button class="rouge" id="b-vider">La vider</button>
+        <button id="b-rompu">La série est rompue (recommencer à 1)</button><button id="b-lacher">Abandonner cette proie</button></div></div>`;
+      $('#b-nuit').onclick = () => {
+        if (n >= 3) { const d = tirerDyscrasie(p.res.type); e.reso = { type: p.res.type, intensite: 'caillot', dyscrasie: d }; delete e.proie; sauver(); reveler(d, `Trois nuits de suite. ${c.nom} est vivant, et ne se doute de rien.`); }
+        else { p.nuits = n; e.reso = { type: p.res.type, intensite: 'intense' }; sauver(); finRepas(`Nuit ${n} sur 3.`); }
+      };
+      $('#b-vider').onclick = () => vider(c);
+      $('#b-rompu').onclick = () => { p.nuits = 1; e.reso = { type: p.res.type, intensite: 'intense' }; sauver(); finRepas('Série recommencée : nuit 1 sur 3.'); };
+    } else {
+      pan.innerHTML = `<div class="txt"><div class="ce-soir"><b>Ce soir :</b> ${esc(textesHumeur(c).declencheur)}</div><div id="gorgee"></div>
+        <div class="actions" id="act"><button class="rouge" id="b-gorgee">Première gorgée</button><button id="b-lacher">Abandonner cette proie</button></div></div>`;
+      $('#b-gorgee').onclick = () => gorgee(c);
+    }
+    $('#b-lacher').onclick = () => { delete e.proie; sauver(); annulerChoix(); toast(`${c.nom} n'est plus sa proie.`); };
+  }, 900);
+}
+
+/* ============ Colonne joueur ============ */
+function rendreCote() {
+  const j = S.joueur, e = etat(j.id);
+  $('#portrait-j').innerHTML = mediaJoueur(j);
+  $('#c-style').textContent = j.style || '—';
+  $('#c-jet').textContent = j.groupement || '—';
+  $('#c-reso').innerHTML = e.reso ? esc(libelleReso(e.reso)) + (e.reso.dyscrasie ? `<div class="note">${esc(e.reso.dyscrasie.effet)}</div>` : '') +
+    `<div style="margin-top:.4rem"><button id="b-soif5" style="font-size:.85rem">Soif 5 : effet terminé</button></div>` : '<span class="note">Aucune</span>';
+  const b = $('#b-soif5'); if (b) b.onclick = () => { delete e.reso; sauver(); rendreCote(); };
+}
+
+/* ============ Boutons ============ */
+$('#btn-attendre').onclick = () => { if (avancer(60)) tirer(); };
+$('#btn-changer').onclick = () => { if (avancer(30)) rendreLieux(); };
+$('#btn-fin').onclick = rendreAccueil;
+$('#btn-retour-accueil').onclick = rendreAccueil;
+$('#heure').onchange = $('#aube').onchange = () => { S.minutes = hm($('#heure').value); S.aube = hm($('#aube').value); majHorloge(); };
+$('#btn-aide').onclick = () => $('#aide').classList.add('ouvert');
+$('#btn-fermer-aide').onclick = () => $('#aide').classList.remove('ouvert');
+$('#aide').onclick = e => { if (e.target.id === 'aide') $('#aide').classList.remove('ouvert'); };
+$('#btn-export').onclick = () => {
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([JSON.stringify(SAVE, null, 1)], { type: 'application/json' }));
+  a.download = 'sauvegarde-chasse.json'; a.click();
+};
+$('#btn-import').onclick = () => $('#fichier-import').click();
+$('#fichier-import').onchange = async ev => {
+  try { SAVE = Object.assign({ joueurs: {}, morts: [] }, JSON.parse(await ev.target.files[0].text())); sauver(); rendreAccueil(); toast('Sauvegarde importée.'); }
+  catch (e) { toast('Fichier de sauvegarde illisible.'); }
+};
+init();
+</script>
+</body>
+</html>

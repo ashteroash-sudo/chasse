@@ -1,0 +1,603 @@
+[
+  {
+    "id": "marcus_vance",
+    "nom": "Marcus Vance",
+    "age": 62,
+    "metier": "Ancien ouvrier de la sidérurgie, au chômage",
+    "apparence": "Un homme trapu aux cheveux gris ébouriffés, portant une veste de travail râpée et les yeux rougis par le whisky.",
+    "lieux": [
+      "bars",
+      "rue-deserte"
+    ],
+    "compatible_vito": true,
+    "humeurs": {
+      "equilibre": {
+        "declencheur": "A trouvé son tabouret habituel libre près de la fenêtre du bar.",
+        "signes": "Assis en silence, frottant machinalement son sous-bock détrempé, regard fixe sur la rue.",
+        "replique": "La pluie tombe pareil sur tout le monde ce soir, jeune homme."
+      },
+      "flegmatique": {
+        "declencheur": "Fixe le fond de son verre vide en attendant que le serveur repasse.",
+        "signes": "Les épaules affaissées, le souffle lent et lourd, sans la moindre réaction au bruit ambiant.",
+        "replique": "Laisse tomber, cette ville étouffe tout le monde tôt ou tard."
+      },
+      "atrabilaire": {
+        "declencheur": "A retrouvé une vieille photo de sa fille perdue au fond de son portefeuille.",
+        "signes": "Regard brisé, essuyant discrètement une larme du revers de sa manche élimée.",
+        "replique": "J'ai tout gâché... Il reste rien de bon ici."
+      },
+      "bilieuse": {
+        "declencheur": "S'est fait refuser un dernier verre à crédit par le barman.",
+        "signes": "Poings serrés sur le comptoir, mâchoire crispée et visage injecté de sang.",
+        "replique": "Tu crois que je vaux moins qu'un autre parce que mes poches sont vides ?"
+      },
+      "sanguine": {
+        "declencheur": "A gagné une poignée de dollars aux cartes contre un habitué.",
+        "signes": "Rire gras et tonitruant, tapant sur l'épaule de son voisin avec enthousiasme.",
+        "replique": "Ce soir c'est mon heure de gloire, tournée générale pour les braves !"
+      }
+    },
+    "prompt_image": "close-up portrait of a burly 62-year-old alcoholic steelworker man with messy gray hair, bloodshot eyes, wearing a worn work jacket, tired expression, hyper-realistic photography, 35mm film Kodak Portra 400, cold cyan and midnight blue monochromatic grade, hard side lighting, deep oppressive black shadows (chiaroscuro, low-key), strong rim light, grim decaying urban background, wet asphalt, fog, photorealistic 8k"
+  },
+  {
+    "id": "elena_rodriguez",
+    "nom": "Elena Rodriguez",
+    "age": 34,
+    "metier": "Infirmière de nuit",
+    "apparence": "Une femme mince aux cheveux noirs attachés en chignon strict, en blouse médicale sous un manteau sombre, l'air exténué.",
+    "lieux": [
+      "hopital-retraite",
+      "parcs"
+    ],
+    "compatible_vito": false,
+    "humeurs": {
+      "equilibre": {
+        "declencheur": "Prend sa pause cigarette de dix minutes sur le banc devant l'hôpital.",
+        "signes": "Assise droit, tenant sa cigarette avec précision, observant calmement la brume.",
+        "replique": "C'est une nuit calme pour l'instant, profitons-en."
+      },
+      "flegmatique": {
+        "declencheur": "Enchaîne sa troisième garde de douze heures d'affilée.",
+        "signes": "Cernes profonds, gestes ralentis, voix monotone et regard vide.",
+        "replique": "Que je coure ou pas, les brancards continuent d'arriver."
+      },
+      "atrabilaire": {
+        "declencheur": "Vient de perdre un jeune patient lors d'une intervention difficile.",
+        "signes": "Mains tremblantes dissimulées dans les poches, tête baissée, fixant le sol en silence.",
+        "replique": "Parfois, j'ai l'impression qu'on ne fait que retarder l'inévitable."
+      },
+      "bilieuse": {
+        "declencheur": "Un médecin chef lui a attribué la faute d'une erreur de stock d'urgence.",
+        "signes": "Regard noir, débit de parole rapide et saccadé, sourcils froncés.",
+        "replique": "Ils restent dans leurs bureaux pendant qu'on se noie sur le terrain."
+      },
+      "sanguine": {
+        "declencheur": "Vient d'apprendre sa promotion officielle au poste de chef de garde.",
+        "signes": "Sourire radieux, démarche alerte, yeux pétillants malgré la fatigue.",
+        "replique": "Enfin ! Tous ces efforts finissent par payer !"
+      }
+    },
+    "prompt_image": "close-up portrait of a tired 34-year-old Hispanic female nurse, dark hair tied in a bun, wearing scrubs under a dark coat, weary subtle expression, hyper-realistic photography, 35mm film Kodak Portra 400, cold cyan and midnight blue monochromatic grade, hard side lighting, deep oppressive black shadows (chiaroscuro, low-key), strong rim light, grim decaying urban background, wet asphalt, fog, photorealistic 8k"
+  },
+  {
+    "id": "terrence_hayes",
+    "nom": "Terrence Hayes",
+    "age": 67,
+    "metier": "Ancien docker, sans domicile fixe",
+    "apparence": "Un vieil homme imposant à la barbe dure et blanchie, emmitouflé dans plusieurs manteaux élimés empilés.",
+    "lieux": [
+      "rue-deserte",
+      "bars"
+    ],
+    "compatible_vito": true,
+    "humeurs": {
+      "equilibre": {
+        "declencheur": "A dégoté un coin sec sous le porche d'un magasin abandonné.",
+        "signes": "Calé contre le mur, buvant à petites gorgées dans une bouteille en carton cachée.",
+        "replique": "On trouve son confort là où on peut dans cette garce de ville."
+      },
+      "flegmatique": {
+        "declencheur": "Regarde passer les rares voitures sous la pluie sans ciller.",
+        "signes": "Immobile, emmitouflé jusqu'au menton, le regard totalement détaché du monde.",
+        "replique": "Avance ton chemin, y a rien à voir ici."
+      },
+      "atrabilaire": {
+        "declencheur": "A perdu son seul compagnon d'infortune, chassé par la police plus tôt.",
+        "signes": "Voix cassée, sanglots étouffés dans sa barbe, tête entre les mains.",
+        "replique": "Même la rue devient trop dure quand on est tout seul."
+      },
+      "bilieuse": {
+        "declencheur": "Un jeune homme vient de lui jeter un coup de pied en passant.",
+        "signes": "Posture agressive malgré l'âge, poing levé, criant des menaces en étouffant un crachat.",
+        "replique": "Reviens ici petit con, je vais te montrer ce qu'il me reste de force !"
+      },
+      "sanguine": {
+        "declencheur": "Un passant généreux vient de lui donner un billet de vingt dollars.",
+        "signes": "Rire sonore, serrant le billet contre sa poitrine, yeux étincelants.",
+        "replique": "Dieu bénisse les âmes charitables ! Je vais pouvoir me payer une vraie bouteille !"
+      }
+    },
+    "prompt_image": "close-up portrait of a weathered 67-year-old homeless African American man with a thick gray beard, bloodshot eyes, wearing layers of worn coats, grim expression, hyper-realistic photography, 35mm film Kodak Portra 400, cold cyan and midnight blue monochromatic grade, hard side lighting, deep oppressive black shadows (chiaroscuro, low-key), strong rim light, grim decaying urban background, wet asphalt, fog, photorealistic 8k"
+  },
+  {
+    "id": "chloe_dubois",
+    "nom": "Chloé Dubois",
+    "age": 22,
+    "metier": "Étudiante en art et serveuse",
+    "apparence": "Une jeune femme au visage fin, piercing à la narine, portant une veste en cuir trop grande et un bonnet noir enfoncé.",
+    "lieux": [
+      "bars",
+      "drogues",
+      "parcs"
+    ],
+    "compatible_vito": false,
+    "humeurs": {
+      "equilibre": {
+        "declencheur": "Finit son service et esquisse des croquis sur un carnet de notes taché de café.",
+        "signes": "Gestes souples, concentrée sur sa feuille, machant le bout de son crayon.",
+        "replique": "Ne bouge pas trop, l'éclairage sur ton visage est parfait."
+      },
+      "flegmatique": {
+        "declencheur": "Attend le bus de nuit depuis quarante-cinq minutes dans le froid.",
+        "signes": "Les bras croisés, tapotant du pied par habitude, l'air totalement blasé.",
+        "replique": "Il ne viendra jamais, mais bon... où est-ce qu'on irait de toute façon ?"
+      },
+      "atrabilaire": {
+        "declencheur": "S'est fait rejeter sa candidature pour une exposition locale majeure.",
+        "signes": "Yeux bouffis par les larmes, posture fuyante, serrant son dossier contre elle.",
+        "replique": "Ils veulent juste du plat, du vendeur... Mon travail n'a aucune valeur pour eux."
+      },
+      "bilieuse": {
+        "declencheur": "Un client saoul l'a attrapée par le bras à la fin de son service.",
+        "signes": "Regard étincelant de colère, poings serrés dans ses poches, voix sèche et acérée.",
+        "replique": "Touche-moi encore une fois et je t'enfonce mon stylo dans la gorge."
+      },
+      "sanguine": {
+        "declencheur": "Vient de vendre sa première toile originale à un collectionneur de passage.",
+        "signes": "Sautillant légèrement sur place, rire cristallin, visage illuminé.",
+        "replique": "C'est le début ! Je savais que quelqu'un finirait par comprendre mon art !"
+      }
+    },
+    "prompt_image": "close-up portrait of a 22-year-old alternative woman with a nose piercing, wearing a black beanie and oversized leather jacket, intense expression, hyper-realistic photography, 35mm film Kodak Portra 400, cold cyan and midnight blue monochromatic grade, hard side lighting, deep oppressive black shadows (chiaroscuro, low-key), strong rim light, grim decaying urban background, wet asphalt, fog, photorealistic 8k"
+  },
+  {
+    "id": "arthur_pendelton",
+    "nom": "Arthur Pendelton",
+    "age": 58,
+    "metier": "Notaire d'affaires",
+    "apparence": "Un homme d'âge mûr au crâne garni de cheveux poivre et sel, portant un costume trois pièces impeccablement taillé mais froissé.",
+    "lieux": [
+      "quartiers-bourgeois",
+      "bars"
+    ],
+    "compatible_vito": false,
+    "humeurs": {
+      "equilibre": {
+        "declencheur": "Vient de boucler la vérification d'un contrat d'héritage complexe.",
+        "signes": "Ajuste sa cravate de soie, consulte sa montre à gousset d'un geste précis.",
+        "replique": "Les affaires sont les affaires, la précision est la clé de tout."
+      },
+      "flegmatique": {
+        "declencheur": "Attend son chauffeur privé qui a pris du retard dans le centre-ville.",
+        "signes": "Immobile sous un abribus, le regard fixe, impassible face au bruit de la circulation.",
+        "replique": "Le temps perdu ne se rattrape pas, mais l'énervement n'y changera rien."
+      },
+      "atrabilaire": {
+        "declencheur": "A reçu les papiers définitifs de son divorce très coûteux.",
+        "signes": "Visage tiré, épaules tombantes, fixant son verre de scotch sans le boire.",
+        "replique": "Trente ans de vie commune résumés à quelques signatures au bas d'un chèque."
+      },
+      "bilieuse": {
+        "declencheur": "Son associé a transféré un dossier confidentiel à la concurrence.",
+        "signes": "Teint blême, veine du front saillante, voix basse mais venimeuse.",
+        "replique": "Je vais le ruiner. Il ne sait pas encore de quoi je suis capable."
+      },
+      "sanguine": {
+        "declencheur": "A finalisé le rachat spéculatif d'un bloc d'immeubles décatis.",
+        "signes": "Sourire carnassier, réajustant ses boutons de manchette avec fierté.",
+        "replique": "L'or se cache toujours là où les autres ne voient que de la rouille."
+      }
+    },
+    "prompt_image": "close-up portrait of a 58-year-old wealthy lawyer man with salt and pepper hair, wearing a sharp tailored three-piece suit, stern sophisticated expression, hyper-realistic photography, 35mm film Kodak Portra 400, cold cyan and midnight blue monochromatic grade, hard side lighting, deep oppressive black shadows (chiaroscuro, low-key), strong rim light, grim decaying urban background, wet asphalt, fog, photorealistic 8k"
+  },
+  {
+    "id": "darius_king",
+    "nom": "Darius King",
+    "age": 29,
+    "metier": "Revendeur de rue",
+    "apparence": "Un jeune homme athlétique portant un sweat à capuche noir baissé sur le visage et une doudoune sans manches.",
+    "lieux": [
+      "drogues",
+      "rue-deserte"
+    ],
+    "compatible_vito": false,
+    "humeurs": {
+      "equilibre": {
+        "declencheur": "Surveille son périmètre habituel sans signe d'activité suspecte.",
+        "signes": "Posture souple, mains enfoncées dans les poches, regard balayant la rue.",
+        "replique": "Circule mon pote, y a rien de spécial à voir par ici."
+      },
+      "flegmatique": {
+        "declencheur": "Attend ses clients dans une ruelle sombre depuis deux heures.",
+        "signes": "Appuyé contre un mur brique, mâchant un chewing-gum d'un air absent.",
+        "replique": "Le biz c'est 90% d'attente et 10% de stress. On s'y fait."
+      },
+      "atrabilaire": {
+        "declencheur": "Son plus jeune frère s'est fait arrêter par la brigade anti-drogue.",
+        "signes": "Tête baissée, évitant le contact visuel, soupirs lourds et répétés.",
+        "replique": "J'ai tout fait pour l'garder loin de ça... Ça sert à rien au final."
+      },
+      "bilieuse": {
+        "declencheur": "Un rival de la bande voisine est venu provoquer sur son territoire.",
+        "signes": "Tension musculaire visible, regard noir d'une fixité terrifiante, poing serré.",
+        "replique": "Dis-lui de repasser ici et il repartira entre quatre planches."
+      },
+      "sanguine": {
+        "declencheur": "A écoulé tout son stock en moins de deux heures ce soir.",
+        "signes": "Sourire arrogant, tapotant sa sacoche pleine de billets, démarche assurée.",
+        "replique": "Gary m'appartient ce soir ! Personne peut me tester !"
+      }
+    },
+    "prompt_image": "close-up portrait of a athletic 29-year-old African American street dealer wearing a dark hoodie under a puffer vest, sharp suspicious gaze, hyper-realistic photography, 35mm film Kodak Portra 400, cold cyan and midnight blue monochromatic grade, hard side lighting, deep oppressive black shadows (chiaroscuro, low-key), strong rim light, grim decaying urban background, wet asphalt, fog, photorealistic 8k"
+  },
+  {
+    "id": "samuel_oakley",
+    "nom": "Samuel Oakley",
+    "age": 65,
+    "metier": "Ancien gardien de nuit, retraité",
+    "apparence": "Un vieillard voûté aux cheveux blancs clairsemés, portant un manteau en laine élimé qui sent fort la mauvaise liqueur.",
+    "lieux": [
+      "bars",
+      "cimetieres"
+    ],
+    "compatible_vito": true,
+    "humeurs": {
+      "equilibre": {
+        "declencheur": "Fait sa promenade nocturne habituelle près des grilles du cimetière.",
+        "signes": "Marche lente en traînant les pieds, les mains croisées derrière le dos.",
+        "replique": "C'est calme la nuit... Les morts ne posent pas de questions au moins."
+      },
+      "flegmatique": {
+        "declencheur": "S'assied sur un banc malgré le froid mordant de la nuit.",
+        "signes": "Paupières mi-closes, respiration rauque, ignorant le vent frais.",
+        "replique": "À mon âge, le froid ou la chaleur, ça fait plus grande différence."
+      },
+      "atrabilaire": {
+        "declencheur": "Vient de se recueillir sur la tombe de son épouse décédée.",
+        "signes": "Visage creusé par la peine, tremblant légèrement, évitant les regards.",
+        "replique": "Elle me manque tellement... Pourquoi je suis encore là, moi ?"
+      },
+      "bilieuse": {
+        "declencheur": "Des adolescents l'ont bousculé et ont renversé sa bouteille de gin.",
+        "signes": "Visage rouge de colère, brandissant sa canne avec une voix chevrotante.",
+        "replique": "Bande de petites frappes ! Aucun respect pour les anciens !"
+      },
+      "sanguine": {
+        "declencheur": "A retrouvé une vieille bouteille de bourbon oubliée chez lui.",
+        "signes": "Sourire édenté, yeux pétillants, fredonnant un vieil air de jazz.",
+        "replique": "Regarde-moi ce trésor ! La soirée va être bien plus douce !"
+      }
+    },
+    "prompt_image": "close-up portrait of an elderly 65-year-old alcoholic man with sparse white hair, wearing a worn wool coat, bloodshot eyes, hollow sad cheeks, hyper-realistic photography, 35mm film Kodak Portra 400, cold cyan and midnight blue monochromatic grade, hard side lighting, deep oppressive black shadows (chiaroscuro, low-key), strong rim light, grim decaying urban background, wet asphalt, fog, photorealistic 8k"
+  },
+  {
+    "id": "rebecca_stein",
+    "nom": "Rebecca Stein",
+    "age": 41,
+    "metier": "Journaliste d'investigation",
+    "apparence": "Une femme au visage anguleux, cheveux châtains coupés court, emmitouflée dans un trench-coat sombre avec un appareil photo en bandoulière.",
+    "lieux": [
+      "rue-deserte",
+      "quartiers-bourgeois"
+    ],
+    "compatible_vito": false,
+    "humeurs": {
+      "equilibre": {
+        "declencheur": "Relit ses notes au propre sur un petit carnet sous un lampadaire.",
+        "signes": "Regard vif, démarche rapide et méthodique, ajuste constamment son objectif.",
+        "replique": "Si vous avez une minute, j'aurais quelques questions sur le quartier."
+      },
+      "flegmatique": {
+        "declencheur": "Attend un informateur qui a déjà une heure de retard.",
+        "signes": "Appuyée contre un poteau, consultant machinalement son téléphone éteint.",
+        "replique": "Dans ce métier, la moitié du boulot c'est d'attendre que les gens mentent."
+      },
+      "atrabilaire": {
+        "declencheur": "Son rédacteur en chef vient d'annuler son article sur la corruption locale.",
+        "signes": "Épaules voûtées, regard sombre fixé sur le sol, serrant son carnet frénétiquement.",
+        "replique": "La vérité n'intéresse personne dans cette ville. Seul le fric compte."
+      },
+      "bilieuse": {
+        "declencheur": "S'est fait confisquer sa carte mémoire par la sécurité d'un chantier privé.",
+        "signes": "Poings serrés dans ses poches, voix forte et menaçante, narines dilatées.",
+        "replique": "Ils pensent me faire taire ? Ça va juste me donner envie de creuser deux fois plus."
+      },
+      "sanguine": {
+        "declencheur": "Vient de prendre en photo une preuve irréfutable de blanchiment d'argent.",
+        "signes": "Sourire carnassier, yeux étincelants, démarche légère et triomphante.",
+        "replique": "Je les tiens ! Cette fois, personne pourra étouffer l'affaire !"
+      }
+    },
+    "prompt_image": "close-up portrait of a sharp 41-year-old female investigative journalist with short brown hair, wearing a trench coat with a camera strap, focused intense expression, hyper-realistic photography, 35mm film Kodak Portra 400, cold cyan and midnight blue monochromatic grade, hard side lighting, deep oppressive black shadows (chiaroscuro, low-key), strong rim light, grim decaying urban background, wet asphalt, fog, photorealistic 8k"
+  },
+  {
+    "id": "harold_jenkins",
+    "nom": "Harold Jenkins",
+    "age": 61,
+    "metier": "Ancien chauffeur de taxi, sans emploi",
+    "apparence": "Un homme replet au visage fatigué, portant un blouson en cuir élimé et sentant fortement le rhum bon marché.",
+    "lieux": [
+      "bars",
+      "hopital-retraite"
+    ],
+    "compatible_vito": true,
+    "humeurs": {
+      "equilibre": {
+        "declencheur": "Fume tranquillement une cigarette bas de gamme devant le bar.",
+        "signes": "Accoudé à la rampe, regardant passer les rares piétons avec indifférence.",
+        "replique": "Une soirée tranquille de plus à Gary. On va pas se plaindre."
+      },
+      "flegmatique": {
+        "declencheur": "Écoute les conversations du bar sans y prendre part.",
+        "signes": "Tête posée sur sa main, paupières lourdes, buvant par petites gorgées régulières.",
+        "replique": "Parlez, parlez... De toute façon demain rien aura changé."
+      },
+      "atrabilaire": {
+        "declencheur": "A reçu une lettre de relance pour ses factures médicales impayées.",
+        "signes": "Regard fixe et anxieux, soupirant profondément en froissant le papier.",
+        "replique": "Ils vont finir par tout me prendre. Même mon dernier toit."
+      },
+      "bilieuse": {
+        "declencheur": "Un jeune conducteur l'a insulté en lui refusant la priorité à un passage piéton.",
+        "signes": "Visage très rouge, voix forte et éraillée, geste agressif de la main.",
+        "replique": "Ces petits jeunes ont aucun respect ! Je conduisais qu'ils étaient pas nés !"
+      },
+      "sanguine": {
+        "declencheur": "Son ancien patron lui a promis une petite mission d'appoint pour demain.",
+        "signes": "Sourire large, voix chaleureuse, payant un coup à son voisin de comptoir.",
+        "replique": "Le vieux Harold est pas encore tiré d'affaire, mais ce soir on fête ça !"
+      }
+    },
+    "prompt_image": "close-up portrait of a chubby 61-year-old alcoholic taxi driver man with tired features, wearing a worn leather jacket, bloodshot eyes, sad neutral expression, hyper-realistic photography, 35mm film Kodak Portra 400, cold cyan and midnight blue monochromatic grade, hard side lighting, deep oppressive black shadows (chiaroscuro, low-key), strong rim light, grim decaying urban background, wet asphalt, fog, photorealistic 8k"
+  },
+  {
+    "id": "tariq_al_mansoor",
+    "nom": "Tariq Al-Mansoor",
+    "age": 45,
+    "metier": "Épicier de nuit",
+    "apparence": "Un homme d'origine arabe aux cheveux poivre et sel, le visage marqué par le stress, portant un tablier sombre sur un gilet en laine.",
+    "lieux": [
+      "rue-deserte",
+      "quartiers-bourgeois"
+    ],
+    "compatible_vito": false,
+    "humeurs": {
+      "equilibre": {
+        "declencheur": "Remplit les bacs à légumes devant sa devanture sous le néon grésillant.",
+        "signes": "Gestes calmes et mesurés, observant prudemment la rue entre deux caisses.",
+        "replique": "Bonsoir. La boutique reste ouverte jusqu'à deux heures."
+      },
+      "flegmatique": {
+        "declencheur": "A passé une nuit entière sans aucun client dans son magasin.",
+        "signes": "Assis derrière sa caisse, le regard perdu sur l'écran de surveillance.",
+        "replique": "Que je me fatigue ou pas, le loyer reste le même à la fin du mois."
+      },
+      "atrabilaire": {
+        "declencheur": "Pense à sa famille restée au pays qu'il n'a pas vue depuis trois ans.",
+        "signes": "Yeux humides, serrant un médaillon dans sa main, voix basse et hésitante.",
+        "replique": "La solitude ici est plus lourde que tout le reste."
+      },
+      "bilieuse": {
+        "declencheur": "Des voyous sont venus tenter de l'extorquer pour la troisième fois ce mois-ci.",
+        "signes": "Mains tremblantes de rage sur le comptoir, regard noir et incisif.",
+        "replique": "Je travaille seize heures par jour ! Ils ne me prendront plus un seul centime !"
+      },
+      "sanguine": {
+        "declencheur": "Son fils vient d'être accepté dans une prestigieuse université.",
+        "signes": "Sourire immense, accueillant les rares clients les bras ouverts, proposant des confiseries.",
+        "replique": "Prenez ceci, c'est offert ! C'est le plus beau jour de ma vie !"
+      }
+    },
+    "prompt_image": "close-up portrait of a stressed 45-year-old Middle Eastern shopkeeper man with salt and pepper hair, wearing a dark apron over a sweater, watchful expression, hyper-realistic photography, 35mm film Kodak Portra 400, cold cyan and midnight blue monochromatic grade, hard side lighting, deep oppressive black shadows (chiaroscuro, low-key), strong rim light, grim decaying urban background, wet asphalt, fog, photorealistic 8k"
+  },
+  {
+    "id": "vanessa_kane",
+    "nom": "Vanessa Kane",
+    "age": 28,
+    "metier": "Danseuse de club nocturne",
+    "apparence": "Une jeune femme grande aux cheveux blonds décolorés, portant un manteau en fausse fourrure au-dessus d'une tenue de scène scintillante.",
+    "lieux": [
+      "bars",
+      "drogues"
+    ],
+    "compatible_vito": false,
+    "humeurs": {
+      "equilibre": {
+        "declencheur": "Fume une mentholée à la sortie des artistes avant son deuxième passage.",
+        "signes": "Posture altière, ajustant son maquillage dans un petit miroir de poche.",
+        "replique": "Le spectacle reprend dans dix minutes, ne rate pas ça."
+      },
+      "flegmatique": {
+        "declencheur": "Enchaîne sa cinquième nuit de travail consécutive devant une salle presque vide.",
+        "signes": "Mouvements nonchalants, regard indifférent, mâchant son chewing-gum.",
+        "replique": "Tant que la musique tourne et que les pourboires tombent, moi je danse."
+      },
+      "atrabilaire": {
+        "declencheur": "Vient de se disputer violemment avec son compagnon au téléphone.",
+        "signes": "Traces de mascara sous les yeux, voix cassée, posture recroquevillée.",
+        "replique": "Personne ne vous aime vraiment dans cette ville, ils veulent juste consommer."
+      },
+      "bilieuse": {
+        "declencheur": "Un videur du club a gardé une partie de ses pourboires pour lui.",
+        "signes": "Posture menaçante malgré sa tenue légère, voix aigre et regard étincelant.",
+        "replique": "Rends-moi mon fric tout de suite ou je vais tout casser là-dedans !"
+      },
+      "sanguine": {
+        "declencheur": "Un riche client lui a laissé un pourboire colossal après sa prestation.",
+        "signes": "Rire euphorique, comptant les billets avec frénésie, yeux très brillants.",
+        "replique": "Ce soir la reine du club c'est moi ! On va faire la fête jusqu'à l'aube !"
+      }
+    },
+    "prompt_image": "close-up portrait of a striking 28-year-old blonde dancer woman, heavy makeup, wearing a fake fur coat over a glittery outfit, intense cynical expression, hyper-realistic photography, 35mm film Kodak Portra 400, cold cyan and midnight blue monochromatic grade, hard side lighting, deep oppressive black shadows (chiaroscuro, low-key), strong rim light, grim decaying urban background, wet asphalt, fog, photorealistic 8k"
+  },
+  {
+    "id": "father_thomas",
+    "nom": "Père Thomas",
+    "age": 53,
+    "metier": "Prêtre catholique",
+    "apparence": "Un homme d'allure austère aux cheveux rasés gris, portant un col romain sous un grand manteau noir usé aux coudes.",
+    "lieux": [
+      "cimetieres",
+      "hopital-retraite"
+    ],
+    "compatible_vito": false,
+    "humeurs": {
+      "equilibre": {
+        "declencheur": "Rentre à l'église après une visite auprès d'un paroissien malade.",
+        "signes": "Marche calme, chapelet en bois serré entre ses doigts, regard paisible.",
+        "replique": "Que la paix soit avec vous en cette nuit si sombre."
+      },
+      "flegmatique": {
+        "declencheur": "Écoute les confessions répétitives et vaniteuses des mêmes habitués.",
+        "signes": "Yeux clos, d'un calme imperturbable, acquiesçant d'un léger signe de tête.",
+        "replique": "L'esprit est prompt mais la chair est faible, mon enfant."
+      },
+      "atrabilaire": {
+        "declencheur": "Constate le délabrement de son église et la perte de foi des fidèles.",
+        "signes": "Tête baissée, soupir étouffé, mains jointes dans une prière silencieuse.",
+        "replique": "L'obscurité gagne du terrain ici et je me sens bien seul pour la combattre."
+      },
+      "bilieuse": {
+        "declencheur": "A surpris des vandales en train de profaner les stèles du cimetière.",
+        "signes": "Visage fermé, voix de stentor, le corps tendu par une juste colère.",
+        "replique": "Quittez ce lieu saint sur-le-champ avant que la justice divine ne vous rattrape !"
+      },
+      "sanguine": {
+        "declencheur": "A réussi à rassembler assez de dons pour rouvrir la soupe populaire.",
+        "signes": "Sourire chaleureux, poignée de main ferme et enthousiaste, yeux rieurs.",
+        "replique": "La grâce est à l'œuvre ce soir ! Rien ne pourra nous empêcher d'aider les pauvres !"
+      }
+    },
+    "prompt_image": "close-up portrait of a solemn 53-year-old Catholic priest with short gray hair, wearing a clerical collar under a dark coat, stern peaceful expression, hyper-realistic photography, 35mm film Kodak Portra 400, cold cyan and midnight blue monochromatic grade, hard side lighting, deep oppressive black shadows (chiaroscuro, low-key), strong rim light, grim decaying urban background, wet asphalt, fog, photorealistic 8k"
+  },
+  {
+    "id": "lucas_moreau",
+    "nom": "Lucas Moreau",
+    "age": 19,
+    "metier": "Livreur de nuit à vélo",
+    "apparence": "Un jeune homme chétif au visage maculé de suie et de pluie, portant un casque de vélo et un grand sac isotherme jaune fluo décoloré.",
+    "lieux": [
+      "rue-deserte",
+      "quartiers-bourgeois"
+    ],
+    "compatible_vito": false,
+    "humeurs": {
+      "equilibre": {
+        "declencheur": "Vient de livrer sa commande dans les temps dans le quartier résidentiel.",
+        "signes": "Ajuste les sangles de son sac, vérifiant son GPS sur son téléphone.",
+        "replique": "Désolé, j'ai une autre course qui m'attend de l'autre côté de la ville."
+      },
+      "flegmatique": {
+        "declencheur": "Pédale sous une pluie battante depuis trois heures pour un salaire dérisoire.",
+        "signes": "Regard fixe vers la route, posture voûtée sur son guidon, indifférent au froid.",
+        "replique": "Pluie ou neige, faut bien payer le loyer à la fin de la semaine."
+      },
+      "atrabilaire": {
+        "declencheur": "S'est fait voler son vélo de secours dans le hall de son immeuble.",
+        "signes": "Épaules rentrées, au bord des larmes, serrant son casque contre lui.",
+        "replique": "Comment je vais faire pour bosser demain ? C'était mon seul outil..."
+      },
+      "bilieuse": {
+        "declencheur": "Un client bourgeois a refusé de lui donner son pourboire pour une minute de retard.",
+        "signes": "Regard haineux, voix tremblante de colère, poing serré sur son guidon.",
+        "replique": "Ils crachent sur nous alors qu'on s'épuise à leur apporter leur bouffe chaude !"
+      },
+      "sanguine": {
+        "declencheur": "A battu son record de livraisons en une seule soirée.",
+        "signes": "Rire d'excitation, le souffle court, essuyant la sueur de son front.",
+        "replique": "J'ai avalé les kilomètres ce soir ! Rien pouvait m'arrêter !"
+      }
+    },
+    "prompt_image": "close-up portrait of a skinny 19-year-old delivery guy wearing a bike helmet and high-vis backpack, wet face from rain, determined expression, hyper-realistic photography, 35mm film Kodak Portra 400, cold cyan and midnight blue monochromatic grade, hard side lighting, deep oppressive black shadows (chiaroscuro, low-key), strong rim light, grim decaying urban background, wet asphalt, fog, photorealistic 8k"
+  },
+  {
+    "id": "gregory_shaw",
+    "nom": "Gregory Shaw",
+    "age": 66,
+    "metier": "Ancien garde du corps, alcoolique",
+    "apparence": "Un vieil homme massif au nez cassé et au visage balafré, portant un manteau en cuir élimé et fleurant fort le gin.",
+    "lieux": [
+      "bars",
+      "rue-deserte"
+    ],
+    "compatible_vito": true,
+    "humeurs": {
+      "equilibre": {
+        "declencheur": "Nettoie lentement ses lunettes avec un pan de sa chemise au fond d'un pub.",
+        "signes": "Assis le dos au mur, observant attentivement chaque entrée et sortie du bar.",
+        "replique": "Garde tes distances, petit. C'est plus sûr pour tout le monde."
+      },
+      "flegmatique": {
+        "declencheur": "Contemple fixement le liquide ambré dans son verre sans bouger.",
+        "signes": "Posture lourde, respiration lente, visage complètement inexpressif.",
+        "replique": "J'en ai trop vu pour me faire du souci pour ce qui va arriver."
+      },
+      "atrabilaire": {
+        "declencheur": "Pense aux hommes qu'il n'a pas pu protéger au cours de sa carrière.",
+        "signes": "Regard vague et triste, serrant son verre à en avoir les phalanges blanches.",
+        "replique": "La honte, ça s'efface pas... Même avec dix litres de gin."
+      },
+      "bilieuse": {
+        "declencheur": "Un jeune provocateur est venu le bousculer volontairement.",
+        "signes": "S'imposant de toute sa taille, regard assassin, poings massifs armés.",
+        "replique": "Tu veux tester un vieux lion ? Approche et je t'apprends la vie."
+      },
+      "sanguine": {
+        "declencheur": "A croisé un ancien collègue de travail qui lui a offert une bouteille haut de gamme.",
+        "signes": "Rire grave et rocailleux, claquant des mains, yeux allumés par l'alcool.",
+        "replique": "Il reste encore des gens d'honneur dans ce cloaque ! Trinquons mon ami !"
+      }
+    },
+    "prompt_image": "close-up portrait of a scarred 66-year-old burly alcoholic ex-bodyguard man with a broken nose, bloodshot eyes, wearing a worn leather coat, stern intimidating expression, hyper-realistic photography, 35mm film Kodak Portra 400, cold cyan and midnight blue monochromatic grade, hard side lighting, deep oppressive black shadows (chiaroscuro, low-key), strong rim light, grim decaying urban background, wet asphalt, fog, photorealistic 8k"
+  },
+  {
+    "id": "monica_bell",
+    "nom": "Monica Bell",
+    "age": 37,
+    "metier": "Agente immobilière",
+    "apparence": "Une femme élégante au visage strict, maquillage discret, portant un tailleur sombre cintré et un trench en gabardine beige.",
+    "lieux": [
+      "quartiers-bourgeois",
+      "parcs"
+    ],
+    "compatible_vito": false,
+    "humeurs": {
+      "equilibre": {
+        "declencheur": "Fait le tour d'une propriété bourgeoise avant une visite de vente.",
+        "signes": "Démarche hautaine et assurée, vérifiant ses clés et ajustant ses bagues.",
+        "replique": "Gary a encore quelques perles rares si l'on sait où chercher."
+      },
+      "flegmatique": {
+        "declencheur": "Attend des acheteurs potentiels qui ont manqué le rendez-vous nocturne.",
+        "signes": "Consulte son téléphone de manière machinale, soupirant d'un air résigné.",
+        "replique": "Encore du temps gâché. Le marché ici devient vraiment imprévisible."
+      },
+      "atrabilaire": {
+        "declencheur": "Réalise que son agence va faire faillite d'ici la fin du mois.",
+        "signes": "Visage très pâle, main tremblante sur son sac à main, regard perdu.",
+        "replique": "J'ai tout donné à cette ville... Et elle s'effondre sous mes pieds."
+      },
+      "bilieuse": {
+        "declencheur": "Un concurrent lui a volé un mandat d'exclusivité sur un grand bâtiment.",
+        "signes": "Talon frappant nerveusement le sol, dents serrées, regard acéré.",
+        "replique": "Ce traître paiera pour chaque dollar qu'il m'a volé."
+      },
+      "sanguine": {
+        "declencheur": "Vient de signer la vente d'un grand complexe d'entrepôts industriels.",
+        "signes": "Sourire éclatant, voix dynamique, démarche fière et triomphante.",
+        "replique": "C'est la transaction de l'année ! La chance est enfin de mon côté !"
+      }
+    },
+    "prompt_image": "close-up portrait of a sharp 37-year-old female real estate agent, sleek hairstyle, wearing a stylish trench coat over a suit, cold polished expression, hyper-realistic photography, 35mm film Kodak Portra 400, cold cyan and midnight blue monochromatic grade, hard side lighting, deep oppressive black shadows (chiaroscuro, low-key), strong rim light, grim decaying urban background, wet asphalt, fog, photorealistic 8k"
+  }
+]

@@ -1,0 +1,36 @@
+{
+  "atrabilaire": [
+    { "nom": "En deuil", "effet": "+1 dé aux jets de Remords." },
+    { "nom": "Amour perdu", "effet": "+1 dé pour résister aux tentatives de séduction (y compris par Présence)." },
+    { "nom": "Parent perdu", "effet": "Étanche 1 point de Soif supplémentaire en se nourrissant sur sa famille mortelle." },
+    { "nom": "Échec cuisant", "effet": "Relance un jet (hors dés de Soif à 1) qui lui rappellerait cet échec." },
+    { "nom": "Nostalgique", "effet": "+1 dé aux jets liés à la décennie ou à la forme d'art du calice ; +3 dés lors d'un Memoriam sur ce thème." },
+    { "nom": "Évocation", "effet": "1 XP gratuit pour un pouvoir de Force d'âme ou d'Occultation (une seule fois)." }
+  ],
+  "bilieuse": [
+    { "nom": "Brute", "effet": "+1 aux dégâts infligés aux ennemis plus faibles (combat physique et social)." },
+    { "nom": "Cycle de la violence", "effet": "Le prochain sang bilieux étanche +1 Soif, mais tout autre sang étanche -1 Soif." },
+    { "nom": "Envie", "effet": "+1 aux dégâts infligés aux ennemis de statut ou de rang plus élevé (physique et social)." },
+    { "nom": "Principes", "effet": "Relance un jet lors d'un conflit avec un ennemi idéologique (hors dés de Soif à 1)." },
+    { "nom": "Vengeur", "effet": "+2 dés contre le type de cible ou l'individu que le calice déteste." },
+    { "nom": "Malveillant", "effet": "Relance tout jet incluant Intimidation (hors dés de Soif à 1)." },
+    { "nom": "Inspirant", "effet": "1 XP gratuit pour un pouvoir de Célérité ou de Puissance (une seule fois)." }
+  ],
+  "flegmatique": [
+    { "nom": "Calme", "effet": "+2 dés pour résister à la frénésie." },
+    { "nom": "Anesthésié", "effet": "Ignore les pénalités de blessure et de douleur (physique et sociale)." },
+    { "nom": "Ravaler ses émotions", "effet": "Peut manger et boire de la nourriture humaine sans vomir (sans étancher la Soif)." },
+    { "nom": "Abandon", "effet": "Le prochain sang flegmatique étanche +1 Soif, mais tout autre sang étanche -1 Soif." },
+    { "nom": "Loup solitaire", "effet": "+1 dé quand il agit seul, -1 dé en travail d'équipe (dure une scène)." },
+    { "nom": "Procrastination", "effet": "Regagne 1 Volonté s'il retarde une action importante d'au moins un jour (une fois par partie)." },
+    { "nom": "Reflet", "effet": "1 XP gratuit pour un pouvoir d'Auspex ou de Domination (une seule fois)." }
+  ],
+  "sanguine": [
+    { "nom": "Enthousiasme contagieux", "effet": "Contact peau contre peau prolongé : +3 dés pour convaincre la cible." },
+    { "nom": "Sentir le gibier", "effet": "+3 dés pour repérer d'autres calices sanguins." },
+    { "nom": "Accro à la vie", "effet": "Peut activer les Couleurs de la vie sans test d'Exaltation." },
+    { "nom": "Épisode maniaque", "effet": "+1 dé à tous les jets jusqu'au premier échec, puis -2 dés à tous les jets suivants." },
+    { "nom": "Amour véritable", "effet": "Étanche +1 Soif sur l'être aimé du calice ; avec Auspex, peut voir par ses yeux en exaltant son sang." },
+    { "nom": "Effervescence", "effet": "1 XP gratuit pour un pouvoir de Sorcellerie du sang ou de Présence (une seule fois)." }
+  ]
+}

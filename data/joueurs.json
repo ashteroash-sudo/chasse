@@ -1,0 +1,11 @@
+[
+  { "id": "vito", "nom": "Vito", "clan": "Ventrue", "style": "Osiris",
+    "groupement": "Manipulation + Subterfuge, ou Intimidation + Renommée",
+    "filtre": "vito", "filtre_texte": "Ne convient pas à son palais" },
+  { "id": "cassandre", "nom": "Cassandre", "clan": "Malkavien", "style": "Parasite domestique",
+    "groupement": "Manipulation + Subterfuge" },
+  { "id": "pavel", "nom": "Pavel", "clan": "Brujah", "style": "Chat de gouttière",
+    "groupement": "Force + Bagarre, ou Astuce + Expérience de la rue" },
+  { "id": "willy", "nom": "Willy", "clan": "Gangrel", "style": "Pilleur de tombes",
+    "groupement": "Résolution + Médecine (cadavres), ou Manipulation + Empathie (endeuillés)" }
+]
