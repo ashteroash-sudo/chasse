@@ -323,10 +323,12 @@ async function init() {
     if (!IMAGES[id]) IMAGES[id] = IMAGES[dossier + '/' + id];
   }
   // Lieux présents en image mais absents de lieux.json : ajoutés avec réglages neutres
-  for (const f of M.lieux || []) { const id = f.replace(/\.[^.]+$/, ''); if (!LIEUX.find(l => l.id === id)) LIEUX.push({ id, nom: joli(id) }); }
+  for (const f of M.lieux || []) { const id = baseLieu(f); if (!LIEUX.find(l => l.id === id)) LIEUX.push({ id, nom: joli(id) }); }
   rendreAccueil();
 }
-function imageLieu(id) { const f = (M.lieux || []).find(f => f.replace(/\.[^.]+$/, '') === id); return f ? 'lieux/' + f : null; }
+// bars.jpg, bars_2.jpg, bars_3.jpg… : une variante est choisie au hasard à chaque entrée dans le lieu
+function baseLieu(f) { return f.replace(/\.[^.]+$/, '').replace(/_\d+$/, ''); }
+function imageLieu(id) { const l = (M.lieux || []).filter(f => baseLieu(f) === id); return l.length ? 'lieux/' + hasard(l) : null; }
 function mediaJoueur(j) {
   const f = (M.joueurs || []).find(f => f.replace(/\.[^.]+$/, '') === j.id);
   if (!f) return `<div class="initiale">${esc(j.nom.charAt(0))}</div>`;
