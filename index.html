@@ -90,9 +90,13 @@ h1,h2,h3{font-family:var(--titre);font-weight:700;letter-spacing:.02em}
 .carte{background:var(--panneau);border:2px solid var(--ligne);border-radius:5px;overflow:hidden;display:flex;flex-direction:column;cursor:default;transition:transform .25s,opacity .3s,border-color .3s,box-shadow .3s;position:relative;opacity:0;transform:translateY(16px)}
 .carte.visible{opacity:1;transform:none}
 .carte:hover{border-color:var(--cyan)}
-.carte .img{height:30vh;background:#0d1620 center/cover;position:relative;transition:height .3s}
-.carte.n1 .img{height:22vh}
-#chasse.choix .carte .img{height:13vh}
+.carte .img{flex:1 1 auto;min-height:14vh;background-color:#0d1620;background-size:0 0;background-repeat:no-repeat;position:relative;overflow:hidden}
+/* Portrait entier (jamais rogné) sur un fond flou du même portrait */
+.carte .img::before,.carte .img::after{content:"";position:absolute;background-image:inherit;background-repeat:no-repeat;background-position:center}
+.carte .img::before{inset:-30px;background-size:cover;filter:blur(22px) brightness(.4)}
+.carte .img::after{inset:0;background-size:contain}
+
+
 .carte .silhouette{position:absolute;inset:0;display:grid;place-items:center}
 .carte .silhouette svg{width:55%;opacity:.35}
 .carte .corps{padding:.6rem .7rem .8rem;display:flex;flex-direction:column;gap:.5rem}
@@ -112,8 +116,8 @@ h1,h2,h3{font-family:var(--titre);font-weight:700;letter-spacing:.02em}
 .carte .boutons button{font-size:.85em;padding:.3em .6em}
 .carte .boutons small{color:var(--doux);font-size:.8em}
 #chasse.choix .carte .boutons{display:none}
-.carte .corps{flex:1}
-.carte.n2 .img,.carte.n3 .img{height:14vh}
+
+
 #cartes,#panneau{font-size:calc(var(--k, 1) * clamp(16px, 1.15vw, 24px))}
 .carte .ligne-de{display:block}
 .carte .ligne-de .d10{float:left;margin:0 .6rem .2rem 0}
@@ -122,10 +126,10 @@ h1,h2,h3{font-family:var(--titre);font-weight:700;letter-spacing:.02em}
 #zone{min-height:0}
 #cartes{min-height:0;grid-template-rows:minmax(0,1fr)}
 .carte{min-height:0}
-.carte .corps{overflow-y:auto;min-height:0}
+.carte .corps{overflow-y:auto;min-height:0;flex:0 1 auto;max-height:72%}
 #chasse.choix .carte.terne .corps>*:not(.identite){display:none}
 .carte.n2 .app,.carte.n3 .app,.carte.doree .app{display:none}
-.carte.n2 .img,.carte.n3 .img{height:11vh}
+
 .note{font-size:1em}
 .carte.parti{opacity:.3;cursor:default}
 .ce-soir-carte{font-size:1.1em;color:var(--texte)}.ce-soir-carte b{color:var(--or2);font-weight:500}
