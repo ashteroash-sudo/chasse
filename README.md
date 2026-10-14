@@ -9,7 +9,7 @@
 | Dossier | Contenu | Nommage |
 |---|---|---|
 | `joueurs/` | portraits des joueurs (.webm, .mp4 ou image) | `vito.webm`, `cassandre.webm`, `pavel.webm`, `willy.webm` |
-| `lieux/` | une image par lieu | même nom que dans `data/lieux.json` : `bars.jpg`, `cimetieres.jpg`… |
+| `lieux/` | une ou plusieurs images par lieu | même nom que dans `data/lieux.json` : `bars.jpg`, `cimetieres.jpg`… Variantes : `bars_2.jpg`, `bars_3.jpg` (une tirée au hasard à chaque entrée) |
 | `pnj/` | portraits des PNJ, tous à plat | l'`id` du profil : `marcus_vance.jpg` |
 | `pnj/morgue/` | images de corps (sans profil) | `homme_noye.jpg` → « Homme Noye » |
 | `profils/` | lots JSON générés par l'IA | `lot1.json`, `lot2.json`, `lot3.json`… |
