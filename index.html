@@ -133,6 +133,16 @@ h1,h2,h3{font-family:var(--titre);font-weight:700;letter-spacing:.02em}
 .note{font-size:1em}
 .carte.parti{opacity:.3;cursor:default}
 .ce-soir-carte{font-size:1.1em;color:var(--texte)}.ce-soir-carte b{color:var(--or2);font-weight:500}
+.evt{grid-column:1/-1;align-self:center;justify-self:center;width:min(900px,100%);background:rgba(8,14,22,.92);border:2px solid var(--sang);border-radius:6px;padding:1.4em 1.8em;display:flex;flex-direction:column;gap:.7em;animation:apparait .4s}
+.evt.terr{border-color:var(--or)}
+@keyframes apparait{from{opacity:0;transform:translateY(12px)}}
+.evt .lab{color:var(--sang2);text-transform:uppercase;letter-spacing:.14em;font-size:.85em}
+.evt.terr .lab{color:var(--or2)}
+.evt h3{font-size:2.1em;line-height:1.1}
+.evt .txt{font-size:1.35em;line-height:1.35}
+.evt ul{font-size:1.2em;line-height:1.4;padding-left:1.2em;color:#cfe3ee}
+.evt .actions{display:flex;gap:.6em;flex-wrap:wrap;margin-top:.4em}
+.lieu.bloque{filter:grayscale(1) brightness(.5);cursor:not-allowed}
 /* Dé d10 */
 .d10{width:46px;height:52px;position:relative;flex-shrink:0}
 .d10 svg{position:absolute;inset:0;width:100%;height:100%}
@@ -290,7 +300,7 @@ const CADAVRES_DEFAUT = [
 ];
 
 let JOUEURS = [], LIEUX = [], DYSC = {}, PROFILS = {}, M = { joueurs: [], lieux: [], pnj: { '': [] }, profils: [] };
-let IMAGES = {};   // id -> { url, tags:Set, dossier }
+let IMAGES = {}, EVTS = {}, TERR = [];   // id -> { url, tags:Set, dossier }
 const S = { joueur: null, lieu: null, minutes: 22 * 60, aube: 7 * 60 + 30, cartes: [], vus: new Set(), choisie: null };
 
 /* ============ Sauvegarde ============ */
@@ -333,6 +343,8 @@ async function init() {
   try { JOUEURS = await lireJSON('data/joueurs.json'); } catch (e) { toast('data/joueurs.json illisible'); }
   try { LIEUX = await lireJSON('data/lieux.json'); } catch (e) { toast('data/lieux.json illisible'); }
   try { DYSC = await lireJSON('data/dyscrasies.json'); } catch (e) { toast('data/dyscrasies.json illisible'); }
+  try { EVTS = await lireJSON('data/evenements.json'); } catch (e) { EVTS = {}; }
+  try { TERR = await lireJSON('data/territoires.json'); } catch (e) { TERR = []; }
   const erreurs = [];
   for (const f of M.profils || []) {
     try { const lot = await lireJSON('profils/' + f); for (const p of (Array.isArray(lot) ? lot : [lot])) if (p && p.id) PROFILS[p.id] = p; }
@@ -397,6 +409,7 @@ function rendreAccueil() {
 }
 function choisirJoueur(id) {
   S.joueur = JOUEURS.find(j => j.id === id); S.minutes = hm($('#heure').value); S.aube = hm($('#aube').value);
+  const an = anemies(); for (const k in an) { if (an[k] <= 0) delete an[k]; else an[k]--; } sauver();
   S.vus = new Set(); majHorloge(); rendreLieux();
 }
 
@@ -414,14 +427,15 @@ function rendreLieux() {
   let html = '';
   if (p) {
     const l = LIEUX.find(x => x.id === p.lieu) || { nom: p.lieu };
-    html += `<div class="lieu" data-retour="1" style="background-image:url('${imageLieu(p.lieu) || ''}');border-color:var(--or)">
-      <small style="color:var(--or2)">${p.intensite === 'caillot' ? `nuit ${p.nuits}/3` : 'proie habituelle'}</small>
+    const an = anemies()[p.id];
+    html += `<div class="lieu ${an !== undefined ? 'bloque' : ''}" ${an !== undefined ? '' : 'data-retour="1"'} style="background-image:url('${imageLieu(p.lieu) || ''}');border-color:var(--or)">
+      <small style="color:var(--or2)">${an !== undefined ? `anémié · encore ${an + 1} chasse${an > 0 ? 's' : ''}` : p.intensite === 'caillot' ? `nuit ${p.nuits}/3` : 'proie habituelle'}</small>
       <span style="color:var(--or2)">Retrouver ${esc(p.nom)}<br><small style="position:static;background:none;padding:0;font-family:var(--ui)">${esc(l.nom)}</small></span></div>`;
   }
   html += lieuxDuJoueur().map(l => {
-    const n = affluence(l);
-    return `<div class="lieu" data-id="${l.id}" style="background-image:url('${imageLieu(l.id) || ''}')">
-      <small>${l.type === 'cadavres' ? 'sang mort' : n === 0 ? 'personne' : n + (n > 1 ? ' passants' : ' passant')}</small><span>${esc(l.nom)}</span></div>`;
+    const n = affluence(l), g = estGrille(l.id);
+    return `<div class="lieu ${g ? 'bloque' : ''}" ${g ? '' : `data-id="${l.id}"`} style="background-image:url('${imageLieu(l.id) || ''}')">
+      <small>${g ? 'grillé cette nuit' : l.type === 'cadavres' ? 'sang mort' : n === 0 ? 'personne' : n + (n > 1 ? ' passants' : ' passant')}</small><span>${esc(l.nom)}</span></div>`;
   }).join('');
   html += `<div class="lieu" data-animaux="1" style="background:linear-gradient(135deg,#0f1d17,#06100c)"><small>pour tous</small><span>Animaux</span></div>`;
   $('#grille-lieux').innerHTML = html;
@@ -436,7 +450,8 @@ function poolLieu(l) {
   for (const p of Object.values(PROFILS)) if ((p.lieux || []).includes(l.id)) ids.add(p.id);
   for (const k in IMAGES) { const im = IMAGES[k]; if (im.dossier === l.id) ids.add(im.id); }
   const autres = Object.values(SAVE.joueurs).map(e => e.proie && e.proie.id).filter(Boolean);
-  return [...ids].filter(id => !SAVE.morts.includes(id) && !autres.includes(id));
+  const an = anemies();
+  return [...ids].filter(id => !SAVE.morts.includes(id) && !autres.includes(id) && an[id] === undefined);
 }
 function infosPNJ(id, l) {
   const p = PROFILS[id] || {}, im = IMAGES[l.id + '/' + norm(id)] || IMAGES[norm(id)];
@@ -461,7 +476,9 @@ function tirerResonance(l) {
 function entrer(lieuId) {
   S.lieu = LIEUX.find(l => l.id === lieuId); S.choisie = null;
   fond(imageLieu(lieuId)); ecran('chasse'); rendreCote();
-  $('#c-lieu').textContent = S.lieu.nom; tirer();
+  $('#c-lieu').textContent = S.lieu.nom;
+  S.evt = jetTerritoire(lieuId) || jetEvenement(lieuId);
+  tirer();
 }
 const TEMPS = { observer: 5, aborder: 10, parler: 10 };   // minutes par tentative
 const ETAPES = [{ cle: 'observer', lab: 'Observer' }, { cle: 'aborder', lab: 'Aborder' }, { cle: 'parler', lab: 'Le faire parler' }];
@@ -529,6 +546,7 @@ function majCarte(i, lancerDe) {
 }
 function rendreCartes() {
   const z = $('#cartes');
+  if (S.evt) return rendreEvenement();
   if (!S.cartes.length) { z.innerHTML = `<div class="vide">Personne. Juste le vent et la pluie.</div>`; return; }
   z.innerHTML = S.cartes.map(carteHTML).join('');
   [...z.querySelectorAll('.carte')].forEach((el, i) => { lierCarte(el); setTimeout(() => el.classList.add('visible'), 120 * i); });
@@ -595,23 +613,24 @@ async function gorgeeSuite(c) {
     <div class="note">${H.nom}. Un caillot : l'émotion s'est figée dans le sang. +1 dé aux réserves utilisant ${H.disc}.</div>
     <div class="note">Pour en tirer le vrai pouvoir : vider cette proie, ou revenir boire sur elle trois nuits de suite.</div>`;
   const ancienne = etat(S.joueur.id).proie, deja = ancienne && ancienne.id === c.id;
-  act.innerHTML = `<button class="rouge" id="b-vider">La vider</button><button class="or" id="b-garder">La laisser vivre (nuit 1/3)</button>`;
+  act.innerHTML = `<button class="rouge" id="b-vider">La vider</button><span id="b-doses"></span>`;
   $('#b-vider').onclick = () => vider(c);
-  $('#b-garder').onclick = () => {
+  doses($('#b-doses'), 'La laisser vivre : ', dose => {
     const e = etat(S.joueur.id);
-    e.proie = proieDe(c, 1, deja ? (ancienne.visites || 0) + 1 : 0); e.reso = { type: r.type, intensite: 'intense' }; sauver();
-    finRepas(`${c.nom} est marqué en doré. Nuit 1 sur 3.`);
-  };
+    e.proie = proieDe(c, dose === 2 ? 0 : 1, deja ? (ancienne.visites || 0) + 1 : 0); e.reso = { type: r.type, intensite: 'intense' };
+    if (dose === 2) anemier(c.id); sauver();
+    finRepas(dose === 2 ? `${c.nom} est anémié : impossible de revenir demain, la série de nuits ne commence pas.` : `${c.nom} est marqué en doré. Nuit 1 sur 3.`);
+  });
 }
 function proieDe(c, nuits, visites) { return { id: c.id, nom: c.nom, lieu: S.lieu.id, res: c.res, intensite: c.res.intensite, nuits: nuits || 0, visites: visites || 0 }; }
 function finChoix(c, reso) {
   const act = $('#act');
-  act.innerHTML = `<button class="or" id="b-fin-repas">Terminer le repas</button>`;
-  $('#b-fin-repas').onclick = () => {
+  doses(act, '', dose => {
     const e = etat(S.joueur.id), anc = e.proie; if (reso) e.reso = reso; else delete e.reso;
-    e.proie = proieDe(c, 0, anc && anc.id === c.id ? (anc.visites || 0) + 1 : 0); sauver();
-    finRepas(`${c.nom} est gardé en doré comme proie habituelle.`);
-  };
+    e.proie = proieDe(c, 0, anc && anc.id === c.id ? (anc.visites || 0) + 1 : 0);
+    if (dose === 2) anemier(c.id); sauver();
+    finRepas(`${c.nom} est gardé en doré comme proie habituelle.` + (dose === 2 ? ` Anémié pour ${ANEMIE} chasses.` : ''));
+  });
 }
 function tirerDyscrasie(type) { const l = DYSC[type] || []; return l.length ? hasard(l) : { nom: 'Dyscrasie', effet: 'À définir par le conteur.' }; }
 function vider(c) {
@@ -640,6 +659,7 @@ const EVENEMENTS = {
 };
 async function retrouverProie() {
   const e = etat(S.joueur.id), p = e.proie; if (!p) return;
+  S.evt = null;
   S.lieu = LIEUX.find(l => l.id === p.lieu) || { id: p.lieu, nom: joli(p.lieu) };
   fond(imageLieu(p.lieu)); ecran('chasse'); rendreCote(); $('#c-lieu').textContent = S.lieu.nom;
   // Jet d'événement : plus il revient souvent, plus ça tourne mal
@@ -672,13 +692,14 @@ async function retrouverProie() {
   if (p.intensite === 'caillot') {
     const n = p.nuits + 1;
     zone.innerHTML = `${intro}<div class="note">Le caillot est toujours là. Si c'est bien la nuit suivante, c'est la nuit ${n} sur 3.</div>
-      <div class="actions"><button class="rouge" id="b-nuit">Boire (nuit ${n}/3)</button><button class="rouge" id="b-vider">La vider</button>
+      <div class="actions"><span id="b-doses"></span><button class="rouge" id="b-vider">La vider</button>
       <button id="b-rompu">Série rompue (recommencer à 1)</button><button id="b-lacher">Abandonner cette proie</button></div>`;
-    $('#b-nuit').onclick = () => {
-      p.visites = v + 1;
+    doses($('#b-doses'), `Nuit ${n}/3 : `, dose => {
+      p.visites = v + 1; if (dose === 2) anemier(p.id);
       if (n >= 3) { const d = tirerDyscrasie(p.res.type); e.reso = { type: p.res.type, intensite: 'caillot', dyscrasie: d }; delete e.proie; sauver(); reveler(d, `Trois nuits de suite. ${p.nom} est vivant, et ne se doute de rien.`); }
+      else if (dose === 2) { p.nuits = 0; e.reso = { type: p.res.type, intensite: 'intense' }; sauver(); finRepas(`${p.nom} est anémié : la série de nuits est rompue.`); }
       else { p.nuits = n; e.reso = { type: p.res.type, intensite: 'intense' }; sauver(); finRepas(`Nuit ${n} sur 3.`); }
-    };
+    });
     $('#b-vider').onclick = () => vider(c);
     $('#b-rompu').onclick = () => { p.nuits = 1; p.visites = v + 1; e.reso = { type: p.res.type, intensite: 'intense' }; sauver(); finRepas('Série recommencée : nuit 1 sur 3.'); };
   } else {
@@ -689,6 +710,95 @@ async function retrouverProie() {
   $('#b-lacher').onclick = () => { delete e.proie; sauver(); annulerChoix(); toast(`${p.nom} n'est plus sa proie.`); };
 }
 
+/* ============ Dose, anémie ============ */
+const ANEMIE = 3;   // chasses (tous joueurs confondus) avant qu'une proie anémiée revienne
+function anemies() { return SAVE.anemies || (SAVE.anemies = {}); }
+function anemier(id) { anemies()[id] = ANEMIE; }
+function doses(el, prefixe, ok) {
+  const v = prefixe ? prefixe + 'boire' : 'Boire';
+  el.innerHTML = `<button class="or" data-d="1">${v} 1 Soif</button><button class="rouge" data-d="2">${v} 2 Soif (anémie)</button>`;
+  el.querySelectorAll('[data-d]').forEach(b => b.onclick = () => ok(+b.dataset.d));
+}
+
+/* ============ Lieux grillés (pour la nuit en cours) ============ */
+function nuitCle() { return new Date(Date.now() - 12 * 3600e3).toISOString().slice(0, 10); }
+function grilles() { if (!SAVE.grilles || SAVE.grilles.nuit !== nuitCle()) SAVE.grilles = { nuit: nuitCle(), tous: [], joueurs: {} }; return SAVE.grilles; }
+function estGrille(lid) { const g = grilles(); return g.tous.includes(lid) || (g.joueurs[S.joueur.id] || []).includes(lid); }
+function griller(lid, pourTous) {
+  const g = grilles();
+  if (pourTous) g.tous.push(lid); else (g.joueurs[S.joueur.id] = g.joueurs[S.joueur.id] || []).push(lid);
+  sauver();
+}
+function quitter(msg) { S.evt = null; toast(msg); if (avancer(30)) rendreLieux(); }
+
+/* ============ Événements de chasse ============ */
+const CHANCE_EVT = 0.15, TERR_BASE = 0.02, TERR_PAS = 0.03;
+function jetEvenement(lid) {
+  if (Math.random() >= CHANCE_EVT) return null;
+  const l = LIEUX.find(x => x.id === lid) || {};
+  const liste = (EVTS[lid] || []).concat(l.type === 'cadavres' ? [] : (EVTS.tous || []));
+  return liste.length ? Object.assign({ type: 'evt', observe: false }, hasard(liste)) : null;
+}
+function territoires() { return SAVE.territoire || (SAVE.territoire = {}); }
+function jetTerritoire(lid) {
+  const own = TERR.find(t => (t.lieux || []).includes(lid)); if (!own) return null;
+  const jid = S.joueur.id, fr = SAVE.frequentation || (SAVE.frequentation = {});
+  const f = (fr[jid] = fr[jid] || {}), n = f[lid] || 0;
+  const chance = TERR_BASE + TERR_PAS * n;
+  f[lid] = n + 1; sauver();
+  if (Math.random() >= chance) return null;
+  f[lid] = 0;
+  const tj = (territoires()[jid] = territoires()[jid] || {});
+  return { type: 'territoire', own, etape: Math.min(tj[own.id] || 0, 2), observe: false };
+}
+function rendreEvenement() {
+  const ev = S.evt, z = $('#cartes');
+  if (ev.type === 'territoire') {
+    const o = ev.own, et = ev.etape;
+    const rangs = ['Première rencontre', 'Deuxième rencontre', 'Troisième rencontre'];
+    let boutons = `${ev.observe ? '' : '<button data-e="obs">✓ Observer <small>5 min</small></button>'}`;
+    if (ev.combat) boutons = `<div class="txt" style="color:var(--sang2)">Combat ! Passez sur la Table de Combat.</div>
+      <button class="or" data-e="regle">Réglé (le conflit est clos)</button><button class="rouge" data-e="pasregle">Rien n'est réglé</button>`;
+    else if (ev.fin) boutons = `<button class="or" data-e="regle">Réglé (le conflit est clos)</button><button data-e="tension">La tension reste</button>`;
+    else if (et === 0) boutons += `<button class="rouge" data-e="part">Il quitte les lieux</button>`;
+    else boutons += `<button class="or" data-e="ok">✓ Il s'en sort</button><button class="rouge" data-e="rate">✗ Raté</button>`;
+    z.innerHTML = `<div class="evt terr"><div class="lab">Territoire · ${rangs[et]}</div>
+      <h3>${esc(o.nom)} <small style="font-size:.5em;color:var(--doux)">${esc(o.clan || '')}</small></h3>
+      <div class="txt">${esc(o.etapes[et])}</div>
+      ${ev.observe ? `<ul>${(o.pistes || []).map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}
+      <div class="actions">${boutons}</div></div>`;
+  } else {
+    z.innerHTML = `<div class="evt"><div class="lab">Imprévu</div><h3>${esc(ev.titre)}</h3><div class="txt">${esc(ev.texte)}</div>
+      ${ev.observe ? `<ul>${(ev.pistes || []).map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}
+      <div class="actions">${ev.observe ? '' : '<button data-e="obs">✓ Observer <small>5 min</small></button>'}
+      <button class="or" data-e="ok">✓ Passé</button><button class="rouge" data-e="rate">✗ Raté</button></div></div>`;
+  }
+  z.querySelectorAll('[data-e]').forEach(b => b.onclick = () => actionEvenement(b.dataset.e));
+}
+function actionEvenement(a) {
+  const ev = S.evt, jid = S.joueur.id;
+  if (a === 'obs') { if (avancer(5)) { ev.observe = true; rendreEvenement(); } return; }
+  if (ev.type !== 'territoire') {
+    if (a === 'ok') { S.evt = null; rendreCartes(); }
+    else { griller(S.lieu.id, true); quitter(`Compromis ! ${S.lieu.nom} est grillé pour tout le monde cette nuit.`); }
+    return;
+  }
+  const tj = territoires()[jid], o = ev.own;
+  const fin = clos => { tj[o.id] = clos ? 0 : 2; sauver(); };
+  if (a === 'part') { tj[o.id] = 1; griller(S.lieu.id, false); return quitter(`${S.joueur.nom} quitte le territoire de ${o.nom}.`); }
+  if (ev.etape === 1) {
+    tj[o.id] = 2; sauver();
+    if (a === 'ok') { S.evt = null; return rendreCartes(); }
+    griller(S.lieu.id, false); return quitter(`${o.nom} le chasse de son territoire pour la nuit.`);
+  }
+  // Étape 3
+  if (a === 'ok') { ev.fin = true; return rendreEvenement(); }
+  if (a === 'rate') { ev.combat = true; return rendreEvenement(); }
+  if (a === 'regle') { fin(true); if (ev.combat) { griller(S.lieu.id, false); return quitter('Conflit réglé.'); } S.evt = null; return rendreCartes(); }
+  if (a === 'tension') { fin(false); S.evt = null; return rendreCartes(); }
+  if (a === 'pasregle') { fin(false); griller(S.lieu.id, false); return quitter(`La guerre avec ${o.nom} continue.`); }
+}
+
 /* ============ Chasse animale ============ */
 const ANIMAUX = [
   { id: 'petit', nom: 'Petit animal', ex: 'rat, chat, pigeon', soif: "1 point de Soif pour 3 petits animaux bus" },
@@ -696,7 +806,7 @@ const ANIMAUX = [
   { id: 'gros',  nom: 'Gros animal',  ex: 'cerf, cheval, vache', soif: "2 points de Soif" }
 ];
 function chasseAnimale() {
-  S.lieu = { id: 'animaux', nom: 'Animaux' }; S.choisie = null;
+  S.lieu = { id: 'animaux', nom: 'Animaux' }; S.choisie = null; S.evt = null;
   fond(null); ecran('chasse'); rendreCote();
   $('#c-lieu').textContent = 'Chasse animale'; $('#c-aff').textContent = 'Résonance animale : Animalisme, Protéisme. Jamais de Dyscrasie.';
   $('#chasse').classList.remove('choix'); $('#panneau').className = ''; $('#panneau').innerHTML = '';
@@ -723,7 +833,12 @@ function rendreCote() {
 }
 
 /* ============ Boutons ============ */
-$('#btn-attendre').onclick = () => { if (avancer(60) && S.lieu.id !== 'animaux') tirer(); };
+$('#btn-attendre').onclick = () => {
+  if (!avancer(60) || S.lieu.id === 'animaux') return;
+  if (S.evt && S.evt.type !== 'territoire') { toast(`${S.evt.titre} : la situation s'est dissipée.`); S.evt = null; }
+  if (!S.evt) S.evt = jetEvenement(S.lieu.id);
+  tirer();
+};
 $('#btn-changer').onclick = () => { if (avancer(30)) rendreLieux(); };
 $('#btn-fin').onclick = rendreAccueil;
 $('#btn-retour-accueil').onclick = rendreAccueil;
