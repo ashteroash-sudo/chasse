@@ -1,72 +1,566 @@
 {
-  "tous": [
-    { "titre": "Patrouille", "texte": "Une voiture de police ralentit à votre hauteur. La vitre descend à moitié, le faisceau d'une lampe vous cherche.",
-      "pistes": ["L'agent a les yeux rouges : fin de service, il veut rentrer.", "La radio crache un appel pour une autre rue.", "Un gobelet de café froid traîne sur le tableau de bord."] },
-    { "titre": "Le témoin", "texte": "Quelqu'un vous a remarqué et lève son téléphone. Il filme.",
-      "pistes": ["Il est en direct : un compteur de spectateurs s'affiche.", "Sa batterie clignote en rouge.", "Il cherche le buzz, pas la police."] }
-  ],
-  "cimetieres": [
-    { "titre": "Ronde du gardien", "texte": "Une lampe torche balaie les allées. Des pas lents sur le gravier, qui se rapprochent.",
-      "pistes": ["Il s'arrête à chaque croisement, toujours dans le même ordre.", "Sa radio grésille : il parle à quelqu'un au poste.", "Le cabanon à outils est resté ouvert."] },
-    { "titre": "La fête entre les tombes", "texte": "Des ados ont allumé des bougies sur une tombe. Musique, bouteilles, rires trop forts.",
-      "pistes": ["Ils se racontent une histoire de fantôme et sursautent au moindre bruit.", "L'un d'eux est déjà malade derrière un caveau.", "Ils parlent de partir avant que le gardien passe."] },
-    { "titre": "Caméra neuve", "texte": "Après des vols de plaques en bronze, une caméra a été posée à l'entrée de l'allée principale.",
-      "pistes": ["Un voyant rouge clignote : elle enregistre.", "Le mausolée voisin crée un angle mort.", "Un câble court le long du mur jusqu'au local du gardien."] }
-  ],
-  "morgue": [
-    { "titre": "Le légiste de nuit", "texte": "Le légiste fait des heures sup. De la musique sort de la salle d'autopsie.",
-      "pistes": ["Il porte des écouteurs.", "La machine à café est au bout du couloir, et il y va souvent.", "Il parle tout seul, épuisé."] },
-    { "titre": "Caméra de couloir", "texte": "Une caméra surveille le couloir des chambres froides.",
-      "pistes": ["Le moniteur est à l'accueil, et personne n'est assis devant.", "L'image saute toutes les trente secondes.", "La porte de service n'est pas dans le champ."] },
-    { "titre": "Livraison", "texte": "Un fourgon funéraire recule jusqu'au quai. Deux employés descendent avec un brancard.",
-      "pistes": ["Ils sont pressés et râlent contre l'heure.", "Il y a un formulaire à faire signer à l'accueil.", "Ils s'allument une cigarette avant d'entrer."] }
-  ],
-  "bars": [
-    { "titre": "Le lourd", "texte": "Un client éméché s'est collé à vous. Il flirte, insiste, et ne vous lâche plus.",
-      "pistes": ["Il cherche quelqu'un des yeux dans la salle, peut-être une ex.", "Ses potes le regardent en rigolant : il a parié sur vous.", "Le barman le connaît et le surveille."] },
-    { "titre": "Le videur", "texte": "Le videur vous a à l'œil depuis l'entrée et ne vous quitte plus du regard.",
-      "pistes": ["Il compte les entrées sur un clicker.", "Il glisse les billets qu'on lui tend dans sa poche.", "Son chef l'appelle sans arrêt à l'oreillette."] },
-    { "titre": "Bagarre", "texte": "Ça éclate à deux tables de vous. Verres brisés, cris. Les flics seront là dans dix minutes.",
-      "pistes": ["Tout le monde regarde la bagarre.", "La sortie de secours est entrouverte.", "Un des bagarreurs vous prend à partie."] }
-  ],
-  "drogues": [
-    { "titre": "Descente", "texte": "Des sirènes au bout de la rue. Tout le monde se disperse.",
-      "pistes": ["Il n'y a qu'une seule voiture.", "Ils cherchent quelqu'un de précis, une photo à la main.", "Une cage d'escalier est restée ouverte."] },
-    { "titre": "Le dealer du coin", "texte": "Un dealer vous barre le passage. Pour lui, vous marchez sur son territoire.",
-      "pistes": ["Il est nerveux et regarde sans arrêt derrière lui.", "Il doit de l'argent à quelqu'un.", "Il a une arme, mais n'ose pas la sortir."] },
-    { "titre": "La maraude", "texte": "Un travailleur social fait sa tournée. Il connaît tout le monde ici, et il remarque les nouveaux.",
-      "pistes": ["Il distribue du café et des kits propres.", "Il prend des notes dans un carnet.", "Il croit que vous êtes un nouvel usager."] }
-  ],
-  "hopital-retraite": [
-    { "titre": "La tournée de nuit", "texte": "Une infirmière pousse son chariot de chambre en chambre et se rapproche.",
-      "pistes": ["Elle suit toujours le même ordre de chambres.", "Un patient l'appelle sans arrêt au bout du couloir.", "Elle laisse son badge sur le chariot."] },
-    { "titre": "Le sas à badge", "texte": "La porte du service ne s'ouvre qu'avec un badge.",
-      "pistes": ["Le personnel la retient pour les collègues.", "Un badge oublié pend à une blouse sur une patère.", "La porte met longtemps à se refermer."] },
-    { "titre": "Le vigile", "texte": "Un vigile fait les cent pas dans le hall et demande à chacun ce qu'il vient faire.",
-      "pistes": ["Il est au téléphone avec sa femme et a l'air inquiet.", "Il laisse passer les gens qui ont l'air de savoir où ils vont.", "Les heures de visite sont finies depuis longtemps."] }
-  ],
-  "quartiers-bourgeois": [
-    { "titre": "Le voisin vigilant", "texte": "Un retraité vous observe derrière son rideau, téléphone à la main. Il fait partie de la surveillance de quartier.",
-      "pistes": ["Il a déjà appelé la police pour rien la semaine dernière, et ils ne se déplacent plus.", "Son chien aboie et l'agace.", "Il éteint la lumière pour mieux voir dehors."] },
-    { "titre": "La sonnette à caméra", "texte": "Toutes les maisons de la rue ont une sonnette à caméra. Leurs petits voyants bleus vous suivent.",
-      "pistes": ["Elles se déclenchent au mouvement, à quelques mètres.", "Le trottoir d'en face est hors de portée.", "Une des maisons est en travaux, sans éclairage."] },
-    { "titre": "Sécurité privée", "texte": "Une voiture de sécurité privée fait le tour du quartier et repasse pour la deuxième fois.",
-      "pistes": ["Le chauffeur mange au volant.", "Elle repasse toutes les vingt minutes environ.", "Il ne s'arrête que pour les gens qui ont l'air perdus."] }
-  ],
-  "parcs": [
-    { "titre": "Le maître-chien", "texte": "Une agente fait sa ronde avec un berger allemand. Le chien s'arrête et gronde dans votre direction.",
-      "pistes": ["Le chien est jeune et se laisse distraire.", "Elle parle à son chien plus qu'à sa radio.", "Elle suit l'allée éclairée et ne coupe jamais par l'herbe."] },
-    { "titre": "Le joggeur curieux", "texte": "Un joggeur s'arrête à votre hauteur, essoufflé, et engage la conversation.",
-      "pistes": ["Il cherche une excuse pour faire une pause.", "Il regarde sans arrêt sa montre connectée.", "Il a peur du parc la nuit et cherche de la compagnie."] },
-    { "titre": "Les amoureux du banc", "texte": "Un couple s'est installé sur le banc, juste à côté de l'endroit idéal. Ils ne semblent pas pressés.",
-      "pistes": ["Ils se disputent à voix basse.", "Elle a froid et veut rentrer.", "Il cherche une occasion de se montrer protecteur."] }
-  ],
-  "rue-deserte": [
-    { "titre": "La fenêtre", "texte": "Une fenêtre s'allume au-dessus de vous. Une silhouette se découpe derrière le rideau.",
-      "pistes": ["La télé est allumée derrière elle.", "Elle fume à la fenêtre et finira par la refermer.", "Le porche d'en face est plongé dans le noir."] },
-    { "titre": "Le sans-abri qui parle fort", "texte": "Un sans-abri vous a repéré et vous interpelle, de plus en plus fort.",
-      "pistes": ["Il réclame une cigarette ou un peu de monnaie.", "Il parle aussi aux poubelles et aux réverbères.", "Les voisins ont l'habitude de lui et ne regardent plus."] },
-    { "titre": "Lampadaire réparé", "texte": "Une équipe municipale répare le seul lampadaire en panne de la rue. Projecteurs, nacelle, gilets fluo.",
-      "pistes": ["Ils en ont pour une demi-heure.", "Le chef d'équipe râle contre les heures de nuit.", "Leur camion bloque la vue sur la ruelle d'à côté."] }
-  ]
+ "tous": [
+  {
+   "titre": "Patrouille",
+   "texte": "Une voiture de police ralentit à votre hauteur. La vitre descend à moitié, le faisceau d'une lampe vous cherche.",
+   "options": [
+    {
+     "type": "Social",
+     "jet": "Manipulation + Persuasion",
+     "solution": "L'agent est en fin de service et ne pense qu'à rentrer : une explication plausible, et il remonte sa vitre."
+    },
+    {
+     "type": "Perception",
+     "jet": "Astuce + Vigilance",
+     "solution": "La radio annonce un appel urgent dans une autre rue : il suffit de rester calme quelques secondes, la voiture repart."
+    },
+    {
+     "type": "Discrétion",
+     "jet": "Dextérité + Furtivité",
+     "solution": "Un porche sombre à deux pas : le temps que la lampe revienne, il n'y a plus personne."
+    }
+   ]
+  },
+  {
+   "titre": "Le témoin",
+   "texte": "Quelqu'un vous a remarqué et lève son téléphone. Il filme.",
+   "options": [
+    {
+     "type": "Social",
+     "jet": "Charisme + Persuasion",
+     "solution": "Il cherche le buzz, pas la police : lui offrir mieux à filmer ailleurs suffit à le détourner."
+    },
+    {
+     "type": "Perception",
+     "jet": "Astuce + Vigilance",
+     "solution": "Sa batterie clignote en rouge : un peu de patience, et l'écran s'éteint tout seul."
+    },
+    {
+     "type": "Discrétion",
+     "jet": "Dextérité + Furtivité",
+     "solution": "Il filme ce qui bouge : se fondre dans le décor, et il passe à autre chose."
+    }
+   ]
+  }
+ ],
+ "cimetieres": [
+  {
+   "titre": "Ronde du gardien",
+   "texte": "Une lampe torche balaie les allées. Des pas lents sur le gravier, qui se rapprochent.",
+   "options": [
+    {
+     "type": "Perception",
+     "jet": "Intelligence + Vigilance",
+     "solution": "Il fait toujours le même trajet, dans le même ordre : il suffit de passer dans son dos."
+    },
+    {
+     "type": "Discrétion",
+     "jet": "Dextérité + Furtivité",
+     "solution": "Le cabanon à outils est resté ouvert : une cachette parfaite le temps qu'il passe."
+    },
+    {
+     "type": "Social",
+     "jet": "Manipulation + Subterfuge",
+     "solution": "Un visiteur égaré qui cherche une tombe : il le raccompagne même jusqu'à la bonne allée."
+    }
+   ]
+  },
+  {
+   "titre": "La fête entre les tombes",
+   "texte": "Des ados ont allumé des bougies sur une tombe. Musique, bouteilles, rires trop forts.",
+   "options": [
+    {
+     "type": "Intimidation",
+     "jet": "Manipulation + Intimidation",
+     "solution": "Ils ont peur du lieu et de ses fantômes : un bruit, une silhouette entre les caveaux, et ils détalent."
+    },
+    {
+     "type": "Perception",
+     "jet": "Astuce + Vigilance",
+     "solution": "Ils parlent de partir avant le passage du gardien : il suffit d'attendre leur départ."
+    },
+    {
+     "type": "Social",
+     "jet": "Charisme + Persuasion",
+     "solution": "L'un d'eux est malade derrière un caveau : proposer de l'aide, et ses amis décident de le ramener chez lui."
+    }
+   ]
+  },
+  {
+   "titre": "Caméra neuve",
+   "texte": "Après des vols de plaques en bronze, une caméra a été posée à l'entrée de l'allée principale.",
+   "options": [
+    {
+     "type": "Perception",
+     "jet": "Astuce + Vigilance",
+     "solution": "Le mausolée voisin crée un angle mort : le chemin passe derrière lui."
+    },
+    {
+     "type": "Technique",
+     "jet": "Intelligence + Technologie",
+     "solution": "Le câble court le long du mur jusqu'au local du gardien : un geste discret, et la caméra filme dans le vide."
+    },
+    {
+     "type": "Discrétion",
+     "jet": "Dextérité + Furtivité",
+     "solution": "Le voyant suit le rythme du balayage : on passe entre deux passages de l'objectif."
+    }
+   ]
+  }
+ ],
+ "morgue": [
+  {
+   "titre": "Le légiste de nuit",
+   "texte": "Le légiste fait des heures sup. De la musique sort de la salle d'autopsie.",
+   "options": [
+    {
+     "type": "Discrétion",
+     "jet": "Dextérité + Furtivité",
+     "solution": "Il porte des écouteurs et n'entend rien : il suffit de rester hors de son champ de vision."
+    },
+    {
+     "type": "Perception",
+     "jet": "Astuce + Vigilance",
+     "solution": "Il va souvent à la machine à café au bout du couloir : c'est le moment de passer."
+    },
+    {
+     "type": "Social",
+     "jet": "Manipulation + Subterfuge",
+     "solution": "Il est épuisé : un faux collègue venu prendre la relève, et il rentre chez lui ravi."
+    }
+   ]
+  },
+  {
+   "titre": "Caméra de couloir",
+   "texte": "Une caméra surveille le couloir des chambres froides.",
+   "options": [
+    {
+     "type": "Perception",
+     "jet": "Intelligence + Vigilance",
+     "solution": "Le moniteur est à l'accueil, et personne n'est assis devant : la caméra filme, mais personne ne regarde."
+    },
+    {
+     "type": "Technique",
+     "jet": "Intelligence + Technologie",
+     "solution": "L'image saute toutes les trente secondes : on passe pendant la coupure."
+    },
+    {
+     "type": "Larcin",
+     "jet": "Dextérité + Larcin",
+     "solution": "La porte de service n'est pas dans le champ : il suffit de la crocheter."
+    }
+   ]
+  },
+  {
+   "titre": "Livraison",
+   "texte": "Un fourgon funéraire recule jusqu'au quai. Deux employés descendent avec un brancard.",
+   "options": [
+    {
+     "type": "Social",
+     "jet": "Manipulation + Subterfuge",
+     "solution": "Ils ont un formulaire à faire signer : un employé de nuit serviable signe, et ils repartent aussitôt."
+    },
+    {
+     "type": "Perception",
+     "jet": "Astuce + Vigilance",
+     "solution": "Ils s'allument une cigarette dehors avant d'entrer : la porte reste ouverte dans leur dos."
+    },
+    {
+     "type": "Physique",
+     "jet": "Force + Athlétisme",
+     "solution": "Ils sont pressés et le corps est lourd : un coup de main, et ils oublient de se demander qui vous êtes."
+    }
+   ]
+  }
+ ],
+ "bars": [
+  {
+   "titre": "Le lourd",
+   "texte": "Un client éméché s'est collé à vous. Il flirte, insiste, et ne vous lâche plus.",
+   "options": [
+    {
+     "type": "Social",
+     "jet": "Charisme + Persuasion",
+     "solution": "Il cherche son ex des yeux : lui faire croire qu'elle est là et qu'elle le regarde, et il vous oublie."
+    },
+    {
+     "type": "Perception",
+     "jet": "Astuce + Empathie",
+     "solution": "Ses potes rigolent dans son dos : c'est un pari. Le faire perdre avec humour, et il retourne à sa table, vexé."
+    },
+    {
+     "type": "Diversion",
+     "jet": "Manipulation + Subterfuge",
+     "solution": "Le barman le surveille déjà : un signe discret, et c'est lui qui le raccompagne dehors."
+    }
+   ]
+  },
+  {
+   "titre": "Le videur",
+   "texte": "Le videur vous a à l'œil depuis l'entrée et ne vous quitte plus du regard.",
+   "options": [
+    {
+     "type": "Social",
+     "jet": "Manipulation + Persuasion",
+     "solution": "Il empoche volontiers les billets qu'on lui tend : un pourboire généreux, et il regarde ailleurs."
+    },
+    {
+     "type": "Perception",
+     "jet": "Astuce + Vigilance",
+     "solution": "Son chef l'appelle sans arrêt à l'oreillette : il suffit d'attendre l'appel suivant."
+    },
+    {
+     "type": "Social",
+     "jet": "Charisme + Étiquette",
+     "solution": "Il soigne les habitués importants : jouer le client VIP, et il vous salue presque."
+    }
+   ]
+  },
+  {
+   "titre": "Bagarre",
+   "texte": "Ça éclate à deux tables de vous. Verres brisés, cris. Les flics seront là dans dix minutes.",
+   "options": [
+    {
+     "type": "Perception",
+     "jet": "Astuce + Vigilance",
+     "solution": "Tout le monde regarde la bagarre : personne ne remarque une proie qui s'éclipse avec vous."
+    },
+    {
+     "type": "Discrétion",
+     "jet": "Dextérité + Furtivité",
+     "solution": "La sortie de secours est entrouverte : on file avant l'arrivée des flics."
+    },
+    {
+     "type": "Physique",
+     "jet": "Force + Bagarre",
+     "solution": "Un des bagarreurs vous prend à partie : un seul coup bien placé, et plus personne n'insiste."
+    }
+   ]
+  }
+ ],
+ "drogues": [
+  {
+   "titre": "Descente",
+   "texte": "Des sirènes au bout de la rue. Tout le monde se disperse.",
+   "options": [
+    {
+     "type": "Perception",
+     "jet": "Astuce + Expérience de la rue",
+     "solution": "Ils cherchent quelqu'un de précis, une photo à la main : ce n'est pas vous, il suffit de ne pas courir."
+    },
+    {
+     "type": "Discrétion",
+     "jet": "Dextérité + Furtivité",
+     "solution": "Une cage d'escalier est restée ouverte : on monte, et on attend que ça passe."
+    },
+    {
+     "type": "Social",
+     "jet": "Manipulation + Subterfuge",
+     "solution": "Une seule voiture, des agents débordés : un faux témoin les envoie dans la mauvaise rue."
+    }
+   ]
+  },
+  {
+   "titre": "Le dealer du coin",
+   "texte": "Un dealer vous barre le passage. Pour lui, vous marchez sur son territoire.",
+   "options": [
+    {
+     "type": "Intimidation",
+     "jet": "Manipulation + Intimidation",
+     "solution": "Il a une arme, mais n'ose pas la sortir : un regard suffit à le faire reculer."
+    },
+    {
+     "type": "Perception",
+     "jet": "Astuce + Empathie",
+     "solution": "Il doit de l'argent à quelqu'un, et il a peur : lui parler de sa dette, et il a soudain mieux à faire."
+    },
+    {
+     "type": "Social",
+     "jet": "Charisme + Expérience de la rue",
+     "solution": "Il regarde sans arrêt derrière lui : le rassurer, vous n'êtes ni un concurrent ni un flic."
+    }
+   ]
+  },
+  {
+   "titre": "La maraude",
+   "texte": "Un travailleur social fait sa tournée. Il connaît tout le monde ici, et il remarque les nouveaux.",
+   "options": [
+    {
+     "type": "Social",
+     "jet": "Manipulation + Subterfuge",
+     "solution": "Il croit que vous êtes un nouvel usager : jouer le jeu, prendre le café, et il passe au suivant."
+    },
+    {
+     "type": "Perception",
+     "jet": "Astuce + Vigilance",
+     "solution": "Il prend des notes dans son carnet : il suffit d'attendre qu'il ait le nez dedans."
+    },
+    {
+     "type": "Social",
+     "jet": "Charisme + Persuasion",
+     "solution": "Il manque de bras : proposer un coup de main, et il vous range parmi les bénévoles."
+    }
+   ]
+  }
+ ],
+ "hopital-retraite": [
+  {
+   "titre": "La tournée de nuit",
+   "texte": "Une infirmière pousse son chariot de chambre en chambre et se rapproche.",
+   "options": [
+    {
+     "type": "Perception",
+     "jet": "Intelligence + Vigilance",
+     "solution": "Elle suit toujours le même ordre de chambres : on passe derrière elle."
+    },
+    {
+     "type": "Diversion",
+     "jet": "Manipulation + Subterfuge",
+     "solution": "Un patient l'appelle sans arrêt au bout du couloir : un appel de plus, et elle y court."
+    },
+    {
+     "type": "Larcin",
+     "jet": "Dextérité + Larcin",
+     "solution": "Elle laisse son badge sur le chariot : il suffit de l'emprunter."
+    }
+   ]
+  },
+  {
+   "titre": "Le sas à badge",
+   "texte": "La porte du service ne s'ouvre qu'avec un badge.",
+   "options": [
+    {
+     "type": "Social",
+     "jet": "Charisme + Persuasion",
+     "solution": "Le personnel retient la porte pour les collègues : un air pressé, une blouse sur le bras, et on vous la tient."
+    },
+    {
+     "type": "Perception",
+     "jet": "Astuce + Vigilance",
+     "solution": "Un badge oublié pend à une blouse, sur une patère."
+    },
+    {
+     "type": "Technique",
+     "jet": "Dextérité + Larcin",
+     "solution": "La porte met longtemps à se refermer : on se glisse derrière le dernier passé."
+    }
+   ]
+  },
+  {
+   "titre": "Le vigile",
+   "texte": "Un vigile fait les cent pas dans le hall et demande à chacun ce qu'il vient faire.",
+   "options": [
+    {
+     "type": "Social",
+     "jet": "Manipulation + Empathie",
+     "solution": "Il est au téléphone avec sa femme et a l'air inquiet : quelques mots compatissants, et il oublie de vous demander pourquoi vous êtes là."
+    },
+    {
+     "type": "Social",
+     "jet": "Charisme + Étiquette",
+     "solution": "Il laisse passer ceux qui ont l'air de savoir où ils vont : marcher droit, d'un pas assuré."
+    },
+    {
+     "type": "Savoir",
+     "jet": "Intelligence + Médecine",
+     "solution": "Les visites sont finies, mais pas les urgences : un nom de service crédible, et il vous indique même l'ascenseur."
+    }
+   ]
+  }
+ ],
+ "quartiers-bourgeois": [
+  {
+   "titre": "Le voisin vigilant",
+   "texte": "Un retraité vous observe derrière son rideau, téléphone à la main. Il fait partie de la surveillance de quartier.",
+   "options": [
+    {
+     "type": "Perception",
+     "jet": "Astuce + Vigilance",
+     "solution": "Son chien aboie sans arrêt : chaque fois, il se détourne pour le faire taire."
+    },
+    {
+     "type": "Social",
+     "jet": "Manipulation + Persuasion",
+     "solution": "La police ne se déplace plus pour lui : aller le saluer en voisin aimable, et il range son téléphone."
+    },
+    {
+     "type": "Discrétion",
+     "jet": "Dextérité + Furtivité",
+     "solution": "Il a éteint la lumière pour mieux voir dehors, mais derrière les haies il ne voit plus rien."
+    }
+   ]
+  },
+  {
+   "titre": "Les sonnettes à caméra",
+   "texte": "Toutes les maisons de la rue ont une sonnette à caméra. Leurs petits voyants bleus vous suivent.",
+   "options": [
+    {
+     "type": "Perception",
+     "jet": "Intelligence + Vigilance",
+     "solution": "Elles ne se déclenchent qu'à quelques mètres : le trottoir d'en face est hors de portée."
+    },
+    {
+     "type": "Discrétion",
+     "jet": "Dextérité + Furtivité",
+     "solution": "La maison en travaux n'a ni éclairage ni caméra : on passe par son jardin."
+    },
+    {
+     "type": "Technique",
+     "jet": "Intelligence + Technologie",
+     "solution": "Elles sont toutes sur le même réseau du quartier : quelques minutes, et elles ne filment plus rien."
+    }
+   ]
+  },
+  {
+   "titre": "Sécurité privée",
+   "texte": "Une voiture de sécurité privée fait le tour du quartier et repasse pour la deuxième fois.",
+   "options": [
+    {
+     "type": "Perception",
+     "jet": "Astuce + Vigilance",
+     "solution": "Elle repasse toutes les vingt minutes environ : on a le temps entre deux tours."
+    },
+    {
+     "type": "Social",
+     "jet": "Charisme + Étiquette",
+     "solution": "Le chauffeur ne s'arrête que pour ceux qui ont l'air perdus : avoir l'air d'habiter ici."
+    },
+    {
+     "type": "Diversion",
+     "jet": "Manipulation + Subterfuge",
+     "solution": "Un appel anonyme signale un rôdeur à l'autre bout du quartier, et la voiture fonce là-bas."
+    }
+   ]
+  }
+ ],
+ "parcs": [
+  {
+   "titre": "Le maître-chien",
+   "texte": "Une agente fait sa ronde avec un berger allemand. Le chien s'arrête et gronde dans votre direction.",
+   "options": [
+    {
+     "type": "Animaux",
+     "jet": "Charisme + Animaux",
+     "solution": "Le chien est jeune : il suffit de l'apaiser, et il retourne renifler les buissons."
+    },
+    {
+     "type": "Perception",
+     "jet": "Astuce + Vigilance",
+     "solution": "Elle suit toujours l'allée éclairée et ne coupe jamais par l'herbe : il suffit de passer par la pelouse."
+    },
+    {
+     "type": "Social",
+     "jet": "Charisme + Persuasion",
+     "solution": "Elle parle plus à son chien qu'à sa radio : un compliment sur l'animal, et elle reprend sa ronde de bonne humeur."
+    }
+   ]
+  },
+  {
+   "titre": "Le joggeur curieux",
+   "texte": "Un joggeur s'arrête à votre hauteur, essoufflé, et engage la conversation.",
+   "options": [
+    {
+     "type": "Social",
+     "jet": "Charisme + Persuasion",
+     "solution": "Il a peur du parc la nuit et cherche de la compagnie : le rassurer, lui indiquer la sortie, et il repart."
+    },
+    {
+     "type": "Perception",
+     "jet": "Astuce + Empathie",
+     "solution": "Il cherche seulement une excuse pour souffler : lui laisser reprendre son souffle, puis il file."
+    },
+    {
+     "type": "Social",
+     "jet": "Manipulation + Subterfuge",
+     "solution": "Il regarde sa montre sans arrêt : lui faire remarquer l'heure, et il se dépêche de rentrer."
+    }
+   ]
+  },
+  {
+   "titre": "Les amoureux du banc",
+   "texte": "Un couple s'est installé sur le banc, juste à côté de l'endroit idéal. Ils ne semblent pas pressés.",
+   "options": [
+    {
+     "type": "Perception",
+     "jet": "Astuce + Empathie",
+     "solution": "Ils se disputent à voix basse : un mot de trop, et elle part. Il la suit."
+    },
+    {
+     "type": "Social",
+     "jet": "Manipulation + Persuasion",
+     "solution": "Elle a froid et veut rentrer : la pousser dans ce sens, et le banc se libère."
+    },
+    {
+     "type": "Intimidation",
+     "jet": "Manipulation + Intimidation",
+     "solution": "Il veut jouer les protecteurs : un rôdeur inquiétant, et il emmène sa compagne loin d'ici."
+    }
+   ]
+  }
+ ],
+ "rue-deserte": [
+  {
+   "titre": "La fenêtre",
+   "texte": "Une fenêtre s'allume au-dessus de vous. Une silhouette se découpe derrière le rideau.",
+   "options": [
+    {
+     "type": "Perception",
+     "jet": "Astuce + Vigilance",
+     "solution": "Elle fume à la fenêtre : il suffit d'attendre la fin de sa cigarette, et elle referme."
+    },
+    {
+     "type": "Discrétion",
+     "jet": "Dextérité + Furtivité",
+     "solution": "Le porche d'en face est plongé dans le noir."
+    },
+    {
+     "type": "Perception",
+     "jet": "Intelligence + Investigation",
+     "solution": "La télé est allumée derrière elle, et son regard y retourne sans arrêt."
+    }
+   ]
+  },
+  {
+   "titre": "Le sans-abri qui parle fort",
+   "texte": "Un sans-abri vous a repéré et vous interpelle, de plus en plus fort.",
+   "options": [
+    {
+     "type": "Social",
+     "jet": "Charisme + Expérience de la rue",
+     "solution": "Il veut une cigarette ou quelques pièces : il les a, et il retourne à son carton."
+    },
+    {
+     "type": "Perception",
+     "jet": "Astuce + Vigilance",
+     "solution": "Il parle aussi aux poubelles, et les voisins ne le regardent plus : personne ne prêtera attention à ce qu'il crie."
+    },
+    {
+     "type": "Intimidation",
+     "jet": "Manipulation + Intimidation",
+     "solution": "Un seul regard, et il change de trottoir."
+    }
+   ]
+  },
+  {
+   "titre": "Lampadaire réparé",
+   "texte": "Une équipe municipale répare le seul lampadaire en panne de la rue. Projecteurs, nacelle, gilets fluo.",
+   "options": [
+    {
+     "type": "Perception",
+     "jet": "Astuce + Vigilance",
+     "solution": "Leur camion bloque la vue sur la ruelle d'à côté : c'est par là qu'il faut passer."
+    },
+    {
+     "type": "Social",
+     "jet": "Manipulation + Subterfuge",
+     "solution": "Le chef d'équipe râle contre les heures de nuit : un faux inspecteur pressé, et il remballe plus tôt."
+    },
+    {
+     "type": "Technique",
+     "jet": "Intelligence + Technologie",
+     "solution": "Un coup d'œil au boîtier électrique, et la nacelle tombe en panne : ils plient bagage."
+    }
+   ]
+  }
+ ]
 }

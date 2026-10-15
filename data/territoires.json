@@ -1,78 +1,126 @@
 [
-  {
-    "id": "kowalczyk",
-    "nom": "Marta Kowalczyk, dite « la Lingère »",
-    "clan": "Nosferatu",
-    "lieux": [
-      "morgue",
-      "hopital-retraite"
-    ],
-    "pistes": [
-      "Elle connaît le nom de chaque employé de nuit, et chacun lui doit un service.",
-      "Elle déteste le bruit et les scènes : tout se règle à voix basse.",
-      "Elle collectionne les secrets plutôt que le sang."
-    ],
-    "etapes": [
-      "Une voix dans la pénombre, sans visage : « Ces couloirs sont à moi, petit. Les morts aussi. Pars, et on n'en parlera plus. »",
-      "Elle sort de l'ombre, le visage à moitié caché par un foulard. « Je t'ai déjà prévenu. Tu sais ce que je sais de toi ? Assez. Convaincs-moi de ne pas m'en servir. »",
-      "Elle vous attendait. Deux silhouettes difformes bloquent les sorties. « Dernière fois. Après, c'est toi qui finis dans un tiroir. »"
-    ]
-  },
-  {
-    "id": "deacon",
-    "nom": "Deacon",
-    "clan": "Gangrel",
-    "lieux": [
-      "parcs",
-      "cimetieres"
-    ],
-    "pistes": [
-      "Il marque son territoire de griffures sur les arbres et les stèles.",
-      "Il respecte la force, et méprise les beaux discours.",
-      "Un chien errant le suit partout."
-    ],
-    "etapes": [
-      "Un grondement sourd entre les arbres. Une silhouette accroupie vous fixe, les yeux luisants. « Pas ici. Va-t'en. »",
-      "Il vous barre le chemin, les ongles déjà trop longs. « Deux fois. Une troisième, et je ne parlerai plus. » Il attend une raison de ne pas frapper.",
-      "Il ne dit rien. La Bête est dans ses yeux, et il tourne autour de vous comme un loup. Il faudra beaucoup pour l'arrêter."
-    ]
-  },
-  {
-    "id": "fils-acier",
-    "nom": "Rook et les Fils de l'Acier",
-    "clan": "Brujah, meute Anarch",
-    "lieux": [
-      "rue-deserte",
-      "drogues"
-    ],
-    "pistes": [
-      "Ils se réclament de la classe ouvrière de Gary et détestent la Camarilla.",
-      "Rook tient à sa réputation devant ses gars.",
-      "Ils sont toujours à trois ou quatre, jamais seuls."
-    ],
-    "etapes": [
-      "Trois types en blouson vous entourent. Rook sourit : « Joli coin, hein ? Il est à nous. Dégage, et on reste amis. »",
-      "Ils sont cinq cette fois. Rook fait craquer ses doigts : « On t'avait dit. Explique-moi pourquoi je devrais pas te faire un exemple. »",
-      "Barres de fer, chaînes, toute la meute. Rook ne sourit plus : « Ce soir, tu paies. Sauf si t'as un sacré argument. »"
-    ]
-  },
-  {
-    "id": "ashby",
-    "nom": "Julian Ashby",
-    "clan": "Toréador",
-    "lieux": [
-      "bars",
-      "quartiers-bourgeois"
-    ],
-    "pistes": [
-      "Il a toujours deux goules élégantes avec lui.",
-      "Il adore les compliments, et encore plus les dettes.",
-      "Il ne se salit jamais les mains lui-même."
-    ],
-    "etapes": [
-      "Un homme impeccable lève son verre dans votre direction et vous fait signe d'approcher. « Vous chassez chez moi, très cher. Une fois, c'est de l'ignorance. »",
-      "Ses deux goules vous encadrent poliment. Ashby soupire : « Deux fois, c'est de l'insolence. Qu'avez-vous à m'offrir pour la réparer ? »",
-      "Les goules ont des armes sous leurs vestes, et Ashby a perdu son sourire. « Trois fois, c'est une déclaration de guerre. Choisissez bien vos mots. »"
-    ]
-  }
+ {
+  "id": "kowalczyk",
+  "nom": "Marta Kowalczyk, dite « la Lingère »",
+  "clan": "Nosferatu",
+  "lieux": [
+   "morgue",
+   "hopital-retraite"
+  ],
+  "etapes": [
+   "Une voix dans la pénombre, sans visage : « Ces couloirs sont à moi, petit. Les morts aussi. Pars, et on n'en parlera plus. »",
+   "Elle sort de l'ombre, le visage à moitié caché par un foulard. « Je t'ai déjà prévenu. Tu sais ce que je sais de toi ? Assez. Convaincs-moi de ne pas m'en servir. »",
+   "Elle vous attendait. Deux silhouettes difformes bloquent les sorties. « Dernière fois. Après, c'est toi qui finis dans un tiroir. »"
+  ],
+  "options": [
+   {
+    "type": "Social",
+    "jet": "Manipulation + Persuasion",
+    "solution": "Elle collectionne les secrets plutôt que le sang : lui en offrir un, et elle vous laisse passer… cette fois."
+   },
+   {
+    "type": "Social",
+    "jet": "Charisme + Étiquette",
+    "solution": "Elle déteste le bruit et les scènes : une voix basse, des excuses en règle, et elle se calme."
+   },
+   {
+    "type": "Intimidation",
+    "jet": "Manipulation + Intimidation",
+    "solution": "Chaque employé de nuit lui doit un service : lui rappeler qu'un scandale lui coûterait tout son réseau."
+   }
+  ]
+ },
+ {
+  "id": "deacon",
+  "nom": "Deacon",
+  "clan": "Gangrel",
+  "lieux": [
+   "parcs",
+   "cimetieres"
+  ],
+  "etapes": [
+   "Un grondement sourd entre les arbres. Une silhouette accroupie vous fixe, les yeux luisants. « Pas ici. Va-t'en. »",
+   "Il vous barre le chemin, les ongles déjà trop longs. « Deux fois. Une troisième, et je ne parlerai plus. » Il attend une raison de ne pas frapper.",
+   "Il ne dit rien. La Bête est dans ses yeux, et il tourne autour de vous comme un loup. Il faudra beaucoup pour l'arrêter."
+  ],
+  "options": [
+   {
+    "type": "Intimidation",
+    "jet": "Force + Intimidation",
+    "solution": "Il respecte la force et méprise les beaux discours : tenir son regard sans reculer d'un pas."
+   },
+   {
+    "type": "Animaux",
+    "jet": "Charisme + Animaux",
+    "solution": "Le chien errant qui le suit partout : gagner l'animal, et Deacon baisse sa garde."
+   },
+   {
+    "type": "Survie",
+    "jet": "Astuce + Survie",
+    "solution": "Il marque son territoire de griffures : reconnaître ses frontières, en proposer une claire, et la respecter."
+   }
+  ]
+ },
+ {
+  "id": "fils-acier",
+  "nom": "Rook et les Fils de l'Acier",
+  "clan": "Brujah, meute Anarch",
+  "lieux": [
+   "rue-deserte",
+   "drogues"
+  ],
+  "etapes": [
+   "Trois types en blouson vous entourent. Rook sourit : « Joli coin, hein ? Il est à nous. Dégage, et on reste amis. »",
+   "Ils sont cinq cette fois. Rook fait craquer ses doigts : « On t'avait dit. Explique-moi pourquoi je devrais pas te faire un exemple. »",
+   "Barres de fer, chaînes, toute la meute. Rook ne sourit plus : « Ce soir, tu paies. Sauf si t'as un sacré argument. »"
+  ],
+  "options": [
+   {
+    "type": "Social",
+    "jet": "Charisme + Commandement",
+    "solution": "Rook tient à sa réputation devant ses gars : lui laisser le beau rôle, et il vous laisse partir."
+   },
+   {
+    "type": "Social",
+    "jet": "Manipulation + Politique",
+    "solution": "Ils détestent la Camarilla : parler de l'ennemi commun, et la meute se détend."
+   },
+   {
+    "type": "Intimidation",
+    "jet": "Force + Intimidation",
+    "solution": "Ils ne sont jamais seuls : défier Rook en tête-à-tête, devant ses hommes, l'oblige à respecter votre cran."
+   }
+  ]
+ },
+ {
+  "id": "ashby",
+  "nom": "Julian Ashby",
+  "clan": "Toréador",
+  "lieux": [
+   "bars",
+   "quartiers-bourgeois"
+  ],
+  "etapes": [
+   "Un homme impeccable lève son verre dans votre direction et vous fait signe d'approcher. « Vous chassez chez moi, très cher. Une fois, c'est de l'ignorance. »",
+   "Ses deux goules vous encadrent poliment. Ashby soupire : « Deux fois, c'est de l'insolence. Qu'avez-vous à m'offrir pour la réparer ? »",
+   "Les goules ont des armes sous leurs vestes, et Ashby a perdu son sourire. « Trois fois, c'est une déclaration de guerre. Choisissez bien vos mots. »"
+  ],
+  "options": [
+   {
+    "type": "Social",
+    "jet": "Manipulation + Étiquette",
+    "solution": "Il adore les compliments : flatter son goût, son domaine, sa cour."
+   },
+   {
+    "type": "Social",
+    "jet": "Manipulation + Finances",
+    "solution": "Il adore encore plus les dettes : accepter de lui devoir un service."
+   },
+   {
+    "type": "Subterfuge",
+    "jet": "Charisme + Subterfuge",
+    "solution": "Il ne se salit jamais les mains : lui faire croire que vous êtes protégé par plus puissant que lui."
+   }
+  ]
+ }
 ]
