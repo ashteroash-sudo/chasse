@@ -34,6 +34,11 @@
     "reussite": "Vous lui rappelez qu'un scandale lui coûterait tout : elle recule, glaciale.",
     "echec": "« Tu me menaces ? Chez moi ? » Elle siffle, et vous n'êtes plus du tout le bienvenu."
    }
+  ],
+  "presages": [
+   "Au bout du couloir, une ombre glisse le long du mur. Vous regardez mieux : il n'y a rien.",
+   "Une porte se referme doucement quelque part derrière vous. Personne n'est passé.",
+   "Une odeur de terre humide et de vieux linge flotte un instant dans l'air, puis disparaît."
   ]
  },
  {
@@ -71,6 +76,11 @@
     "reussite": "Vous reconnaissez ses marques et proposez une limite claire. Il accepte d'un grognement.",
     "echec": "Vous vous trompez de frontière : vous êtes en plein cœur de son domaine."
    }
+  ],
+  "presages": [
+   "Une meute de rats déboule d'un buisson et vous frôle les chevilles, sans un bruit, avant de disparaître.",
+   "Des griffures fraîches lacèrent l'écorce d'un arbre, à hauteur d'homme. Elles n'y étaient pas la dernière fois.",
+   "Un chien errant vous observe de loin, immobile. Quand vous vous retournez, il n'est plus là."
   ]
  },
  {
@@ -108,6 +118,11 @@
     "reussite": "Vous défiez Rook en tête-à-tête devant ses hommes : il respecte votre cran.",
     "echec": "Il accepte le défi, et toute la meute fait cercle autour de vous."
    }
+  ],
+  "presages": [
+   "Un tag frais sur le mur, encore humide : un poing serré autour d'une clé à molette.",
+   "Le grondement d'une moto passe au ralenti au bout de la rue, puis s'éloigne. Le même, deux fois déjà.",
+   "Quelqu'un siffle un air ouvrier dans une ruelle voisine. Le sifflement s'arrête quand vous écoutez."
   ]
  },
  {
@@ -145,6 +160,11 @@
     "reussite": "Vous laissez entendre que quelqu'un de plus puissant vous protège. Il préfère ne pas vérifier.",
     "echec": "Il appelle un nom au hasard, et personne ne vous connaît. Il sait que vous bluffez."
    }
+  ],
+  "presages": [
+   "Une rose rouge est posée sur votre chemin. Personne ne l'a vue arriver.",
+   "Le barman vous sert un verre que vous n'avez pas commandé : « De la part d'un admirateur. »",
+   "Un homme élégant vous salue d'un léger signe de tête à travers la vitre, puis se fond dans la foule."
   ]
  }
 ]
