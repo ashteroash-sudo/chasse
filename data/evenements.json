@@ -7,17 +7,23 @@
     {
      "type": "Social",
      "jet": "Manipulation + Persuasion",
-     "solution": "L'agent est en fin de service et ne pense qu'à rentrer : une explication plausible, et il remonte sa vitre."
+     "amorce": "L'agent baisse sa lampe : « Vous faites quoi dans le coin à cette heure-ci ? » Il a l'air épuisé.",
+     "reussite": "Il hoche la tête, bâille, remonte sa vitre. La voiture redémarre : il ne pense qu'à finir son service.",
+     "echec": "« Papiers, s'il vous plaît. » Il note votre nom et vous suit des yeux jusqu'au coin de la rue. Mieux vaut chasser ailleurs."
     },
     {
      "type": "Perception",
      "jet": "Astuce + Vigilance",
-     "solution": "La radio annonce un appel urgent dans une autre rue : il suffit de rester calme quelques secondes, la voiture repart."
+     "amorce": "Vous restez immobile. Dans l'habitacle, la radio crépite : une voix parle d'une adresse, d'un code.",
+     "reussite": "L'appel est urgent et ce n'est pas pour vous : gyrophare, demi-tour, la voiture disparaît.",
+     "echec": "La radio se tait. L'agent ouvre sa portière et descend : il veut vous parler de plus près."
     },
     {
      "type": "Discrétion",
      "jet": "Dextérité + Furtivité",
-     "solution": "Un porche sombre à deux pas : le temps que la lampe revienne, il n'y a plus personne."
+     "amorce": "Le faisceau balaie le trottoir. Juste derrière vous, un porche plongé dans le noir.",
+     "reussite": "Le temps que la lampe revienne, il n'y a plus personne. La voiture finit par repartir.",
+     "echec": "Votre ombre glisse sur le mur pile dans le faisceau. « Hé ! Vous, là ! » Il vaut mieux partir."
     }
    ]
   },
@@ -28,17 +34,23 @@
     {
      "type": "Social",
      "jet": "Charisme + Persuasion",
-     "solution": "Il cherche le buzz, pas la police : lui offrir mieux à filmer ailleurs suffit à le détourner."
+     "amorce": "Il s'approche, téléphone toujours levé : « Attends… je te connais, toi, non ? »",
+     "reussite": "Il vous a confondu avec une célébrité locale. Un selfie, une poignée de main, et il repart ravi.",
+     "echec": "« Je t'ai vu tourner autour des gens, toi. T'es louche. » Il continue de filmer, en parle à voix haute à ses abonnés. Mieux vaut disparaître."
     },
     {
      "type": "Perception",
      "jet": "Astuce + Vigilance",
-     "solution": "Sa batterie clignote en rouge : un peu de patience, et l'écran s'éteint tout seul."
+     "amorce": "Vous faites semblant de chercher quelque chose dans votre poche. Son écran éclaire son visage d'un blanc froid.",
+     "reussite": "Sa batterie lâche. Il jure, range son téléphone et s'en va chercher une prise.",
+     "echec": "Il change d'angle pour mieux vous cadrer, et commence à commenter votre allure. Son public adore."
     },
     {
      "type": "Discrétion",
      "jet": "Dextérité + Furtivité",
-     "solution": "Il filme ce qui bouge : se fondre dans le décor, et il passe à autre chose."
+     "amorce": "Il cherche un sujet qui bouge. Quelques pas suffiraient à sortir de son cadre.",
+     "reussite": "Quand il relève les yeux de son écran, vous n'êtes plus là. Il filme déjà autre chose.",
+     "echec": "Il vous suit, téléphone tendu : « Pourquoi tu te caches ? » Ça commence à attirer du monde."
     }
    ]
   }
@@ -51,17 +63,23 @@
     {
      "type": "Perception",
      "jet": "Intelligence + Vigilance",
-     "solution": "Il fait toujours le même trajet, dans le même ordre : il suffit de passer dans son dos."
+     "amorce": "Vous suivez la lumière des yeux : il s'arrête à chaque croisement, éclaire, repart.",
+     "reussite": "Toujours le même trajet, dans le même ordre : il suffit de passer dans son dos au bon moment.",
+     "echec": "Il change brusquement de direction et vous tombe presque dessus. « Le cimetière est fermé ! » Il appelle déjà sur sa radio."
     },
     {
      "type": "Discrétion",
      "jet": "Dextérité + Furtivité",
-     "solution": "Le cabanon à outils est resté ouvert : une cachette parfaite le temps qu'il passe."
+     "amorce": "À quelques mètres, la porte du cabanon à outils bat doucement dans le vent.",
+     "reussite": "Vous vous glissez à l'intérieur. Les pas passent, s'éloignent. La voie est libre.",
+     "echec": "Le gravier crisse sous vos pieds. Le faisceau se fige sur vous. « Sortez de là ! »"
     },
     {
      "type": "Social",
      "jet": "Manipulation + Subterfuge",
-     "solution": "Un visiteur égaré qui cherche une tombe : il le raccompagne même jusqu'à la bonne allée."
+     "amorce": "Vous marchez vers lui, l'air perdu. Il braque sa lampe sur votre visage : « On ne se promène pas ici la nuit. »",
+     "reussite": "Un proche enterré récemment, une tombe introuvable : il s'adoucit et vous laisse « chercher encore un peu ».",
+     "echec": "Il ne croit pas un mot de votre histoire. Il vous raccompagne jusqu'à la grille et attend que vous soyez loin."
     }
    ]
   },
@@ -72,17 +90,23 @@
     {
      "type": "Intimidation",
      "jet": "Manipulation + Intimidation",
-     "solution": "Ils ont peur du lieu et de ses fantômes : un bruit, une silhouette entre les caveaux, et ils détalent."
+     "amorce": "Ils se racontent une histoire de fantôme, et sursautent au moindre bruit. Une silhouette entre les caveaux leur ferait de l'effet.",
+     "reussite": "Un craquement, une ombre qui passe : les cris fusent, ils détalent en laissant leurs bouteilles.",
+     "echec": "L'un d'eux vous repère et éclate de rire : « Hé, le gothique ! Viens boire un coup ! » Ils sont tous tournés vers vous, téléphones en main."
     },
     {
      "type": "Perception",
      "jet": "Astuce + Vigilance",
-     "solution": "Ils parlent de partir avant le passage du gardien : il suffit d'attendre leur départ."
+     "amorce": "Vous tendez l'oreille. Ils parlent de l'heure, du gardien, de qui rentre à pied.",
+     "reussite": "Ils ont peur que le gardien passe : vingt minutes plus tard, ils remballent et partent.",
+     "echec": "Ils décident de rester jusqu'au matin. Et l'un d'eux commence à explorer les allées… dans votre direction."
     },
     {
      "type": "Social",
      "jet": "Charisme + Persuasion",
-     "solution": "L'un d'eux est malade derrière un caveau : proposer de l'aide, et ses amis décident de le ramener chez lui."
+     "amorce": "Derrière un caveau, l'un d'eux est malade. Les autres ne savent pas quoi faire.",
+     "reussite": "Vous les aidez à le relever, conseillez de le ramener chez lui : ils partent tous ensemble, soulagés.",
+     "echec": "« T'es qui, toi ? Tu nous suis depuis quand ? » Ils se méfient, et l'un parle d'appeler quelqu'un."
     }
    ]
   },
@@ -93,17 +117,23 @@
     {
      "type": "Perception",
      "jet": "Astuce + Vigilance",
-     "solution": "Le mausolée voisin crée un angle mort : le chemin passe derrière lui."
+     "amorce": "Vous étudiez son angle. Le mausolée voisin projette une grande ombre sur une partie de l'allée.",
+     "reussite": "Il y a un angle mort derrière le mausolée : le chemin passe hors du champ.",
+     "echec": "Vous vous êtes trompé d'angle : le petit voyant rouge vous fixe droit dans les yeux."
     },
     {
      "type": "Technique",
      "jet": "Intelligence + Technologie",
-     "solution": "Le câble court le long du mur jusqu'au local du gardien : un geste discret, et la caméra filme dans le vide."
+     "amorce": "Un câble court le long du mur jusqu'au local du gardien. Il y a un boîtier à mi-chemin.",
+     "reussite": "Un geste discret sur le boîtier : la caméra filme désormais le ciel.",
+     "echec": "Une alarme stridente se déclenche dans le local. Des lumières s'allument."
     },
     {
      "type": "Discrétion",
      "jet": "Dextérité + Furtivité",
-     "solution": "Le voyant suit le rythme du balayage : on passe entre deux passages de l'objectif."
+     "amorce": "La caméra pivote lentement, d'un côté puis de l'autre.",
+     "reussite": "En suivant le rythme du balayage, vous passez entre deux passages de l'objectif.",
+     "echec": "Elle revient plus vite que prévu. Votre silhouette est enregistrée, nette, en pleine allée."
     }
    ]
   }
@@ -116,17 +146,23 @@
     {
      "type": "Discrétion",
      "jet": "Dextérité + Furtivité",
-     "solution": "Il porte des écouteurs et n'entend rien : il suffit de rester hors de son champ de vision."
+     "amorce": "Par la porte entrouverte, vous le voyez de dos, penché sur une table, des écouteurs sur les oreilles.",
+     "reussite": "Il n'entend rien. Vous longez le mur sans entrer dans son champ de vision.",
+     "echec": "Il se retourne pour attraper un instrument et vous voit. Il arrache ses écouteurs : « Qui êtes-vous ? »"
     },
     {
      "type": "Perception",
      "jet": "Astuce + Vigilance",
-     "solution": "Il va souvent à la machine à café au bout du couloir : c'est le moment de passer."
+     "amorce": "Trois gobelets vides traînent près de lui. La machine à café est au bout du couloir.",
+     "reussite": "Il part se resservir, comme prévu. Vous avez quelques minutes.",
+     "echec": "Il revient plus tôt que prévu, gobelet à la main, et s'arrête net en vous voyant."
     },
     {
      "type": "Social",
      "jet": "Manipulation + Subterfuge",
-     "solution": "Il est épuisé : un faux collègue venu prendre la relève, et il rentre chez lui ravi."
+     "amorce": "Vous frappez à la porte, l'air fatigué. Il lève les yeux, surpris : « On m'avait pas dit qu'il y aurait quelqu'un. »",
+     "reussite": "« La relève ? Enfin ! » Il est trop épuisé pour poser des questions et rentre chez lui ravi.",
+     "echec": "Il fronce les sourcils : « Je connais toute l'équipe de nuit. » Il décroche le téléphone mural."
     }
    ]
   },
@@ -137,17 +173,23 @@
     {
      "type": "Perception",
      "jet": "Intelligence + Vigilance",
-     "solution": "Le moniteur est à l'accueil, et personne n'est assis devant : la caméra filme, mais personne ne regarde."
+     "amorce": "Vous jetez un œil vers l'accueil : le moniteur de surveillance est allumé, la chaise devant est vide.",
+     "reussite": "Personne ne regarde : la caméra filme, mais ce soir, tout le monde s'en moque.",
+     "echec": "Le vigile revient s'asseoir devant l'écran au moment où vous entrez dans le champ."
     },
     {
      "type": "Technique",
      "jet": "Intelligence + Technologie",
-     "solution": "L'image saute toutes les trente secondes : on passe pendant la coupure."
+     "amorce": "L'image du moniteur saute régulièrement : le système est vieux.",
+     "reussite": "Toutes les trente secondes, la coupure : vous passez pendant ce trou noir.",
+     "echec": "Vous vous trompez de rythme : vous êtes enregistré, en gros plan, devant la porte."
     },
     {
      "type": "Larcin",
      "jet": "Dextérité + Larcin",
-     "solution": "La porte de service n'est pas dans le champ : il suffit de la crocheter."
+     "amorce": "La porte de service, au fond, n'est pas dans le champ. Elle est fermée à clé.",
+     "reussite": "La serrure cède en silence. Vous êtes dedans, invisible.",
+     "echec": "Le crochet se brise dans la serrure. Le bruit résonne, et quelqu'un approche."
     }
    ]
   },
@@ -158,17 +200,23 @@
     {
      "type": "Social",
      "jet": "Manipulation + Subterfuge",
-     "solution": "Ils ont un formulaire à faire signer : un employé de nuit serviable signe, et ils repartent aussitôt."
+     "amorce": "L'un d'eux agite un formulaire : « Il faut une signature, y a personne à l'accueil ? »",
+     "reussite": "Vous signez d'un geste assuré. Ils vous remercient et repartent aussitôt.",
+     "echec": "« Vous travaillez ici, vous ? Je vous ai jamais vu. » Ils restent, et attendent quelqu'un d'autre."
     },
     {
      "type": "Perception",
      "jet": "Astuce + Vigilance",
-     "solution": "Ils s'allument une cigarette dehors avant d'entrer : la porte reste ouverte dans leur dos."
+     "amorce": "Ils pestent contre l'heure et sortent leurs cigarettes avant même d'avoir déchargé.",
+     "reussite": "Ils fument dehors, la porte reste ouverte dans leur dos : vous entrez.",
+     "echec": "Ils écrasent leur cigarette plus tôt que prévu et vous trouvent dans le couloir."
     },
     {
      "type": "Physique",
      "jet": "Force + Athlétisme",
-     "solution": "Ils sont pressés et le corps est lourd : un coup de main, et ils oublient de se demander qui vous êtes."
+     "amorce": "Le brancard coince dans l'encadrement de la porte. Ils soufflent, s'énervent.",
+     "reussite": "Un coup de main, et le corps est rentré. Ils vous remercient sans se demander qui vous êtes.",
+     "echec": "Le brancard bascule. Le drap glisse, ils hurlent, et la sécurité arrive en courant."
     }
    ]
   }
@@ -181,17 +229,23 @@
     {
      "type": "Social",
      "jet": "Charisme + Persuasion",
-     "solution": "Il cherche son ex des yeux : lui faire croire qu'elle est là et qu'elle le regarde, et il vous oublie."
+     "amorce": "Il vous souffle son haleine de bière au visage, mais ses yeux cherchent sans arrêt quelqu'un dans la salle.",
+     "reussite": "Vous lui glissez que son ex le regarde depuis le comptoir : il se recoiffe et file la rejoindre.",
+     "echec": "Il hausse le ton : « Tu me prends pour un con ? » Tout le bar se retourne vers vous."
     },
     {
      "type": "Perception",
      "jet": "Astuce + Empathie",
-     "solution": "Ses potes rigolent dans son dos : c'est un pari. Le faire perdre avec humour, et il retourne à sa table, vexé."
+     "amorce": "À sa table, ses potes se donnent des coups de coude en vous regardant.",
+     "reussite": "C'est un pari. Vous le faites perdre avec humour, et il retourne à sa table, vexé, sous les rires.",
+     "echec": "Ses potes se lèvent pour le soutenir. Vous voilà entouré de quatre types éméchés."
     },
     {
      "type": "Diversion",
      "jet": "Manipulation + Subterfuge",
-     "solution": "Le barman le surveille déjà : un signe discret, et c'est lui qui le raccompagne dehors."
+     "amorce": "Derrière le comptoir, le barman ne le quitte pas des yeux. Il le connaît.",
+     "reussite": "Un signe discret au barman : c'est lui qui raccompagne l'importun dehors.",
+     "echec": "Le barman vous croit responsable du grabuge : « Toi aussi, tu sors. »"
     }
    ]
   },
@@ -202,17 +256,23 @@
     {
      "type": "Social",
      "jet": "Manipulation + Persuasion",
-     "solution": "Il empoche volontiers les billets qu'on lui tend : un pourboire généreux, et il regarde ailleurs."
+     "amorce": "Vous vous approchez. Il croise les bras : « Un problème ? »",
+     "reussite": "Un billet glissé dans sa main, une plaisanterie : il vous tape sur l'épaule et regarde ailleurs.",
+     "echec": "Il repousse votre main : « T'essaies de m'acheter ? Dehors. »"
     },
     {
      "type": "Perception",
      "jet": "Astuce + Vigilance",
-     "solution": "Son chef l'appelle sans arrêt à l'oreillette : il suffit d'attendre l'appel suivant."
+     "amorce": "Il porte une oreillette et y répond sans arrêt, l'air agacé.",
+     "reussite": "Son chef l'appelle encore : il disparaît vers l'entrée, et vous avez le champ libre.",
+     "echec": "Son chef lui parle de vous. Il raccroche et marche droit dans votre direction."
     },
     {
      "type": "Social",
      "jet": "Charisme + Étiquette",
-     "solution": "Il soigne les habitués importants : jouer le client VIP, et il vous salue presque."
+     "amorce": "Il salue les habitués importants d'un signe de tête respectueux.",
+     "reussite": "Vous jouez le client VIP, l'air de chez vous : il vous salue presque, et cesse de vous surveiller.",
+     "echec": "« Toi, t'es pas d'ici. » Il vous demande de le suivre vers la sortie."
     }
    ]
   },
@@ -223,17 +283,23 @@
     {
      "type": "Perception",
      "jet": "Astuce + Vigilance",
-     "solution": "Tout le monde regarde la bagarre : personne ne remarque une proie qui s'éclipse avec vous."
+     "amorce": "Tout le monde a les yeux rivés sur la bagarre. Personne ne regarde le reste de la salle.",
+     "reussite": "Dans le chaos, personne ne remarque une proie qui s'éclipse avec vous.",
+     "echec": "Les sirènes arrivent plus tôt que prévu. Les flics bloquent la sortie et prennent les noms."
     },
     {
      "type": "Discrétion",
      "jet": "Dextérité + Furtivité",
-     "solution": "La sortie de secours est entrouverte : on file avant l'arrivée des flics."
+     "amorce": "Près des toilettes, la sortie de secours est entrouverte.",
+     "reussite": "Vous filez dehors avant l'arrivée de la police.",
+     "echec": "Un serveur vous voit filer et crie aux flics qu'il y en a un qui s'échappe par derrière."
     },
     {
      "type": "Physique",
      "jet": "Force + Bagarre",
-     "solution": "Un des bagarreurs vous prend à partie : un seul coup bien placé, et plus personne n'insiste."
+     "amorce": "Un des bagarreurs se tourne vers vous, poings levés : « Et toi, tu regardes quoi ? »",
+     "reussite": "Un seul coup bien placé. Il s'effondre, et plus personne n'a envie d'insister.",
+     "echec": "Vous voilà au cœur de la mêlée, et tout le monde vous a vu frapper."
     }
    ]
   }
@@ -246,17 +312,23 @@
     {
      "type": "Perception",
      "jet": "Astuce + Expérience de la rue",
-     "solution": "Ils cherchent quelqu'un de précis, une photo à la main : ce n'est pas vous, il suffit de ne pas courir."
+     "amorce": "Un agent brandit une photo et interroge tous ceux qui ne courent pas assez vite.",
+     "reussite": "Ils cherchent quelqu'un de précis, et ce n'est pas vous : vous ne courez pas, et ils vous ignorent.",
+     "echec": "Ils raflent tout le monde sans distinction. Vous voilà contre un mur, les mains sur la tête."
     },
     {
      "type": "Discrétion",
      "jet": "Dextérité + Furtivité",
-     "solution": "Une cage d'escalier est restée ouverte : on monte, et on attend que ça passe."
+     "amorce": "La porte d'une cage d'escalier claque dans le vent, juste à côté.",
+     "reussite": "Vous montez, vous attendez dans le noir que ça passe.",
+     "echec": "Un agent vous voit entrer et vous suit dans l'escalier, lampe au poing."
     },
     {
      "type": "Social",
      "jet": "Manipulation + Subterfuge",
-     "solution": "Une seule voiture, des agents débordés : un faux témoin les envoie dans la mauvaise rue."
+     "amorce": "Une seule voiture, deux agents débordés. L'un d'eux vous interpelle : « Vous avez vu quelqu'un courir ? »",
+     "reussite": "Vous les envoyez dans la mauvaise rue. Ils repartent en trombe.",
+     "echec": "Il remarque que vous mentez : « Vous allez venir avec nous, vous. »"
     }
    ]
   },
@@ -267,17 +339,23 @@
     {
      "type": "Intimidation",
      "jet": "Manipulation + Intimidation",
-     "solution": "Il a une arme, mais n'ose pas la sortir : un regard suffit à le faire reculer."
+     "amorce": "Il garde la main dans sa poche, sur quelque chose. Mais il n'ose pas la sortir.",
+     "reussite": "Un seul regard, et il recule. Il ne veut pas d'histoires avec vous.",
+     "echec": "Il sort enfin son arme, et ses potes rappliquent du coin de la rue."
     },
     {
      "type": "Perception",
      "jet": "Astuce + Empathie",
-     "solution": "Il doit de l'argent à quelqu'un, et il a peur : lui parler de sa dette, et il a soudain mieux à faire."
+     "amorce": "Il est nerveux, regarde sans arrêt derrière lui. Il a peur de quelqu'un, et ce n'est pas vous.",
+     "reussite": "Vous lui parlez de la personne à qui il doit de l'argent : il a soudain mieux à faire.",
+     "echec": "« Tu viens de sa part, c'est ça ? » Il panique, et appelle des renforts."
     },
     {
      "type": "Social",
      "jet": "Charisme + Expérience de la rue",
-     "solution": "Il regarde sans arrêt derrière lui : le rassurer, vous n'êtes ni un concurrent ni un flic."
+     "amorce": "« T'es qui, toi ? Je t'ai jamais vu ici. »",
+     "reussite": "Vous n'êtes ni un concurrent ni un flic : il se détend et vous laisse passer.",
+     "echec": "Il ne vous croit pas : « Je vais dire à tout le monde de se méfier de toi. »"
     }
    ]
   },
@@ -288,17 +366,23 @@
     {
      "type": "Social",
      "jet": "Manipulation + Subterfuge",
-     "solution": "Il croit que vous êtes un nouvel usager : jouer le jeu, prendre le café, et il passe au suivant."
+     "amorce": "Il vous tend un gobelet de café : « Toi, t'es nouveau. Tu as besoin de quelque chose ? »",
+     "reussite": "Vous jouez le nouvel usager, prenez le café. Il vous laisse sa carte et passe au suivant.",
+     "echec": "Il vous regarde trop longtemps : « T'as pas la tête de quelqu'un qui consomme. Tu cherches quoi ici ? »"
     },
     {
      "type": "Perception",
      "jet": "Astuce + Vigilance",
-     "solution": "Il prend des notes dans son carnet : il suffit d'attendre qu'il ait le nez dedans."
+     "amorce": "Il note tout dans un carnet : les noms, les visages, les heures.",
+     "reussite": "Vous attendez qu'il ait le nez dedans pour passer derrière lui.",
+     "echec": "Il lève les yeux pile au mauvais moment et note quelque chose. Votre description ?"
     },
     {
      "type": "Social",
      "jet": "Charisme + Persuasion",
-     "solution": "Il manque de bras : proposer un coup de main, et il vous range parmi les bénévoles."
+     "amorce": "Il croule sous les sacs et les thermos, et il est seul.",
+     "reussite": "Vous lui proposez un coup de main : il vous range parmi les bénévoles et ne vous voit plus.",
+     "echec": "Il refuse poliment, puis vous observe de loin toute la soirée."
     }
    ]
   }
@@ -311,17 +395,23 @@
     {
      "type": "Perception",
      "jet": "Intelligence + Vigilance",
-     "solution": "Elle suit toujours le même ordre de chambres : on passe derrière elle."
+     "amorce": "Vous comptez les portes : elle entre, ressort, passe à la suivante. Toujours dans le même sens.",
+     "reussite": "Elle suit toujours le même ordre : vous passez derrière elle sans qu'elle se retourne.",
+     "echec": "Elle saute une chambre et ressort juste devant vous : « Vous cherchez quelqu'un ? »"
     },
     {
      "type": "Diversion",
      "jet": "Manipulation + Subterfuge",
-     "solution": "Un patient l'appelle sans arrêt au bout du couloir : un appel de plus, et elle y court."
+     "amorce": "Au bout du couloir, un patient l'appelle sans arrêt d'une voix plaintive.",
+     "reussite": "Un appel de plus, plus pressant : elle laisse son chariot et y court.",
+     "echec": "Elle comprend que l'appel ne vient pas de la chambre. Elle appelle la sécurité."
     },
     {
      "type": "Larcin",
      "jet": "Dextérité + Larcin",
-     "solution": "Elle laisse son badge sur le chariot : il suffit de l'emprunter."
+     "amorce": "Elle a laissé son badge sur le chariot, entre deux boîtes de compresses.",
+     "reussite": "Vous l'empruntez discrètement : les portes s'ouvrent devant vous.",
+     "echec": "Elle se retourne au moment où votre main se pose sur le chariot. « Hé ! »"
     }
    ]
   },
@@ -332,17 +422,23 @@
     {
      "type": "Social",
      "jet": "Charisme + Persuasion",
-     "solution": "Le personnel retient la porte pour les collègues : un air pressé, une blouse sur le bras, et on vous la tient."
+     "amorce": "Un aide-soignant arrive, badge en main, et vous jette un coup d'œil.",
+     "reussite": "Un air pressé, un « merci, collègue » : il vous tient la porte sans réfléchir.",
+     "echec": "« Vous êtes de quel service ? » Il laisse la porte se refermer devant vous."
     },
     {
      "type": "Perception",
      "jet": "Astuce + Vigilance",
-     "solution": "Un badge oublié pend à une blouse, sur une patère."
+     "amorce": "Vous cherchez autour de vous. Des blouses pendent à des patères près de la salle de pause.",
+     "reussite": "Un badge oublié pend à l'une d'elles. Il suffit de le prendre.",
+     "echec": "Quelqu'un sort de la salle de pause et vous trouve la main dans une poche de blouse."
     },
     {
      "type": "Technique",
      "jet": "Dextérité + Larcin",
-     "solution": "La porte met longtemps à se refermer : on se glisse derrière le dernier passé."
+     "amorce": "Vous observez la porte : elle met longtemps à se refermer après chaque passage.",
+     "reussite": "Vous vous glissez derrière le dernier passé, juste avant le déclic.",
+     "echec": "La porte se referme sur votre bras. L'alarme du sas se met à sonner."
     }
    ]
   },
@@ -353,17 +449,23 @@
     {
      "type": "Social",
      "jet": "Manipulation + Empathie",
-     "solution": "Il est au téléphone avec sa femme et a l'air inquiet : quelques mots compatissants, et il oublie de vous demander pourquoi vous êtes là."
+     "amorce": "Il raccroche son téléphone, l'air inquiet. Vous l'avez entendu parler à sa femme.",
+     "reussite": "Quelques mots compatissants : il vous parle d'elle, et oublie de vous demander pourquoi vous êtes là.",
+     "echec": "Il se ferme : « Ça vous regarde pas. Vous venez voir qui ? »"
     },
     {
      "type": "Social",
      "jet": "Charisme + Étiquette",
-     "solution": "Il laisse passer ceux qui ont l'air de savoir où ils vont : marcher droit, d'un pas assuré."
+     "amorce": "Il laisse passer ceux qui ont l'air de savoir où ils vont.",
+     "reussite": "Vous marchez droit, d'un pas assuré, avec un signe de tête : il vous rend votre salut.",
+     "echec": "Votre hésitation ne lui échappe pas : « Excusez-moi ! Vous allez où ? »"
     },
     {
      "type": "Savoir",
      "jet": "Intelligence + Médecine",
-     "solution": "Les visites sont finies, mais pas les urgences : un nom de service crédible, et il vous indique même l'ascenseur."
+     "amorce": "« Les visites sont finies depuis longtemps », lâche-t-il en vous barrant le passage.",
+     "reussite": "Un nom de service crédible, un terme médical bien placé : il vous indique même l'ascenseur.",
+     "echec": "Le service que vous citez n'existe pas ici. Il appelle son collègue."
     }
    ]
   }
@@ -376,17 +478,23 @@
     {
      "type": "Perception",
      "jet": "Astuce + Vigilance",
-     "solution": "Son chien aboie sans arrêt : chaque fois, il se détourne pour le faire taire."
+     "amorce": "Dans sa maison, un chien aboie sans arrêt. Le rideau bouge à chaque fois.",
+     "reussite": "Chaque aboiement le détourne de la fenêtre pour faire taire le chien : vous passez à ce moment-là.",
+     "echec": "Il ne lâche plus la fenêtre et compose un numéro."
     },
     {
      "type": "Social",
      "jet": "Manipulation + Persuasion",
-     "solution": "La police ne se déplace plus pour lui : aller le saluer en voisin aimable, et il range son téléphone."
+     "amorce": "Vous allez frapper à sa porte. Il entrouvre, la chaîne mise : « Je peux vous aider ? »",
+     "reussite": "Un voisin aimable qui promène son chien perdu : il range son téléphone et vous souhaite bonne chance.",
+     "echec": "Il ne vous connaît pas, et il appelle la police devant vous."
     },
     {
      "type": "Discrétion",
      "jet": "Dextérité + Furtivité",
-     "solution": "Il a éteint la lumière pour mieux voir dehors, mais derrière les haies il ne voit plus rien."
+     "amorce": "Il a éteint sa lumière pour mieux voir dehors. Mais les haies du jardin d'en face sont hautes.",
+     "reussite": "Derrière les haies, il ne voit plus rien. Il finit par se lasser.",
+     "echec": "Une branche craque. Il allume le projecteur de son jardin, qui vous éclaire en plein."
     }
    ]
   },
@@ -397,17 +505,23 @@
     {
      "type": "Perception",
      "jet": "Intelligence + Vigilance",
-     "solution": "Elles ne se déclenchent qu'à quelques mètres : le trottoir d'en face est hors de portée."
+     "amorce": "Vous observez les voyants : ils ne s'allument que quand quelqu'un passe tout près.",
+     "reussite": "Elles ne se déclenchent qu'à quelques mètres : le trottoir d'en face est hors de portée.",
+     "echec": "Une des caméras se déclenche quand même. Le propriétaire reçoit une alerte sur son téléphone."
     },
     {
      "type": "Discrétion",
      "jet": "Dextérité + Furtivité",
-     "solution": "La maison en travaux n'a ni éclairage ni caméra : on passe par son jardin."
+     "amorce": "Une maison est en travaux : bâches, échafaudage, pas de lumière.",
+     "reussite": "Ni éclairage, ni caméra : vous passez par son jardin.",
+     "echec": "Vous trébuchez sur un échafaudage. Le fracas allume toutes les lumières de la rue."
     },
     {
      "type": "Technique",
      "jet": "Intelligence + Technologie",
-     "solution": "Elles sont toutes sur le même réseau du quartier : quelques minutes, et elles ne filment plus rien."
+     "amorce": "Sur votre téléphone, tous les réseaux du quartier portent le même nom de fournisseur.",
+     "reussite": "Quelques minutes de bidouille : les caméras ne filment plus rien.",
+     "echec": "Vous déclenchez une alerte de sécurité sur tout le réseau. Toutes les sonnettes enregistrent."
     }
    ]
   },
@@ -418,17 +532,23 @@
     {
      "type": "Perception",
      "jet": "Astuce + Vigilance",
-     "solution": "Elle repasse toutes les vingt minutes environ : on a le temps entre deux tours."
+     "amorce": "Vous regardez l'heure. Elle est passée à 23 h 12, puis à 23 h 32.",
+     "reussite": "Elle repasse toutes les vingt minutes : vous avez le temps entre deux tours.",
+     "echec": "Elle revient en sens inverse, plus tôt que prévu, et ralentit en vous voyant."
     },
     {
      "type": "Social",
      "jet": "Charisme + Étiquette",
-     "solution": "Le chauffeur ne s'arrête que pour ceux qui ont l'air perdus : avoir l'air d'habiter ici."
+     "amorce": "La voiture s'arrête. Le chauffeur, la bouche pleine : « Bonsoir. Vous habitez le quartier ? »",
+     "reussite": "Vous avez l'air d'habiter ici, il s'excuse et repart.",
+     "echec": "« Je ne vous ai jamais vu. » Il prend une photo de vous et passe un appel."
     },
     {
      "type": "Diversion",
      "jet": "Manipulation + Subterfuge",
-     "solution": "Un appel anonyme signale un rôdeur à l'autre bout du quartier, et la voiture fonce là-bas."
+     "amorce": "Le numéro de la société de sécurité est écrit en grand sur la portière.",
+     "reussite": "Un appel anonyme signale un rôdeur à l'autre bout du quartier : la voiture fonce là-bas.",
+     "echec": "Ils reconnaissent la ruse. La voiture se gare et ne bouge plus de la rue."
     }
    ]
   }
@@ -441,17 +561,23 @@
     {
      "type": "Animaux",
      "jet": "Charisme + Animaux",
-     "solution": "Le chien est jeune : il suffit de l'apaiser, et il retourne renifler les buissons."
+     "amorce": "Le chien est jeune. Il gronde, mais sa queue hésite.",
+     "reussite": "Quelques mots, un geste lent : il s'apaise et retourne renifler les buissons.",
+     "echec": "Il aboie de plus belle et tire sur sa laisse. L'agente vous éclaire : « Ne bougez plus ! »"
     },
     {
      "type": "Perception",
      "jet": "Astuce + Vigilance",
-     "solution": "Elle suit toujours l'allée éclairée et ne coupe jamais par l'herbe : il suffit de passer par la pelouse."
+     "amorce": "Elle suit l'allée éclairée et ne pose jamais le pied sur l'herbe.",
+     "reussite": "Il suffit de couper par la pelouse : elle ne s'en écarte pas.",
+     "echec": "Le chien la tire dans l'herbe, droit sur vous."
     },
     {
      "type": "Social",
      "jet": "Charisme + Persuasion",
-     "solution": "Elle parle plus à son chien qu'à sa radio : un compliment sur l'animal, et elle reprend sa ronde de bonne humeur."
+     "amorce": "Elle parle à son chien plus qu'à sa radio, d'une voix tendre.",
+     "reussite": "Un compliment sur l'animal : elle sourit et reprend sa ronde de bonne humeur.",
+     "echec": "« Éloignez-vous de lui, s'il vous plaît. » Elle signale votre présence à la radio."
     }
    ]
   },
@@ -462,17 +588,23 @@
     {
      "type": "Social",
      "jet": "Charisme + Persuasion",
-     "solution": "Il a peur du parc la nuit et cherche de la compagnie : le rassurer, lui indiquer la sortie, et il repart."
+     "amorce": "« Pas rassurant, ce parc la nuit, hein ? » Il jette des coups d'œil inquiets autour de lui.",
+     "reussite": "Vous le rassurez et lui indiquez la sortie la mieux éclairée. Il repart, soulagé.",
+     "echec": "Votre calme l'inquiète encore plus. Il garde son téléphone à la main en s'éloignant… à reculons."
     },
     {
      "type": "Perception",
      "jet": "Astuce + Empathie",
-     "solution": "Il cherche seulement une excuse pour souffler : lui laisser reprendre son souffle, puis il file."
+     "amorce": "Il est cramoisi, les mains sur les genoux : il cherche seulement une excuse pour souffler.",
+     "reussite": "Vous le laissez reprendre son souffle en silence. Une minute plus tard, il repart.",
+     "echec": "Il s'assied sur le banc à côté de vous, et visiblement il compte y rester."
     },
     {
      "type": "Social",
      "jet": "Manipulation + Subterfuge",
-     "solution": "Il regarde sa montre sans arrêt : lui faire remarquer l'heure, et il se dépêche de rentrer."
+     "amorce": "Il regarde sans arrêt sa montre connectée.",
+     "reussite": "Vous lui faites remarquer l'heure qu'il est : il jure et rentre en courant.",
+     "echec": "« Je fais ce que je veux de mon temps. » Il reste là, vexé, à vous regarder."
     }
    ]
   },
@@ -483,17 +615,23 @@
     {
      "type": "Perception",
      "jet": "Astuce + Empathie",
-     "solution": "Ils se disputent à voix basse : un mot de trop, et elle part. Il la suit."
+     "amorce": "Vous saisissez des bribes : ils se disputent à voix basse.",
+     "reussite": "Un mot de trop, et elle se lève et part. Il la suit en l'appelant.",
+     "echec": "La dispute se calme. Ils s'enlacent, et n'ont plus l'intention de bouger."
     },
     {
      "type": "Social",
      "jet": "Manipulation + Persuasion",
-     "solution": "Elle a froid et veut rentrer : la pousser dans ce sens, et le banc se libère."
+     "amorce": "Elle se frotte les bras : elle a froid et veut rentrer, lui non.",
+     "reussite": "Vous passez en lâchant qu'il va pleuvoir : elle le convainc de partir.",
+     "echec": "Il vous lance un regard noir : « On t'a rien demandé. »"
     },
     {
      "type": "Intimidation",
      "jet": "Manipulation + Intimidation",
-     "solution": "Il veut jouer les protecteurs : un rôdeur inquiétant, et il emmène sa compagne loin d'ici."
+     "amorce": "Il bombe le torse dès qu'un passant approche : il veut jouer les protecteurs.",
+     "reussite": "Vous rôdez juste assez pour l'inquiéter : il emmène sa compagne loin d'ici.",
+     "echec": "Il se lève et vient vers vous : « Un problème ? » Elle a déjà son téléphone en main."
     }
    ]
   }
@@ -506,17 +644,23 @@
     {
      "type": "Perception",
      "jet": "Astuce + Vigilance",
-     "solution": "Elle fume à la fenêtre : il suffit d'attendre la fin de sa cigarette, et elle referme."
+     "amorce": "La silhouette ouvre la fenêtre et allume une cigarette.",
+     "reussite": "Vous attendez la fin de sa cigarette : elle referme et éteint.",
+     "echec": "Elle termine sa cigarette… et en allume une deuxième, les yeux toujours fixés sur la rue."
     },
     {
      "type": "Discrétion",
      "jet": "Dextérité + Furtivité",
-     "solution": "Le porche d'en face est plongé dans le noir."
+     "amorce": "En face, un porche plongé dans le noir.",
+     "reussite": "Vous vous y fondez : la silhouette ne voit plus qu'une rue vide.",
+     "echec": "Une poubelle se renverse sur votre passage. « Qui est là ? » crie-t-elle."
     },
     {
      "type": "Perception",
      "jet": "Intelligence + Investigation",
-     "solution": "La télé est allumée derrière elle, et son regard y retourne sans arrêt."
+     "amorce": "Derrière elle, une lumière bleue vacille : la télé est allumée.",
+     "reussite": "Son regard retourne sans arrêt vers l'écran : il suffit d'attendre une scène qui l'accroche.",
+     "echec": "Elle éteint la télé et reste à la fenêtre, à vous fixer."
     }
    ]
   },
@@ -527,17 +671,23 @@
     {
      "type": "Social",
      "jet": "Charisme + Expérience de la rue",
-     "solution": "Il veut une cigarette ou quelques pièces : il les a, et il retourne à son carton."
+     "amorce": "« T'aurais pas une clope ? Quelques pièces ? » Il tend la main, insistant.",
+     "reussite": "Il a ce qu'il voulait : il retourne s'asseoir sur son carton en vous bénissant.",
+     "echec": "Il n'est pas satisfait et vous suit en criant que vous êtes un radin, un salaud, un rat."
     },
     {
      "type": "Perception",
      "jet": "Astuce + Vigilance",
-     "solution": "Il parle aussi aux poubelles, et les voisins ne le regardent plus : personne ne prêtera attention à ce qu'il crie."
+     "amorce": "Il parle aussi aux poubelles et aux réverbères. Les fenêtres autour restent noires.",
+     "reussite": "Plus personne ne fait attention à ce qu'il crie : vous pouvez continuer.",
+     "echec": "Une fenêtre s'ouvre : « Vos gueules, là-dessous ! » La rue entière est réveillée."
     },
     {
      "type": "Intimidation",
      "jet": "Manipulation + Intimidation",
-     "solution": "Un seul regard, et il change de trottoir."
+     "amorce": "Il s'approche trop près, l'haleine chargée.",
+     "reussite": "Un seul regard, et il change de trottoir sans un mot.",
+     "echec": "Il se met à hurler qu'on l'agresse. Des lumières s'allument."
     }
    ]
   },
@@ -548,17 +698,23 @@
     {
      "type": "Perception",
      "jet": "Astuce + Vigilance",
-     "solution": "Leur camion bloque la vue sur la ruelle d'à côté : c'est par là qu'il faut passer."
+     "amorce": "Leur camion est garé en travers, juste devant l'entrée d'une ruelle.",
+     "reussite": "Le camion bloque leur vue sur la ruelle d'à côté : c'est par là qu'il faut passer.",
+     "echec": "Un ouvrier descend de la nacelle pile au moment où vous passez : « Hé, c'est fermé par ici ! »"
     },
     {
      "type": "Social",
      "jet": "Manipulation + Subterfuge",
-     "solution": "Le chef d'équipe râle contre les heures de nuit : un faux inspecteur pressé, et il remballe plus tôt."
+     "amorce": "Le chef d'équipe râle au téléphone contre les heures de nuit.",
+     "reussite": "Un faux inspecteur pressé qui valide le chantier : il remballe une heure plus tôt, ravi.",
+     "echec": "« Montrez-moi votre carte. » Vous n'en avez pas, et il appelle sa hiérarchie."
     },
     {
      "type": "Technique",
      "jet": "Intelligence + Technologie",
-     "solution": "Un coup d'œil au boîtier électrique, et la nacelle tombe en panne : ils plient bagage."
+     "amorce": "Un boîtier électrique ouvert alimente la nacelle et les projecteurs.",
+     "reussite": "Un geste précis, et tout tombe en panne : ils plient bagage en jurant.",
+     "echec": "Des étincelles, un claquement : tout le quartier est plongé dans le noir, et ils vous ont vu."
     }
    ]
   }

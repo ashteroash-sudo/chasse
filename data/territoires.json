@@ -16,17 +16,23 @@
    {
     "type": "Social",
     "jet": "Manipulation + Persuasion",
-    "solution": "Elle collectionne les secrets plutôt que le sang : lui en offrir un, et elle vous laisse passer… cette fois."
+    "amorce": "Elle penche la tête : « Tu as quelque chose à m'offrir ? Ici, on paie en secrets. »",
+    "reussite": "Vous lui livrez un secret qui l'intéresse. Elle sourit sous son foulard : « Cette fois, passe. »",
+    "echec": "Votre secret ne vaut rien. « Tu me fais perdre mon temps. » Elle vous congédie d'un geste."
    },
    {
     "type": "Social",
     "jet": "Charisme + Étiquette",
-    "solution": "Elle déteste le bruit et les scènes : une voix basse, des excuses en règle, et elle se calme."
+    "amorce": "Elle grimace au moindre éclat de voix : elle déteste le bruit et les scènes.",
+    "reussite": "Une voix basse, des excuses en règle : elle se calme et vous accorde la nuit.",
+    "echec": "Votre ton ne lui plaît pas. Les ombres autour d'elle se rapprochent."
    },
    {
     "type": "Intimidation",
     "jet": "Manipulation + Intimidation",
-    "solution": "Chaque employé de nuit lui doit un service : lui rappeler qu'un scandale lui coûterait tout son réseau."
+    "amorce": "Elle tient chaque employé de nuit par un service rendu. Tout son pouvoir repose sur son réseau.",
+    "reussite": "Vous lui rappelez qu'un scandale lui coûterait tout : elle recule, glaciale.",
+    "echec": "« Tu me menaces ? Chez moi ? » Elle siffle, et vous n'êtes plus du tout le bienvenu."
    }
   ]
  },
@@ -47,17 +53,23 @@
    {
     "type": "Intimidation",
     "jet": "Force + Intimidation",
-    "solution": "Il respecte la force et méprise les beaux discours : tenir son regard sans reculer d'un pas."
+    "amorce": "Il tourne autour de vous, renifle, guette le moindre signe de peur.",
+    "reussite": "Vous tenez son regard sans reculer d'un pas. Il grogne, mais vous respecte.",
+    "echec": "Vous avez cillé. Il découvre ses crocs : la peur, il la sent."
    },
    {
     "type": "Animaux",
     "jet": "Charisme + Animaux",
-    "solution": "Le chien errant qui le suit partout : gagner l'animal, et Deacon baisse sa garde."
+    "amorce": "Un chien errant le suit partout. Il vous observe, oreilles dressées.",
+    "reussite": "Le chien vient vous renifler la main et remue la queue. Deacon baisse sa garde.",
+    "echec": "Le chien grogne contre vous, et Deacon le prend comme un verdict."
    },
    {
     "type": "Survie",
     "jet": "Astuce + Survie",
-    "solution": "Il marque son territoire de griffures : reconnaître ses frontières, en proposer une claire, et la respecter."
+    "amorce": "Des griffures fraîches sur les arbres et les stèles marquent ses frontières.",
+    "reussite": "Vous reconnaissez ses marques et proposez une limite claire. Il accepte d'un grognement.",
+    "echec": "Vous vous trompez de frontière : vous êtes en plein cœur de son domaine."
    }
   ]
  },
@@ -78,17 +90,23 @@
    {
     "type": "Social",
     "jet": "Charisme + Commandement",
-    "solution": "Rook tient à sa réputation devant ses gars : lui laisser le beau rôle, et il vous laisse partir."
+    "amorce": "Rook jette un œil à ses gars : il ne peut pas perdre la face devant eux.",
+    "reussite": "Vous lui laissez le beau rôle devant sa meute. Il rit et vous laisse partir.",
+    "echec": "Vous l'avez humilié devant ses hommes. Il n'a plus le choix."
    },
    {
     "type": "Social",
     "jet": "Manipulation + Politique",
-    "solution": "Ils détestent la Camarilla : parler de l'ennemi commun, et la meute se détend."
+    "amorce": "Ils crachent sur la Camarilla à chaque phrase.",
+    "reussite": "Vous parlez de l'ennemi commun : la meute se détend, quelqu'un vous offre même une cigarette.",
+    "echec": "« Tu parles comme eux. » Ils vous prennent pour un espion de la Camarilla."
    },
    {
     "type": "Intimidation",
     "jet": "Force + Intimidation",
-    "solution": "Ils ne sont jamais seuls : défier Rook en tête-à-tête, devant ses hommes, l'oblige à respecter votre cran."
+    "amorce": "Ils sont nombreux, mais c'est Rook qui décide.",
+    "reussite": "Vous défiez Rook en tête-à-tête devant ses hommes : il respecte votre cran.",
+    "echec": "Il accepte le défi, et toute la meute fait cercle autour de vous."
    }
   ]
  },
@@ -109,17 +127,23 @@
    {
     "type": "Social",
     "jet": "Manipulation + Étiquette",
-    "solution": "Il adore les compliments : flatter son goût, son domaine, sa cour."
+    "amorce": "Il fait tourner son verre et attend visiblement qu'on l'admire.",
+    "reussite": "Vous flattez son goût, son domaine, sa cour. Il sourit : « Vous avez de l'éducation. »",
+    "echec": "Votre compliment sonne faux. « La flatterie maladroite est une insulte. »"
    },
    {
     "type": "Social",
     "jet": "Manipulation + Finances",
-    "solution": "Il adore encore plus les dettes : accepter de lui devoir un service."
+    "amorce": "« Tout se paie, très cher. Reste à savoir comment. »",
+    "reussite": "Vous acceptez de lui devoir un service. Il note la dette avec délectation et vous laisse chasser.",
+    "echec": "Votre offre est ridicule. Il éclate de rire, et ses goules aussi."
    },
    {
     "type": "Subterfuge",
     "jet": "Charisme + Subterfuge",
-    "solution": "Il ne se salit jamais les mains : lui faire croire que vous êtes protégé par plus puissant que lui."
+    "amorce": "Il ne se salit jamais les mains : il calcule les risques avant tout.",
+    "reussite": "Vous laissez entendre que quelqu'un de plus puissant vous protège. Il préfère ne pas vérifier.",
+    "echec": "Il appelle un nom au hasard, et personne ne vous connaît. Il sait que vous bluffez."
    }
   ]
  }
