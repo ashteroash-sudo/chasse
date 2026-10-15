@@ -146,6 +146,8 @@ h1,h2,h3{font-family:var(--titre);font-weight:700;letter-spacing:.02em}
 .evt .approches{display:flex;flex-direction:column;gap:.5em}
 .evt .approche{font-size:1.25em;text-align:left;padding:.55em .9em;border-color:var(--cyan)}
 .evt .choisi{font-size:1.3em;color:var(--cyan);font-weight:600}
+.evt .amorce{font-size:1.3em;line-height:1.35;font-style:italic;color:#e6eef3;border-left:3px solid var(--cyan);padding-left:.8em}
+.evt .echec{font-size:1.3em;line-height:1.35;color:var(--sang2);border-left:3px solid var(--sang);padding-left:.8em}
 .evt .solution{font-size:1.3em;line-height:1.35;color:var(--or2);border-left:3px solid var(--or);padding-left:.8em}
 .evt .actions{align-items:center}
 /* Dé d10 */
@@ -765,19 +767,24 @@ function rendreEvenement() {
     : `<div class="lab">Imprévu</div><h3>${esc(ev.titre)}</h3><div class="txt">${esc(ev.texte)}</div>`;
   const opt = i => `${esc(options[i].type)} · ${esc(options[i].jet)}`;
   let corps = '', boutons = '';
+  const choisi = ev.choix != null ? `<div class="choisi">${opt(ev.choix)}</div><div class="amorce">${esc(options[ev.choix].amorce || '')}</div>` : '';
   if (ev.combat) {
-    corps = `<div class="txt" style="color:var(--sang2)">Combat ! Passez sur la Table de Combat.</div>`;
+    corps = (ev.choix != null ? `<div class="choisi">${opt(ev.choix)}</div><div class="echec">${esc(options[ev.choix].echec || '')}</div>` : '') +
+      `<div class="txt" style="color:var(--sang2)">Combat ! Passez sur la Table de Combat.</div>`;
     boutons = `<button class="or" data-e="regle">Réglé (le conflit est clos)</button><button class="rouge" data-e="pasregle">Rien n'est réglé</button>`;
   } else if (ev.reussi) {
-    corps = (ev.choix != null ? `<div class="choisi">${opt(ev.choix)}</div><div class="solution">${esc(options[ev.choix].solution)}</div>` : '');
+    corps = ev.choix != null ? `<div class="choisi">${opt(ev.choix)}</div><div class="solution">${esc(options[ev.choix].reussite || '')}</div>` : '';
     boutons = terr && et === 2
       ? `<button class="or" data-e="regle">Réglé (le conflit est clos)</button><button data-e="tension">La tension reste</button>`
       : `<button class="or" data-e="suite">Continuer</button>`;
   } else if (terr && et === 0) {
     boutons = `<button class="rouge" data-e="part">Il quitte les lieux</button>`;
+  } else if (ev.rate) {
+    corps = `<div class="choisi">${opt(ev.choix)}</div><div class="echec">${esc(options[ev.choix].echec || '')}</div>`;
+    boutons = `<button class="rouge" data-e="rate">Quitter le lieu</button>`;
   } else if (ev.choix != null) {
-    corps = `<div class="choisi">${opt(ev.choix)}</div>`;
-    boutons = `<button class="or" data-e="ok">✓ Réussi</button><button class="rouge" data-e="rate">✗ Raté</button><button data-e="autre">Changer d'approche</button>`;
+    corps = choisi;
+    boutons = `<button class="or" data-e="ok">✓ Réussi</button><button class="rouge" data-e="echec">✗ Raté</button><button data-e="autre">Changer d'approche</button>`;
   } else if (ev.observe) {
     corps = `<div class="approches">${options.map((x, i) => `<button class="approche" data-o="${i}">${opt(i)}</button>`).join('')}</div>`;
     boutons = `<span class="note">Autre idée des joueurs :</span><button data-e="libre">✓ Passé</button><button class="rouge" data-e="rate">✗ Raté</button>`;
@@ -793,6 +800,7 @@ function actionEvenement(a) {
   if (a === 'obs') { if (avancer(5)) { ev.observe = true; rendreEvenement(); } return; }
   if (a === 'autre') { ev.choix = null; return rendreEvenement(); }
   if (a === 'ok') { ev.reussi = true; return rendreEvenement(); }
+  if (a === 'echec') { if (terr && ev.etape === 2) { ev.combat = true; } else ev.rate = true; return rendreEvenement(); }
   if (a === 'libre') { ev.reussi = true; ev.choix = null; return actionEvenement(terr && ev.etape === 2 ? 'afficher' : 'suite'); }
   if (a === 'afficher') return rendreEvenement();
   if (!terr) {
