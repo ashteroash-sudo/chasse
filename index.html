@@ -150,6 +150,8 @@ h1,h2,h3{font-family:var(--titre);font-weight:700;letter-spacing:.02em}
 .evt .echec{font-size:1.3em;line-height:1.35;color:var(--sang2);border-left:3px solid var(--sang);padding-left:.8em}
 .evt .solution{font-size:1.3em;line-height:1.35;color:var(--or2);border-left:3px solid var(--or);padding-left:.8em}
 .evt .actions{align-items:center}
+#presage{display:none;font-family:var(--titre);font-style:italic;font-size:calc(var(--k,1) * clamp(16px,1.25vw,26px));color:#c9d6de;border-left:3px solid #5a6b78;padding:.2em .8em;background:linear-gradient(90deg,rgba(0,0,0,.55),transparent)}
+#presage.vu{display:block;animation:apparait 1.2s}
 /* Dé d10 */
 .d10{width:46px;height:52px;position:relative;flex-shrink:0}
 .d10 svg{position:absolute;inset:0;width:100%;height:100%}
@@ -240,6 +242,7 @@ h1,h2,h3{font-family:var(--titre);font-weight:700;letter-spacing:.02em}
     </aside>
     <div id="zone">
       <div id="entete-lieu"><h2 id="c-lieu"></h2><span class="aff" id="c-aff"></span></div>
+      <div id="presage"></div>
       <div id="cartes"></div>
       <div id="panneau"></div>
       <div id="actions">
@@ -416,7 +419,7 @@ function rendreAccueil() {
 }
 function choisirJoueur(id) {
   S.joueur = JOUEURS.find(j => j.id === id); S.minutes = hm($('#heure').value); S.aube = hm($('#aube').value);
-  const an = anemies(); for (const k in an) { if (an[k] <= 0) delete an[k]; else an[k]--; } sauver();
+  const an = anemies(); for (const k in an) { if (an[k] <= 0) delete an[k]; else an[k]--; } baisserPression();
   S.vus = new Set(); majHorloge(); rendreLieux();
 }
 
@@ -485,6 +488,7 @@ function entrer(lieuId) {
   fond(imageLieu(lieuId)); ecran('chasse'); rendreCote();
   $('#c-lieu').textContent = S.lieu.nom;
   S.evt = jetTerritoire(lieuId) || jetEvenement(lieuId);
+  const pr = $('#presage'); pr.textContent = S.presage || ''; pr.classList.toggle('vu', !!S.presage);
   tirer();
 }
 const TEMPS = { observer: 5, aborder: 10, parler: 10 };   // minutes par tentative
@@ -666,7 +670,7 @@ const EVENEMENTS = {
 };
 async function retrouverProie() {
   const e = etat(S.joueur.id), p = e.proie; if (!p) return;
-  S.evt = null;
+  S.evt = null; $('#presage').classList.remove('vu');
   S.lieu = LIEUX.find(l => l.id === p.lieu) || { id: p.lieu, nom: joli(p.lieu) };
   fond(imageLieu(p.lieu)); ecran('chasse'); rendreCote(); $('#c-lieu').textContent = S.lieu.nom;
   // Jet d'événement : plus il revient souvent, plus ça tourne mal
@@ -739,7 +743,7 @@ function griller(lid, pourTous) {
 function quitter(msg) { S.evt = null; toast(msg); if (avancer(30)) rendreLieux(); }
 
 /* ============ Événements de chasse ============ */
-const CHANCE_EVT = 0.15, TERR_BASE = 0.02, TERR_PAS = 0.03;
+const CHANCE_EVT = 0.15;
 function jetEvenement(lid) {
   if (Math.random() >= CHANCE_EVT) return null;
   const l = LIEUX.find(x => x.id === lid) || {};
@@ -747,16 +751,22 @@ function jetEvenement(lid) {
   return liste.length ? Object.assign({ type: 'evt', observe: false }, hasard(liste)) : null;
 }
 function territoires() { return SAVE.territoire || (SAVE.territoire = {}); }
+// Pression : une jauge par joueur et par vampire propriétaire (jamais partagée entre joueurs)
+const PRESSION_ENTREE = 8, PRESSION_BAISSE = 2, PRESAGE_BASE = 25, PRESAGE_BONUS = 5, RENCONTRE_DIV = 220;
+function pressions() { const P = SAVE.pression || (SAVE.pression = {}); return P[S.joueur.id] || (P[S.joueur.id] = {}); }
+function baisserPression() { const P = pressions(); for (const k in P) P[k] = Math.max(0, P[k] - PRESSION_BAISSE); sauver(); }
 function jetTerritoire(lid) {
+  S.presage = null;
   const own = TERR.find(t => (t.lieux || []).includes(lid)); if (!own) return null;
-  const jid = S.joueur.id, fr = SAVE.frequentation || (SAVE.frequentation = {});
-  const f = (fr[jid] = fr[jid] || {}), n = f[lid] || 0;
-  const chance = TERR_BASE + TERR_PAS * n;
-  f[lid] = n + 1; sauver();
-  if (Math.random() >= chance) return null;
-  f[lid] = 0;
-  const tj = (territoires()[jid] = territoires()[jid] || {});
-  return { type: 'territoire', own, etape: Math.min(tj[own.id] || 0, 2), observe: false };
+  const P = pressions(); let p = (P[own.id] || 0) + PRESSION_ENTREE;
+  const tj = (territoires()[S.joueur.id] = territoires()[S.joueur.id] || {});
+  if (Math.random() < p / RENCONTRE_DIV) {
+    P[own.id] = p / 2; sauver();
+    return { type: 'territoire', own, etape: Math.min(tj[own.id] || 0, 2), observe: false };
+  }
+  if (Math.random() < (PRESAGE_BASE + p / 4) / 100) { p += PRESAGE_BONUS; S.presage = hasard(own.presages || ['Vous sentez qu’on vous observe.']); }
+  P[own.id] = p; sauver();
+  return null;
 }
 function rendreEvenement() {
   const ev = S.evt, z = $('#cartes'), terr = ev.type === 'territoire';
@@ -829,7 +839,7 @@ const ANIMAUX = [
   { id: 'moyen', nom: 'Animal moyen', ex: 'chien, renard, raton laveur', soif: "1 point de Soif" },
   { id: 'gros',  nom: 'Gros animal',  ex: 'cerf, cheval, vache', soif: "2 points de Soif" }
 ];
-function chasseAnimale() {
+function chasseAnimale() { $('#presage').classList.remove('vu');
   S.lieu = { id: 'animaux', nom: 'Animaux' }; S.choisie = null; S.evt = null;
   fond(null); ecran('chasse'); rendreCote();
   $('#c-lieu').textContent = 'Chasse animale'; $('#c-aff').textContent = 'Résonance animale : Animalisme, Protéisme. Jamais de Dyscrasie.';
