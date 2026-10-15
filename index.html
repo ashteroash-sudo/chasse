@@ -135,6 +135,9 @@ h1,h2,h3{font-family:var(--titre);font-weight:700;letter-spacing:.02em}
 .ce-soir-carte{font-size:1.1em;color:var(--texte)}.ce-soir-carte b{color:var(--or2);font-weight:500}
 .evt{grid-column:1/-1;align-self:center;justify-self:center;width:min(900px,100%);background:rgba(8,14,22,.92);border:2px solid var(--sang);border-radius:6px;padding:1.4em 1.8em;display:flex;flex-direction:column;gap:.7em;animation:apparait .4s}
 .evt.terr{border-color:var(--or)}
+.evt.presage-box{border-color:#5a6b78;background:rgba(4,7,11,.94)}
+.evt.presage-box .lab{color:#8ea3b3}
+.evt.presage-box .txt{font-family:var(--titre);font-style:italic;font-size:1.7em;line-height:1.35;color:#dbe5ea}
 @keyframes apparait{from{opacity:0;transform:translateY(12px)}}
 .evt .lab{color:var(--sang2);text-transform:uppercase;letter-spacing:.14em;font-size:.85em}
 .evt.terr .lab{color:var(--or2)}
@@ -332,7 +335,7 @@ function joli(s) { return s.replace(/__.*$/, '').split('_').map(m => m.split('-'
 function hm(str) { const [h, m] = str.split(':').map(Number); return h * 60 + (m || 0); }
 function nuit(min) { return min < 12 * 60 ? min + 1440 : min; }   // 18:00 → 1080 … 07:30 → 1890
 function affHeure(min) { min = ((min % 1440) + 1440) % 1440; return String(Math.floor(min / 60)).padStart(2, '0') + ':' + String(min % 60).padStart(2, '0'); }
-function esc(s) { return String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c])); }
+function esc(s) { return String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c])).replace(/« /g, '«\u00a0').replace(/ »/g, '\u00a0»').replace(/ ([:;?!])/g, '\u00a0$1'); }
 function toast(t) { const el = $('#toast'); el.textContent = t; el.style.display = 'block'; clearTimeout(toast.t); toast.t = setTimeout(() => el.style.display = 'none', 5000); }
 async function lireJSON(url) { const r = await fetch(url, { cache: 'no-store' }); if (!r.ok) throw new Error(url + ' introuvable'); return r.json(); }
 const SILHOUETTE = '<svg viewBox="0 0 100 120"><circle cx="50" cy="38" r="22" fill="#6fc3d9"/><path d="M8 120c0-30 18-48 42-48s42 18 42 48z" fill="#6fc3d9"/></svg>';
@@ -487,8 +490,9 @@ function entrer(lieuId) {
   S.lieu = LIEUX.find(l => l.id === lieuId); S.choisie = null;
   fond(imageLieu(lieuId)); ecran('chasse'); rendreCote();
   $('#c-lieu').textContent = S.lieu.nom;
-  S.evt = jetTerritoire(lieuId) || jetEvenement(lieuId);
-  const pr = $('#presage'); pr.textContent = S.presage || ''; pr.classList.toggle('vu', !!S.presage);
+  S.evt = jetTerritoire(lieuId);
+  if (!S.evt && S.presage) S.evt = { type: 'presage', texte: S.presage, suite: jetEvenement(lieuId) };
+  if (!S.evt) S.evt = jetEvenement(lieuId);
   tirer();
 }
 const TEMPS = { observer: 5, aborder: 10, parler: 10 };   // minutes par tentative
@@ -772,6 +776,12 @@ function jetTerritoire(lid) {
 }
 function rendreEvenement() {
   const ev = S.evt, z = $('#cartes'), terr = ev.type === 'territoire';
+  if (ev.type === 'presage') {
+    z.innerHTML = `<div class="evt presage-box"><div class="lab">Une sensation…</div><div class="txt">${esc(ev.texte)}</div>
+      <div class="actions"><button data-e="suite">Continuer</button></div></div>`;
+    z.querySelector('[data-e]').onclick = () => { S.evt = ev.suite || null; rendreCartes(); };
+    return;
+  }
   const o = ev.own, et = ev.etape, options = (terr ? o.options : ev.options) || [];
   const rangs = ['Première rencontre', 'Deuxième rencontre', 'Troisième rencontre'];
   const entete = terr
