@@ -760,11 +760,13 @@ function jetTerritoire(lid) {
   const own = TERR.find(t => (t.lieux || []).includes(lid)); if (!own) return null;
   const P = pressions(); let p = (P[own.id] || 0) + PRESSION_ENTREE;
   const tj = (territoires()[S.joueur.id] = territoires()[S.joueur.id] || {});
-  if (Math.random() < p / RENCONTRE_DIV) {
-    P[own.id] = p / 2; sauver();
+  // Jamais de rencontre physique sans au moins un présage depuis la précédente
+  const V = SAVE.presagesVus || (SAVE.presagesVus = {}), vj = (V[S.joueur.id] = V[S.joueur.id] || {});
+  if ((vj[own.id] || 0) >= 1 && Math.random() < p / RENCONTRE_DIV) {
+    P[own.id] = p / 2; vj[own.id] = 0; sauver();
     return { type: 'territoire', own, etape: Math.min(tj[own.id] || 0, 2), observe: false };
   }
-  if (Math.random() < (PRESAGE_BASE + p / 4) / 100) { p += PRESAGE_BONUS; S.presage = hasard(own.presages || ['Vous sentez qu’on vous observe.']); }
+  if (Math.random() < (PRESAGE_BASE + p / 4) / 100) { p += PRESAGE_BONUS; vj[own.id] = (vj[own.id] || 0) + 1; S.presage = hasard(own.presages || ['Vous sentez qu’on vous observe.']); }
   P[own.id] = p; sauver();
   return null;
 }
