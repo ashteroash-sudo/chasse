@@ -50,7 +50,8 @@ h1,h2,h3{font-family:var(--titre);font-weight:700;letter-spacing:.02em}
 #accueil h1 em{color:var(--sang2);font-style:italic}
 .reglages{display:flex;gap:2rem;align-items:center;background:var(--panneau);border:1px solid var(--ligne);padding:.7rem 1.4rem;border-radius:4px}
 .reglages label{display:flex;gap:.6rem;align-items:center;color:var(--doux)}
-.grille-joueurs{display:grid;grid-template-columns:repeat(4,minmax(0,250px));gap:1.2rem}
+.grille-joueurs{display:flex;flex-wrap:wrap;justify-content:center;gap:1.2rem;max-width:100%}
+.grille-joueurs .joueur{width:clamp(150px,16vw,250px)}
 .joueur{background:var(--panneau);border:1px solid var(--ligne);border-radius:4px;overflow:hidden;cursor:pointer;transition:transform .2s,border-color .2s;display:flex;flex-direction:column}
 .joueur:hover{transform:translateY(-4px);border-color:var(--sang)}
 .joueur .media{aspect-ratio:3/4;background:#0d1620;position:relative;overflow:hidden}
@@ -380,7 +381,8 @@ function imageLieu(id) { const l = (M.lieux || []).filter(f => baseLieu(f) === i
 function mediaJoueur(j) {
   const f = (M.joueurs || []).find(f => norm(f.replace(/\.[^.]+$/, '')) === norm(j.id));
   if (!f) return `<div class="initiale">${esc(j.nom.charAt(0))}</div>`;
-  return /\.(webm|mp4)$/i.test(f) ? `<video src="${encodeURI('joueurs/' + f)}" autoplay loop muted playsinline></video>` : `<img src="${encodeURI('joueurs/' + f)}" alt="">`;
+  const pos = j.cadrage ? ` style="object-position:${esc(j.cadrage)}"` : '';
+  return /\.(webm|mp4)$/i.test(f) ? `<video src="${encodeURI('joueurs/' + f)}"${pos} autoplay loop muted playsinline></video>` : `<img src="${encodeURI('joueurs/' + f)}"${pos} alt="">`;
 }
 function ecran(id) { document.querySelectorAll('.ecran').forEach(e => e.classList.toggle('actif', e.id === id)); }
 function fond(url) { $('#fond').style.backgroundImage = url ? `url("${url}")` : ''; }
