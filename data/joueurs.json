@@ -28,5 +28,13 @@
     "clan": "Gangrel",
     "style": "Pilleur de tombes",
     "groupement": "Résolution + Médecine (cadavres), ou Manipulation + Empathie (endeuillés)"
+  },
+  {
+    "id": "calista",
+    "nom": "Calista McAlister",
+    "clan": "Toréador",
+    "style": "À définir",
+    "groupement": "À définir",
+    "cadrage": "center top"
   }
 ]
