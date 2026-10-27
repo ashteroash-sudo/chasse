@@ -136,6 +136,7 @@ h1,h2,h3{font-family:var(--titre);font-weight:700;letter-spacing:.02em}
 .ce-soir-carte{font-size:1.1em;color:var(--texte)}.ce-soir-carte b{color:var(--or2);font-weight:500}
 .evt{grid-column:1/-1;align-self:center;justify-self:center;width:min(900px,100%);background:rgba(8,14,22,.92);border:2px solid var(--sang);border-radius:6px;padding:1.4em 1.8em;display:flex;flex-direction:column;gap:.7em;animation:apparait .4s}
 .evt.terr{border-color:var(--or)}
+.carte .fam{font-size:1.05em;color:var(--or2);letter-spacing:.03em}
 .evt.presage-box{border-color:#5a6b78;background:rgba(4,7,11,.94)}
 .evt.presage-box .lab{color:#8ea3b3}
 .evt.presage-box .txt{font-family:var(--titre);font-style:italic;font-size:1.7em;line-height:1.35;color:#dbe5ea}
@@ -199,7 +200,6 @@ h1,h2,h3{font-family:var(--titre);font-weight:700;letter-spacing:.02em}
 
 #toast{position:fixed;bottom:1rem;left:50%;transform:translateX(-50%);background:#2a0a10;border:1px solid var(--sang);padding:.5rem 1rem;border-radius:4px;display:none;z-index:20;max-width:90vw}
 </style>
-<script src="hors-ligne.js" data-depot="chasse"></script>
 </head>
 <body>
 <div id="fond"></div>
@@ -208,6 +208,7 @@ h1,h2,h3{font-family:var(--titre);font-weight:700;letter-spacing:.02em}
     <div class="titre">LA CHASSE</div>
     <div id="soleil"></div>
     <div id="horloge">--:--</div>
+    <button id="btn-son" title="Musique">♪</button>
     <button id="btn-moins" title="Texte plus petit">A−</button><button id="btn-plus" title="Texte plus grand">A+</button>
     <button id="btn-aide">Aide-mémoire</button>
   </div>
@@ -287,6 +288,7 @@ h1,h2,h3{font-family:var(--titre);font-weight:700;letter-spacing:.02em}
   </ul>
 </div></div>
 <div id="toast"></div>
+<script src="hors-ligne.js" data-depot="chasse"></script>
 
 <script>
 /* ============ Données ============ */
@@ -411,7 +413,7 @@ function libelleReso(r) {
   return t;
 }
 function rendreAccueil() {
-  fond(null); ecran('accueil'); S.minutes = hm($('#heure').value); S.aube = hm($('#aube').value); majHorloge();
+  musique(null); fond(null); ecran('accueil'); S.minutes = hm($('#heure').value); S.aube = hm($('#aube').value); majHorloge();
   $('#grille-joueurs').innerHTML = JOUEURS.map(j => {
     const e = etat(j.id), p = e.proie;
     return `<div class="joueur" data-id="${j.id}">
@@ -437,7 +439,7 @@ function affluence(l) {
   return Math.max(0, Math.min(4, n));
 }
 function rendreLieux() {
-  fond(null); ecran('choix-lieu');
+  musique(null); fond(null); ecran('choix-lieu');
   $('#titre-lieux').textContent = `${S.joueur.nom} : où chasser ?`;
   const p = etat(S.joueur.id).proie;
   let html = '';
@@ -491,7 +493,7 @@ function tirerResonance(l) {
 }
 function entrer(lieuId) {
   S.lieu = LIEUX.find(l => l.id === lieuId); S.choisie = null;
-  fond(imageLieu(lieuId)); ecran('chasse'); rendreCote();
+  fond(imageLieu(lieuId)); ecran('chasse'); rendreCote(); musique(lieuId);
   $('#c-lieu').textContent = S.lieu.nom;
   S.evt = jetTerritoire(lieuId);
   if (!S.evt && S.presage) S.evt = { type: 'presage', texte: S.presage, suite: jetEvenement(lieuId) };
@@ -541,6 +543,7 @@ function carteHTML(c, i) {
       <div class="identite" ${n >= 2 ? 'style="display:block"' : ''}>${esc(c.nom)}<small>${c.p.age ? esc(c.p.age) + ' ans · ' : ''}${esc(c.p.metier || '')}</small></div>
       <div class="app">${esc(c.p.apparence || '')}</div>
       ${n >= 1 ? `<div class="ligne-de">${deHTML(valeurDe(c), c.res.t <= 5 ? 'ombre' : '')}<div class="signes">${esc(t.signes)}</div></div>` : ''}
+      ${n >= 2 && S.joueur.familiarite ? `<div class="fam">${famTexte(c.id)}</div>` : ''}
       ${n >= 2 && t.replique ? `<div class="bulle">« ${esc(t.replique)} »</div>` : ''}
       ${n >= 3 && t.declencheur ? `<div class="ce-soir-carte"><b>Ce soir :</b> ${esc(t.declencheur)}</div>` : ''}
       <div class="boutons">
@@ -572,7 +575,7 @@ function rendreCartes() {
 function reussir(i) {
   const c = S.cartes[i], et = ETAPES[c.niveau || 0]; if (!et) return;
   if (!avancer(TEMPS[et.cle])) return;
-  c.niveau = (c.niveau || 0) + 1; majCarte(i, c.niveau === 1);
+  c.niveau = (c.niveau || 0) + 1; if (c.niveau >= 2) famPlus(c.id); majCarte(i, c.niveau === 1);
 }
 function rater(i) {
   const c = S.cartes[i], et = ETAPES[c.niveau || 0]; if (!et) return;
@@ -618,6 +621,7 @@ function gorgee(c) {
   gorgeeSuite(c);
 }
 async function gorgeeSuite(c) {
+  S.famCible = c.id;
   const g = $('#gorgee'), act = $('#act'), r = c.res; act.innerHTML = '';
   const H = HUMEURS[r.type];
   if (r.t <= 5) { g.innerHTML = `<div class="verdict">Un sang sans saveur particulière.</div>`; return finChoix(c, null); }
@@ -677,7 +681,7 @@ const EVENEMENTS = {
 };
 async function retrouverProie() {
   const e = etat(S.joueur.id), p = e.proie; if (!p) return;
-  S.evt = null; $('#presage').classList.remove('vu');
+  S.evt = null; S.famCible = p.id; $('#presage').classList.remove('vu');
   S.lieu = LIEUX.find(l => l.id === p.lieu) || { id: p.lieu, nom: joli(p.lieu) };
   fond(imageLieu(p.lieu)); ecran('chasse'); rendreCote(); $('#c-lieu').textContent = S.lieu.nom;
   // Jet d'événement : plus il revient souvent, plus ça tourne mal
@@ -728,11 +732,32 @@ async function retrouverProie() {
   $('#b-lacher').onclick = () => { delete e.proie; sauver(); annulerChoix(); toast(`${p.nom} n'est plus sa proie.`); };
 }
 
+/* ============ Familiarité (joueurs avec "familiarite": true) ============ */
+const NIVEAUX_FAM = [[40, 'Proche'], [30, 'Pote'], [20, 'Familier'], [10, 'Connaissance'], [0, 'Inconnu']];
+function familiarites() { const F = SAVE.familiarite || (SAVE.familiarite = {}); return F[S.joueur.id] || (F[S.joueur.id] = {}); }
+function famPlus(id) { if (!id || !S.joueur.familiarite) return; const F = familiarites(); F[id] = (F[id] || 0) + 1; sauver(); }
+function famTexte(id) { const v = familiarites()[id] || 0; return `Familiarité ${v} · ${NIVEAUX_FAM.find(x => v >= x[0])[1]}`; }
+
+/* ============ Musique par lieu (musique/<lieu>.mp3, variantes _2, _3…) ============ */
+const AUDIO = new Audio(); AUDIO.loop = true; let SON = true, FONDU = null;
+try { SON = localStorage.getItem('chasse-son') !== 'off'; } catch (e) {}
+function majBoutonSon() { const b = $('#btn-son'); if (b) b.style.opacity = SON ? 1 : .35; }
+function musique(lid) {
+  clearInterval(FONDU);
+  const liste = lid ? (M.musique || []).filter(f => baseLieu(f) === lid) : [];
+  const suivant = liste.length ? encodeURI('musique/' + hasard(liste)) : null;
+  const lancer = () => { if (!suivant || !SON) return; AUDIO.src = suivant; AUDIO.volume = 0; AUDIO.play().catch(() => {});
+    FONDU = setInterval(() => { AUDIO.volume = Math.min(.6, AUDIO.volume + .03); if (AUDIO.volume >= .6) clearInterval(FONDU); }, 80); };
+  if (AUDIO.paused) return lancer();
+  FONDU = setInterval(() => { AUDIO.volume = Math.max(0, AUDIO.volume - .05); if (AUDIO.volume <= 0) { clearInterval(FONDU); AUDIO.pause(); lancer(); } }, 60);
+}
+
 /* ============ Dose, anémie ============ */
 const ANEMIE = 3;   // chasses (tous joueurs confondus) avant qu'une proie anémiée revienne
 function anemies() { return SAVE.anemies || (SAVE.anemies = {}); }
 function anemier(id) { anemies()[id] = ANEMIE; }
-function doses(el, prefixe, ok) {
+function doses(el, prefixe, ok0) {
+  const cible = S.famCible, ok = d => { famPlus(cible); ok0(d); };
   const v = prefixe ? prefixe + 'boire' : 'Boire';
   el.innerHTML = `<button class="or" data-d="1">${v} 1 Soif</button><button class="rouge" data-d="2">${v} 2 Soif (anémie)</button>`;
   el.querySelectorAll('[data-d]').forEach(b => b.onclick = () => ok(+b.dataset.d));
@@ -913,6 +938,8 @@ $('#fichier-import').onchange = async ev => {
 let K = 1; try { K = parseFloat(localStorage.getItem('chasse-taille')) || 1; } catch (e) {}
 function taille(k) { K = Math.min(1.8, Math.max(0.8, Math.round(k * 10) / 10)); document.documentElement.style.setProperty('--k', K); try { localStorage.setItem('chasse-taille', K); } catch (e) {} }
 taille(K);
+majBoutonSon();
+$('#btn-son').onclick = () => { SON = !SON; try { localStorage.setItem('chasse-son', SON ? 'on' : 'off'); } catch (e) {} majBoutonSon(); if (!SON) { AUDIO.pause(); } else if (S.lieu && $('#chasse').classList.contains('actif')) musique(S.lieu.id); };
 $('#btn-moins').onclick = () => taille(K - 0.1);
 $('#btn-plus').onclick = () => taille(K + 0.1);
 init();

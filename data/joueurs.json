@@ -13,7 +13,8 @@
     "nom": "Cassandre",
     "clan": "Malkavien",
     "style": "Parasite domestique",
-    "groupement": "Manipulation + Subterfuge"
+    "groupement": "Manipulation + Subterfuge",
+    "familiarite": true
   },
   {
     "id": "pavel",

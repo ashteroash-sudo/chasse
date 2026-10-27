@@ -34,7 +34,8 @@ const manifest = {
   joueurs: files('joueurs', new RegExp(IMG.source + '|' + VID.source, 'i')),
   lieux: files('lieux', IMG),
   pnj,
-  profils: files('profils', /\.json$/i)
+  profils: files('profils', /\.json$/i),
+  musique: files('musique', /\.(mp3|ogg|m4a|wav)$/i)
 };
 fs.writeFileSync(path.join(OUT, 'manifest.json'), JSON.stringify(manifest, null, 1));
 console.log('manifest.json :', manifest.joueurs.length, 'joueurs,', manifest.lieux.length, 'lieux,',
