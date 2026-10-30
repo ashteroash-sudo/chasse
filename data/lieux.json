@@ -226,5 +226,43 @@
         1
       ]
     ]
+  },
+  {
+    "id": "cercle",
+    "nom": "Le Cercle",
+    "joueurs": [
+      "vito",
+      "calista",
+      "cassandre"
+    ],
+    "prive": true,
+    "resonance": {
+      "flegmatique": 3,
+      "atrabilaire": 2,
+      "bilieuse": 2,
+      "sanguine": 3
+    },
+    "affluence": [
+      [
+        "18:00",
+        2
+      ],
+      [
+        "20:00",
+        4
+      ],
+      [
+        "01:00",
+        3
+      ],
+      [
+        "03:00",
+        1
+      ],
+      [
+        "05:00",
+        0
+      ]
+    ]
   }
 ]

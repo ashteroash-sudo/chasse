@@ -1,0 +1,2556 @@
+[
+ {
+  "id": "harold_pruitt",
+  "nom": "Harold Pruitt",
+  "age": 71,
+  "metier": "Retraité de l'aciérie US Steel",
+  "apparence": "Un vieil homme aux grosses mains burinées, cheveux gris clairsemés, veste de tweed usée, regard fatigué mais doux.",
+  "lieux": [
+   "bars",
+   "cimetieres"
+  ],
+  "compatible_vito": true,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Boit son double en regardant le match sans le suivre.",
+    "signes": "Assis bien droit, les mains autour du verre.",
+    "replique": "Quarante ans aux hauts-fourneaux. Ça vous apprend la patience."
+   },
+   "flegmatique": {
+    "declencheur": "Attend que sa fille rappelle, comme chaque soir.",
+    "signes": "Regard dans le vide, gestes lents, verre qui se vide tout seul.",
+    "replique": "Le dimanche, elle passe. Le reste de la semaine, il y a ça."
+   },
+   "atrabilaire": {
+    "declencheur": "C'est l'anniversaire de la mort de sa femme.",
+    "signes": "Yeux rougis, alliance qu'il fait tourner sans fin.",
+    "replique": "Six ans. Je mets encore deux tasses le matin."
+   },
+   "bilieuse": {
+    "declencheur": "Un jeune l'a traité de vieux débris en le bousculant.",
+    "signes": "Mâchoire serrée, poings fermés sur le comptoir.",
+    "replique": "J'ai coulé l'acier de ta bagnole, petit con."
+   },
+   "sanguine": {
+    "declencheur": "Sa fille lui a annoncé qu'il allait être grand-père.",
+    "signes": "Sourire immense, il paie une tournée.",
+    "replique": "Un petit-fils ! Je vais lui apprendre à pêcher !"
+   }
+  }
+ },
+ {
+  "id": "dolores_kaczmarek",
+  "nom": "Dolores Kaczmarek",
+  "age": 68,
+  "metier": "Ancienne caissière de supermarché",
+  "apparence": "Une dame de soixante-dix ans aux boucles teintes auburn, chemisier à fleurs, rouge à lèvres vif, visage jovial et un peu bouffi.",
+  "lieux": [
+   "bars",
+   "quartiers-bourgeois"
+  ],
+  "compatible_vito": true,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Prend un gin tonic en racontant les potins du quartier.",
+    "signes": "Rire facile, sac à main serré contre elle.",
+    "replique": "Vous connaissez la dernière de ma voisine ?"
+   },
+   "flegmatique": {
+    "declencheur": "Attend un bus de nuit qui ne vient pas.",
+    "signes": "Elle bâille, fouille son sac, sort une flasque.",
+    "replique": "Bah, il passera bien. Ou pas."
+   },
+   "atrabilaire": {
+    "declencheur": "A retrouvé les lettres d'amour de son défunt mari.",
+    "signes": "Mascara qui coule, mouchoir chiffonné.",
+    "replique": "Il écrivait si mal… et si bien."
+   },
+   "bilieuse": {
+    "declencheur": "La caissière du supermarché l'a regardée de haut.",
+    "signes": "Joues rouges, voix aiguë, doigt pointé.",
+    "replique": "Trente ans derrière une caisse, moi ! Un peu de respect !"
+   },
+   "sanguine": {
+    "declencheur": "A gagné cinquante dollars au loto.",
+    "signes": "Elle danse presque, offre à boire à tout le monde.",
+    "replique": "Ce soir, c'est Dolores qui invite !"
+   }
+  }
+ },
+ {
+  "id": "ray_mitchell",
+  "nom": "Raymond « Ray » Mitchell",
+  "age": 74,
+  "metier": "Vétéran du Vietnam, pensionné",
+  "apparence": "Un vétéran noir de soixante-quinze ans au bouc blanc, casquette d'ancien combattant, veste militaire olive, regard méfiant.",
+  "lieux": [
+   "bars",
+   "rue-deserte",
+   "parcs"
+  ],
+  "compatible_vito": true,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Sirote son bourbon, le dos au mur, face à la porte.",
+    "signes": "Immobile, il note chaque entrée d'un coup d'œil.",
+    "replique": "Le Kentucky, ça c'est un pays. Pas comme ici."
+   },
+   "flegmatique": {
+    "declencheur": "Fait sa marche du soir, comme tous les soirs.",
+    "signes": "Pas réguliers, mains dans les poches, regard lointain.",
+    "replique": "La nuit, c'est calme. J'aime le calme."
+   },
+   "atrabilaire": {
+    "declencheur": "Un camarade de régiment est mort cette semaine.",
+    "signes": "Il fixe une photo pliée, la mâchoire tremblante.",
+    "replique": "On n'était plus que trois. Maintenant on est deux."
+   },
+   "bilieuse": {
+    "declencheur": "Un type a fait une blague sur le Vietnam.",
+    "signes": "Main qui glisse sous la veste, voix très calme.",
+    "replique": "Répète ça. Lentement."
+   },
+   "sanguine": {
+    "declencheur": "Sa pension a enfin été revalorisée.",
+    "signes": "Il sourit, sifflote un air de country.",
+    "replique": "L'Oncle Sam se souvient de moi. Faut fêter ça."
+   }
+  }
+ },
+ {
+  "id": "walter_greene",
+  "nom": "Walter Greene",
+  "age": 66,
+  "metier": "Professeur de lettres à la retraite",
+  "apparence": "Un ancien professeur aux lunettes rondes, barbe grise, veste de velours à coudières, un carnet toujours à la main.",
+  "lieux": [
+   "bars",
+   "quartiers-bourgeois"
+  ],
+  "compatible_vito": true,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Écrit sa chronique en buvant un single malt.",
+    "signes": "Stylo rapide, verre posé à portée de main.",
+    "replique": "Gary est un roman qui n'a pas trouvé son auteur."
+   },
+   "flegmatique": {
+    "declencheur": "Attend l'inspiration, en vain.",
+    "signes": "Il tapote son carnet, relit la même page.",
+    "replique": "Rien. Pas une phrase. Le whisky n'aide plus."
+   },
+   "atrabilaire": {
+    "declencheur": "Son éditeur a refusé son roman pour la troisième fois.",
+    "signes": "Épaules voûtées, il déchire une page.",
+    "replique": "Trente ans d'écriture. Pour quoi ?"
+   },
+   "bilieuse": {
+    "declencheur": "Un lecteur l'a insulté dans le courrier des lecteurs.",
+    "signes": "Il gesticule, cite des auteurs avec rage.",
+    "replique": "Un béotien ! Un analphabète fonctionnel !"
+   },
+   "sanguine": {
+    "declencheur": "Sa chronique a été reprise par un journal de Chicago.",
+    "signes": "Il lève son verre à tout le monde.",
+    "replique": "Enfin, quelqu'un qui sait lire !"
+   }
+  }
+ },
+ {
+  "id": "frank_dombrowski",
+  "nom": "Frank Dombrowski",
+  "age": 69,
+  "metier": "Ancien contremaître de chantier",
+  "apparence": "Un ancien contremaître costaud, moustache grise, chemise de flanelle, nez rouge et sourire bourru.",
+  "lieux": [
+   "bars",
+   "rue-deserte"
+  ],
+  "compatible_vito": true,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Boit une bière en discutant chantier avec un inconnu.",
+    "signes": "Grosses mains posées à plat, voix forte.",
+    "replique": "Ce comptoir ? Mal fixé. Je vous le refais en une heure."
+   },
+   "flegmatique": {
+    "declencheur": "Regarde le match sans y croire.",
+    "signes": "Affalé, il mâche un cure-dent.",
+    "replique": "Ils perdront. Ils perdent toujours."
+   },
+   "atrabilaire": {
+    "declencheur": "Un vieux copain de chantier est mort d'un cancer.",
+    "signes": "Il fixe sa bière, silencieux, les yeux humides.",
+    "replique": "On a construit la moitié de cette ville ensemble."
+   },
+   "bilieuse": {
+    "declencheur": "Son bookmaker l'a appelé trois fois ce soir.",
+    "signes": "Il raccroche violemment, nerveux, en sueur.",
+    "replique": "Il aura son fric ! Qu'il me lâche !"
+   },
+   "sanguine": {
+    "declencheur": "Il a gagné gros sur un match.",
+    "signes": "Il paie en liasse de billets froissés, rit fort.",
+    "replique": "Les Bears ! Je l'avais dit !"
+   }
+  }
+ },
+ {
+  "id": "evelyn_marsh",
+  "nom": "Evelyn Marsh",
+  "age": 72,
+  "metier": "Ancienne chanteuse de cabaret",
+  "apparence": "Une ancienne chanteuse noire élégante, cheveux argent en chignon, châle pailleté, rouge à lèvres et regard théâtral.",
+  "lieux": [
+   "bars",
+   "quartiers-bourgeois"
+  ],
+  "compatible_vito": true,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Fredonne un vieux standard en buvant un cognac.",
+    "signes": "Gestes gracieux, voix grave et douce.",
+    "replique": "Chicago, 1974. Ça, c'était des nuits."
+   },
+   "flegmatique": {
+    "declencheur": "Se remaquille lentement devant un miroir de poche.",
+    "signes": "Calme, précise, presque absente.",
+    "replique": "La scène, on ne la quitte jamais vraiment."
+   },
+   "atrabilaire": {
+    "declencheur": "Un ancien pianiste qu'elle aimait est mort.",
+    "signes": "Elle chante tout bas, la voix brisée.",
+    "replique": "Il jouait comme personne. Comme personne."
+   },
+   "bilieuse": {
+    "declencheur": "Un jeune serveur l'a appelée « mamie ».",
+    "signes": "Regard foudroyant, menton levé.",
+    "replique": "Mamie ? J'ai fait pleurer Sinatra, mon garçon."
+   },
+   "sanguine": {
+    "declencheur": "On l'a reconnue, et on lui demande une chanson.",
+    "signes": "Elle rayonne, se lève, ouvre les bras.",
+    "replique": "Juste une. Pour les vieux amis."
+   }
+  }
+ },
+ {
+  "id": "leonard_fisk",
+  "nom": "Leonard Fisk",
+  "age": 77,
+  "metier": "Notaire à la retraite",
+  "apparence": "Un vieux notaire frêle et digne, cheveux blancs plaqués, costume trois-pièces, lunettes cerclées d'or.",
+  "lieux": [
+   "quartiers-bourgeois",
+   "hopital-retraite"
+  ],
+  "compatible_vito": true,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Déguste un cognac en lisant le journal financier.",
+    "signes": "Gestes lents, méthodiques, page tournée avec soin.",
+    "replique": "Un cognac se respire avant de se boire."
+   },
+   "flegmatique": {
+    "declencheur": "Attend son chauffeur, en retard.",
+    "signes": "Il consulte sa montre à gousset sans s'énerver.",
+    "replique": "La ponctualité se perd, comme le reste."
+   },
+   "atrabilaire": {
+    "declencheur": "Son fils l'a encore sermonné sur sa santé.",
+    "signes": "Mains tremblantes, regard baissé.",
+    "replique": "Il me parle comme à un client. Pas comme à son père."
+   },
+   "bilieuse": {
+    "declencheur": "Un héritier conteste un testament qu'il a rédigé.",
+    "signes": "Voix sèche, lèvres pincées.",
+    "replique": "J'ai rédigé ce document à la virgule près."
+   },
+   "sanguine": {
+    "declencheur": "Il a retrouvé une bouteille de 1952 dans sa cave.",
+    "signes": "Sourire rare, yeux brillants.",
+    "replique": "L'année de mon diplôme. Un signe."
+   }
+  }
+ },
+ {
+  "id": "bernie_lutz",
+  "nom": "Bernard « Bernie » Lutz",
+  "age": 64,
+  "metier": "Ancien représentant de commerce",
+  "apparence": "Un ancien VRP rondouillard, cravate criarde, cheveux gominés, joues rouges et grand sourire.",
+  "lieux": [
+   "bars",
+   "rue-deserte"
+  ],
+  "compatible_vito": true,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Raconte une histoire à qui veut l'entendre.",
+    "signes": "Grands gestes, rire avant la chute.",
+    "replique": "Peoria, 1989. Un aspirateur, une bonne sœur…"
+   },
+   "flegmatique": {
+    "declencheur": "Cherche quelqu'un à qui parler.",
+    "signes": "Il fait tourner son verre, regarde autour de lui.",
+    "replique": "Vous êtes d'ici ? Moi, j'étais de partout."
+   },
+   "atrabilaire": {
+    "declencheur": "Son permis lui a été retiré pour de bon.",
+    "signes": "Il fixe ses clés de voiture, désemparé.",
+    "replique": "Quarante ans sur la route. Et maintenant, le bus."
+   },
+   "bilieuse": {
+    "declencheur": "Le barman refuse de lui resservir.",
+    "signes": "Voix forte, il prend la salle à témoin.",
+    "replique": "Vous avez vu ça ? Un client fidèle !"
+   },
+   "sanguine": {
+    "declencheur": "Une ancienne collègue l'a reconnu et l'invite.",
+    "signes": "Il pétille, raconte trois histoires à la fois.",
+    "replique": "Margie ! La reine du Midwest !"
+   }
+  }
+ },
+ {
+  "id": "agnes_wilkowski",
+  "nom": "Albert Wilkowski",
+  "age": 70,
+  "metier": "Pharmacien à la retraite",
+  "apparence": "Un vieux pharmacien aux cheveux blancs, lunettes au bout d'une chaînette, gilet brun, regard perçant.",
+  "lieux": [
+   "bars",
+   "hopital-retraite",
+   "quartiers-bourgeois"
+  ],
+  "compatible_vito": true,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Boit un rhum vieux en observant les gens.",
+    "signes": "Silencieux, attentif, rien ne lui échappe.",
+    "replique": "Vous avez l'air fatigué. Vous dormez assez ?"
+   },
+   "flegmatique": {
+    "declencheur": "Range des cachets dans une boîte sans étiquette.",
+    "signes": "Gestes lents, un peu ralentis.",
+    "replique": "Un pour dormir, un pour se réveiller. L'équilibre."
+   },
+   "atrabilaire": {
+    "declencheur": "Sa vieille officine a été rasée pour un parking.",
+    "signes": "Il regarde une photo jaunie, les yeux humides.",
+    "replique": "Trente ans derrière ce comptoir. Un parking."
+   },
+   "bilieuse": {
+    "declencheur": "Un jeune médecin l'a pris de haut.",
+    "signes": "Ton cassant, il cite des posologies.",
+    "replique": "J'ai corrigé plus d'ordonnances que vous n'en signerez."
+   },
+   "sanguine": {
+    "declencheur": "Un ancien client l'a remercié de lui avoir sauvé la vie.",
+    "signes": "Il rougit, sourit timidement.",
+    "replique": "Oh, c'était juste une interaction médicamenteuse."
+   }
+  }
+ },
+ {
+  "id": "clarence_hayes",
+  "nom": "Clarence Hayes",
+  "age": 79,
+  "metier": "Ancien pasteur",
+  "apparence": "Un ancien pasteur noir, très âgé et frêle, barbe blanche de trois jours, vieux costume noir, petite croix de bois, regard hanté.",
+  "lieux": [
+   "cimetieres",
+   "bars",
+   "hopital-retraite"
+  ],
+  "compatible_vito": true,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Boit un whisky écossais en silence, et écoute.",
+    "signes": "Mains jointes autour du verre, presque immobile.",
+    "replique": "Je n'ai plus rien à dire. Mais j'écoute encore."
+   },
+   "flegmatique": {
+    "declencheur": "Se recueille sans prier sur un banc.",
+    "signes": "Yeux fermés, respiration lente.",
+    "replique": "Dieu et moi, on ne se parle plus. Mais on se tolère."
+   },
+   "atrabilaire": {
+    "declencheur": "Il a croisé un ancien paroissien qui ne l'a pas salué.",
+    "signes": "Il serre sa croix, tremble légèrement.",
+    "replique": "Je l'ai baptisé. Il ne m'a pas reconnu."
+   },
+   "bilieuse": {
+    "declencheur": "Un prédicateur de rue hurle au coin de la rue.",
+    "signes": "Il se lève, voix soudain puissante.",
+    "replique": "Tais-toi ! Tu ne sais pas ce qui rôde la nuit !"
+   },
+   "sanguine": {
+    "declencheur": "Un enfant lui a demandé de bénir son chien.",
+    "signes": "Sourire tremblant, il pose la main sur l'animal.",
+    "replique": "Voilà. Il ira au paradis. Lui."
+   }
+  }
+ },
+ {
+  "id": "jean_paul_berard",
+  "nom": "Jean-Paul Bérard",
+  "age": 52,
+  "metier": "Directeur régional de BHL Transport",
+  "apparence": "Un Québécois de cinquante ans à la barbe poivre et sel, chemise ouverte sous un blazer marine, poignée de main franche.",
+  "lieux": [
+   "bars",
+   "quartiers-bourgeois",
+   "rue-deserte"
+  ],
+  "compatible_vito": false,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Vient de finir sa journée et prend un cognac.",
+    "signes": "Détendu, il desserre son col.",
+    "replique": "Deux cents camions, et pas un en panne aujourd'hui. Câline, ça se fête."
+   },
+   "flegmatique": {
+    "declencheur": "Attend un appel d'un chauffeur en retard.",
+    "signes": "Il fixe son téléphone, tapote la table.",
+    "replique": "Un camion, ça ne disparaît pas. Normalement."
+   },
+   "atrabilaire": {
+    "declencheur": "Il n'est pas rentré à Montréal depuis trois ans.",
+    "signes": "Regard perdu, il parle à mi-voix.",
+    "replique": "Ma mère vieillit, pis moi je suis à Gary."
+   },
+   "bilieuse": {
+    "declencheur": "Un client l'a planté sur un contrat.",
+    "signes": "Voix tranchante, accent qui ressort.",
+    "replique": "On se serre la main, pis on tient parole. C'est pas compliqué !"
+   },
+   "sanguine": {
+    "declencheur": "Il a décroché le contrat d'un gros distributeur.",
+    "signes": "Il rit fort, commande une bouteille.",
+    "replique": "Ça, mes amis, c'est une bonne journée !"
+   }
+  }
+ },
+ {
+  "id": "priya_raman",
+  "nom": "Dr Priya Raman",
+  "age": 41,
+  "metier": "Cardiologue au Methodist Hospital",
+  "apparence": "Une cardiologue indo-américaine, longs cheveux noirs attachés, chemisier sombre élégant, regard vif et attentif.",
+  "lieux": [
+   "hopital-retraite",
+   "quartiers-bourgeois",
+   "bars"
+  ],
+  "compatible_vito": false,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Sort de garde et prend l'air avant de rentrer.",
+    "signes": "Elle s'étire, consulte son téléphone.",
+    "replique": "Douze heures. Encore une nuit sans mort."
+   },
+   "flegmatique": {
+    "declencheur": "Enchaîne sa troisième garde de la semaine.",
+    "signes": "Gestes automatiques, regard vitreux.",
+    "replique": "Je dors debout. C'est une compétence."
+   },
+   "atrabilaire": {
+    "declencheur": "Elle a perdu un patient jeune sur la table.",
+    "signes": "Assise sur un banc, tête dans les mains.",
+    "replique": "Trente-quatre ans. Il avait trente-quatre ans."
+   },
+   "bilieuse": {
+    "declencheur": "Un chef de service s'est attribué son travail.",
+    "signes": "Débit rapide, voix sèche et coupante.",
+    "replique": "Mes résultats. Mon protocole. Son nom."
+   },
+   "sanguine": {
+    "declencheur": "Son article a été accepté dans une grande revue.",
+    "signes": "Elle sourit enfin, commande un whisky japonais.",
+    "replique": "Le Lancet ! Moi !"
+   }
+  }
+ },
+ {
+  "id": "marcus_thornton",
+  "nom": "Marcus Thornton",
+  "age": 46,
+  "metier": "Avocat d'affaires",
+  "apparence": "Un avocat d'affaires noir à la barbe taillée, costume anthracite sur mesure, pochette de soie, demi-sourire assuré.",
+  "lieux": [
+   "quartiers-bourgeois",
+   "bars"
+  ],
+  "compatible_vito": false,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Commande un bourbon rare en parlant affaires au téléphone.",
+    "signes": "Posture droite, voix posée, montre de prix.",
+    "replique": "Je rappelle demain. Je suis en dégustation."
+   },
+   "flegmatique": {
+    "declencheur": "Attend un client qui a annulé.",
+    "signes": "Il fait tourner son verre, l'air ennuyé.",
+    "replique": "Le temps, c'est de l'argent. Et il me coûte cher."
+   },
+   "atrabilaire": {
+    "declencheur": "Son associé l'a écarté d'un dossier majeur.",
+    "signes": "Regard fixe, mâchoire crispée, silence lourd.",
+    "replique": "Quinze ans dans ce cabinet. Et on me sort comme ça."
+   },
+   "bilieuse": {
+    "declencheur": "Un adversaire l'a humilié à l'audience.",
+    "signes": "Il serre son verre à le briser, voix basse.",
+    "replique": "Il va regretter chaque mot. Chaque mot."
+   },
+   "sanguine": {
+    "declencheur": "Il a gagné un procès à sept chiffres.",
+    "signes": "Sourire carnassier, il offre une bouteille entière.",
+    "replique": "Ce soir, on boit le meilleur. Sur mon compte."
+   }
+  }
+ },
+ {
+  "id": "tony_esposito",
+  "nom": "Tony Esposito",
+  "age": 49,
+  "metier": "Concessionnaire automobile",
+  "apparence": "Un concessionnaire italo-américain aux cheveux gominés, chaîne en or, costume gris brillant, grand sourire de vendeur.",
+  "lieux": [
+   "bars",
+   "quartiers-bourgeois"
+  ],
+  "compatible_vito": false,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Discute bagnoles avec tout le monde.",
+    "signes": "Il serre des mains, tape dans le dos.",
+    "replique": "Vous roulez en quoi ? Je vous fais un prix."
+   },
+   "flegmatique": {
+    "declencheur": "Attend la fin d'une réunion d'affaires interminable.",
+    "signes": "Il bâille, regarde sa montre en or.",
+    "replique": "Les chiffres, les chiffres… moi je vends des rêves."
+   },
+   "atrabilaire": {
+    "declencheur": "Sa femme est partie avec son comptable.",
+    "signes": "Il boit sec, les yeux rouges.",
+    "replique": "Vingt ans. Et le comptable. Le comptable !"
+   },
+   "bilieuse": {
+    "declencheur": "Un concurrent lui a piqué son emplacement de pub à la radio.",
+    "signes": "Il crie au téléphone, gesticule.",
+    "replique": "C'est MA tranche horaire ! Depuis 1998 !"
+   },
+   "sanguine": {
+    "declencheur": "Record de ventes ce mois-ci.",
+    "signes": "Il paie des tournées, rit à gorge déployée.",
+    "replique": "Tony Esposito, le roi de Gary !"
+   }
+  }
+ },
+ {
+  "id": "daniel_cho",
+  "nom": "Daniel Cho",
+  "age": 38,
+  "metier": "Ingénieur à la raffinerie BP de Whiting",
+  "apparence": "Un ingénieur coréen-américain aux cheveux courts, lunettes fines, pull gris sur une chemise, expression calme et précise.",
+  "lieux": [
+   "bars",
+   "parcs"
+  ],
+  "compatible_vito": false,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Note ses impressions de dégustation dans un carnet.",
+    "signes": "Gestes minutieux, verre levé à la lumière.",
+    "replique": "Notes de miel, de bois de santal. Finale moyenne."
+   },
+   "flegmatique": {
+    "declencheur": "Sort d'une longue réunion technique.",
+    "signes": "Il masse ses tempes, regard vide.",
+    "replique": "Six heures pour décider de la couleur d'une vanne."
+   },
+   "atrabilaire": {
+    "declencheur": "Un collègue a été blessé dans un accident à la raffinerie.",
+    "signes": "Il fixe son carnet sans écrire.",
+    "replique": "J'avais signalé ce joint. Trois fois."
+   },
+   "bilieuse": {
+    "declencheur": "Sa direction a ignoré son rapport de sécurité.",
+    "signes": "Voix basse et tendue, il serre son stylo.",
+    "replique": "Ils attendront qu'elle explose."
+   },
+   "sanguine": {
+    "declencheur": "Il a trouvé une bouteille japonaise introuvable.",
+    "signes": "Petit sourire, il la caresse presque.",
+    "replique": "Yamazaki 18. Je n'y croyais plus."
+   }
+  }
+ },
+ {
+  "id": "gregory_vasquez",
+  "nom": "Sergent Gregory Vasquez",
+  "age": 50,
+  "metier": "Sergent de la police de Gary",
+  "apparence": "Un sergent de police latino de cinquante ans, cheveux gris en brosse, grosse moustache, blouson de cuir, regard dur et fatigué.",
+  "lieux": [
+   "bars",
+   "rue-deserte",
+   "drogues"
+  ],
+  "compatible_vito": false,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Boit une bière après son service, loin du commissariat.",
+    "signes": "Dos au mur, regard qui balaie la salle par réflexe.",
+    "replique": "Ici, personne ne me parle de boulot. C'est le deal."
+   },
+   "flegmatique": {
+    "declencheur": "Il rentre d'une patrouille sans histoire.",
+    "signes": "Il se frotte la nuque, bâille.",
+    "replique": "Une nuit calme à Gary. Ça arrive deux fois par an."
+   },
+   "atrabilaire": {
+    "declencheur": "Un gamin qu'il connaissait a été tué par balle.",
+    "signes": "Il fixe le fond de son verre, silencieux.",
+    "replique": "Je l'avais arrêté à douze ans. Je pensais l'avoir sauvé."
+   },
+   "bilieuse": {
+    "declencheur": "Son capitaine a classé une affaire qu'il suivait.",
+    "signes": "Il frappe le comptoir, parle entre ses dents.",
+    "replique": "Classée. Comme si ces filles n'avaient jamais existé."
+   },
+   "sanguine": {
+    "declencheur": "Il vient d'apprendre sa promotion.",
+    "signes": "Rare sourire, il paie une tournée.",
+    "replique": "Lieutenant Vasquez. Ça sonne bien, non ?"
+   }
+  }
+ },
+ {
+  "id": "martin_oakes",
+  "nom": "Martin Oakes",
+  "age": 58,
+  "metier": "Directeur d'agence bancaire",
+  "apparence": "Un directeur de banque aux cheveux gris bien peignés, costume marine, cravate sage, sourire poli et un peu nerveux.",
+  "lieux": [
+   "quartiers-bourgeois",
+   "bars"
+  ],
+  "compatible_vito": false,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Prend un cognac après la fermeture de l'agence.",
+    "signes": "Il desserre sa cravate, soupire d'aise.",
+    "replique": "Les comptes sont justes. La journée aussi."
+   },
+   "flegmatique": {
+    "declencheur": "Relit des dossiers de prêt chez lui, épuisé.",
+    "signes": "Gestes lents, lunettes sur le front.",
+    "replique": "Encore un refus à signer demain."
+   },
+   "atrabilaire": {
+    "declencheur": "Il a dû saisir la maison d'une famille qu'il connaissait.",
+    "signes": "Regard fuyant, voix basse.",
+    "replique": "Les règles sont les règles. Je me le répète."
+   },
+   "bilieuse": {
+    "declencheur": "Son siège lui impose des objectifs impossibles.",
+    "signes": "Il pianote nerveusement, voix tendue.",
+    "replique": "Chicago ne connaît pas Gary. Ils ne la connaîtront jamais."
+   },
+   "sanguine": {
+    "declencheur": "Sa fille a été admise à Harvard.",
+    "signes": "Il rayonne, montre la lettre à tout le monde.",
+    "replique": "Harvard ! Ma petite fille !"
+   }
+  }
+ },
+ {
+  "id": "sylvie_duchamp",
+  "nom": "Sylvie Duchamp",
+  "age": 47,
+  "metier": "Importatrice de vins et spiritueux",
+  "apparence": "Une importatrice française aux cheveux bruns en chignon lâche, trench élégant, foulard de soie, sourire entendu.",
+  "lieux": [
+   "bars",
+   "quartiers-bourgeois"
+  ],
+  "compatible_vito": false,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Goûte un nouveau rhum pour un client.",
+    "signes": "Elle hume, note, recrache avec élégance.",
+    "replique": "Trop boisé. On ne le vendra jamais à Chicago."
+   },
+   "flegmatique": {
+    "declencheur": "Attend une livraison bloquée au port.",
+    "signes": "Elle soupire, tapote son téléphone.",
+    "replique": "Les douanes, c'est un art de la patience."
+   },
+   "atrabilaire": {
+    "declencheur": "Sa mère est malade en France, et elle ne peut pas rentrer.",
+    "signes": "Regard perdu, elle fume en silence.",
+    "replique": "Huit mille kilomètres. Et un contrat à honorer."
+   },
+   "bilieuse": {
+    "declencheur": "Un client a refusé de payer une livraison.",
+    "signes": "Voix sèche, français qui lui échappe.",
+    "replique": "Mais quel connard. Pardon. Quel monsieur."
+   },
+   "sanguine": {
+    "declencheur": "Elle a signé l'exclusivité d'un grand cognac.",
+    "signes": "Elle sourit, trinque avec tout le monde.",
+    "replique": "Santé ! Pardon : cheers !"
+   }
+  }
+ },
+ {
+  "id": "richard_coleman",
+  "nom": "Richard Coleman",
+  "age": 63,
+  "metier": "Conseiller municipal de Gary",
+  "apparence": "Un conseiller municipal noir, tempes grises, costume marine parfait, badge de campagne, sourire de politicien.",
+  "lieux": [
+   "quartiers-bourgeois",
+   "bars",
+   "rue-deserte"
+  ],
+  "compatible_vito": false,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Serre des mains dans un bar de quartier.",
+    "signes": "Sourire figé, tape sur l'épaule.",
+    "replique": "Coleman, pour la mairie. Je compte sur vous ?"
+   },
+   "flegmatique": {
+    "declencheur": "Il sort d'une réunion de quartier interminable.",
+    "signes": "Il desserre sa cravate, l'air vidé.",
+    "replique": "Trois heures sur les nids-de-poule. Trois heures."
+   },
+   "atrabilaire": {
+    "declencheur": "Un sondage le donne largement perdant.",
+    "signes": "Il fixe son téléphone, épaules tombantes.",
+    "replique": "Vingt ans au service de cette ville."
+   },
+   "bilieuse": {
+    "declencheur": "Un journaliste l'a accusé de corruption.",
+    "signes": "Il hausse le ton, doigt levé.",
+    "replique": "Des mensonges ! Mon avocat va s'en occuper !"
+   },
+   "sanguine": {
+    "declencheur": "Il vient d'obtenir le soutien du syndicat de l'acier.",
+    "signes": "Il rit, embrasse presque les passants.",
+    "replique": "Avec eux, Gary est à nous !"
+   }
+  }
+ },
+ {
+  "id": "catherine_van_houten",
+  "nom": "Catherine Van Houten",
+  "age": 69,
+  "metier": "Héritière d'une fortune de l'acier",
+  "apparence": "Une riche veuve aux cheveux platine, boucles d'oreilles en perles, manteau de cachemire, regard seul et mélancolique.",
+  "lieux": [
+   "quartiers-bourgeois",
+   "bars"
+  ],
+  "compatible_vito": true,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Déguste un cognac en regardant les passants.",
+    "signes": "Posture élégante, verre tenu du bout des doigts.",
+    "replique": "Les soirées sont longues dans une grande maison."
+   },
+   "flegmatique": {
+    "declencheur": "Attend un invité qui ne viendra pas.",
+    "signes": "Elle fixe la porte, sans impatience.",
+    "replique": "Il viendra. Ou un autre."
+   },
+   "atrabilaire": {
+    "declencheur": "C'est l'anniversaire de son mariage.",
+    "signes": "Elle serre un médaillon, yeux brillants.",
+    "replique": "Quarante-deux ans. Et je suis encore là. Seule."
+   },
+   "bilieuse": {
+    "declencheur": "Ses neveux réclament déjà l'héritage.",
+    "signes": "Voix glacée, lèvres pincées.",
+    "replique": "Ils attendent que je meure. Ils attendront."
+   },
+   "sanguine": {
+    "declencheur": "Un jeune homme charmant lui a fait la conversation.",
+    "signes": "Elle rit, rougit, se recoiffe.",
+    "replique": "Vous êtes un flatteur. Continuez."
+   }
+  }
+ },
+ {
+  "id": "alan_whitfield",
+  "nom": "Dr Alan Whitfield",
+  "age": 61,
+  "metier": "Chef du service de chirurgie",
+  "apparence": "Un chirurgien aux cheveux gris acier, traits durs, blazer de tweed coûteux, regard froid qui évalue.",
+  "lieux": [
+   "hopital-retraite",
+   "quartiers-bourgeois"
+  ],
+  "compatible_vito": false,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Sort du bloc et s'accorde un single malt.",
+    "signes": "Gestes précis, regard ailleurs.",
+    "replique": "Huit heures d'opération. Le patient vivra."
+   },
+   "flegmatique": {
+    "declencheur": "Remplit des formulaires administratifs.",
+    "signes": "Il soupire, signe sans lire.",
+    "replique": "On m'a appris à opérer, pas à remplir des cases."
+   },
+   "atrabilaire": {
+    "declencheur": "Il a perdu un patient qu'il aurait dû sauver.",
+    "signes": "Mains immobiles, regard vide.",
+    "replique": "Une erreur. Une seule."
+   },
+   "bilieuse": {
+    "declencheur": "Un interne l'a contredit devant toute l'équipe.",
+    "signes": "Voix glaciale, sourire mauvais.",
+    "replique": "Votre carrière vient de raccourcir, docteur."
+   },
+   "sanguine": {
+    "declencheur": "Il a réussi une opération jamais tentée dans l'Indiana.",
+    "signes": "Rare sourire, il commande le meilleur malt.",
+    "replique": "Ils en parleront dans les manuels."
+   }
+  }
+ },
+ {
+  "id": "eleanor_brandt",
+  "nom": "Juge Edward Brandt",
+  "age": 66,
+  "metier": "Juge à la cour du comté de Lake",
+  "apparence": "Un juge aux cheveux blancs courts, lunettes cerclées, costume sombre, visage sévère et sur ses gardes.",
+  "lieux": [
+   "quartiers-bourgeois",
+   "bars"
+  ],
+  "compatible_vito": true,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Prend un cognac dans un coin discret.",
+    "signes": "Il évite les regards, parle peu.",
+    "replique": "Ici, je ne suis personne. C'est reposant."
+   },
+   "flegmatique": {
+    "declencheur": "Relit un dossier sans y penser vraiment.",
+    "signes": "Lunettes sur le nez, gestes lents.",
+    "replique": "Les gens mentent tous. Seule la proportion change."
+   },
+   "atrabilaire": {
+    "declencheur": "Il a dû condamner un jeune homme à une lourde peine.",
+    "signes": "Il fixe son verre, longtemps.",
+    "replique": "La loi est dure. Je la suis aussi."
+   },
+   "bilieuse": {
+    "declencheur": "Quelqu'un l'a reconnu et tente de l'influencer.",
+    "signes": "Ton glacial, regard tranchant.",
+    "replique": "Je vous conseille de vous taire. Maintenant."
+   },
+   "sanguine": {
+    "declencheur": "Sa petite-fille a passé le barreau.",
+    "signes": "Il sourit, presque attendri.",
+    "replique": "Une juriste dans la famille. Enfin quelqu'un de sensé."
+   }
+  }
+ },
+ {
+  "id": "viktor_sokolov",
+  "nom": "Viktor Sokolov",
+  "age": 57,
+  "metier": "Armateur sur le lac Michigan",
+  "apparence": "Un armateur russo-américain au crâne rasé, barbe grise épaisse, caban sombre, chevalière en or.",
+  "lieux": [
+   "bars",
+   "rue-deserte"
+  ],
+  "compatible_vito": false,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Fume un cigare en buvant un rhum.",
+    "signes": "Grand rire grave, posture massive.",
+    "replique": "Le lac Michigan, c'est une mer qui s'ignore."
+   },
+   "flegmatique": {
+    "declencheur": "Attend des nouvelles d'un cargo pris dans la tempête.",
+    "signes": "Il fixe la fenêtre, silencieux.",
+    "replique": "La tempête décide. Nous, on attend."
+   },
+   "atrabilaire": {
+    "declencheur": "Un de ses marins s'est noyé.",
+    "signes": "Il boit sec, les yeux rouges.",
+    "replique": "Vingt-trois ans. Je le connaissais depuis qu'il était gamin."
+   },
+   "bilieuse": {
+    "declencheur": "Un partenaire a trahi un accord conclu d'une poignée de main.",
+    "signes": "Il écrase son cigare, voix basse.",
+    "replique": "Une poignée de main. Il a oublié ce que ça valait."
+   },
+   "sanguine": {
+    "declencheur": "Il vient d'acheter un nouveau cargo.",
+    "signes": "Il offre des cigares à tout le monde.",
+    "replique": "Le Natalia ! Comme ma mère !"
+   }
+  }
+ },
+ {
+  "id": "harrison_pierce",
+  "nom": "Harrison Pierce III",
+  "age": 72,
+  "metier": "Ancien PDG de Pierce Steel, collectionneur",
+  "apparence": "Un vieil héritier patricien, moustache blanche, costume croisé, chevalière, paupières lourdes et teint rougeaud.",
+  "lieux": [
+   "quartiers-bourgeois",
+   "bars"
+  ],
+  "compatible_vito": true,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Commente un whisky rare d'un ton docte.",
+    "signes": "Verre en main, il parle fort et longtemps.",
+    "replique": "Distillé en 1968. Comme moi, il a du caractère."
+   },
+   "flegmatique": {
+    "declencheur": "Somnole dans un fauteuil, le verre à la main.",
+    "signes": "Paupières tombantes, souffle lourd.",
+    "replique": "Je ne dors pas. Je réfléchis."
+   },
+   "atrabilaire": {
+    "declencheur": "L'aciérie de son grand-père va être démolie.",
+    "signes": "Il fixe une photo noir et blanc, mâchoire tremblante.",
+    "replique": "Trois générations. Un bulldozer."
+   },
+   "bilieuse": {
+    "declencheur": "Un serveur lui a servi un blend à la place d'un single malt.",
+    "signes": "Visage écarlate, il frappe la table.",
+    "replique": "Vous me prenez pour un ouvrier ?"
+   },
+   "sanguine": {
+    "declencheur": "Il a remporté une enchère pour une bouteille historique.",
+    "signes": "Il rit, commande une tournée générale.",
+    "replique": "La dernière de la distillerie ! Elle est à moi !"
+   }
+  }
+ },
+ {
+  "id": "monica_reyes_hart",
+  "nom": "Monica Reyes-Hart",
+  "age": 48,
+  "metier": "PDG d'une chaîne de restaurants",
+  "apparence": "Une femme d'affaires mexicano-américaine aux longs cheveux bruns ondulés, blazer blanc, créoles dorées, regard ambitieux.",
+  "lieux": [
+   "quartiers-bourgeois",
+   "bars"
+  ],
+  "compatible_vito": false,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Goûte les plats d'un concurrent pour prendre des idées.",
+    "signes": "Elle note, sourit, critique à voix basse.",
+    "replique": "Pas mal. Trop salé. On fera mieux."
+   },
+   "flegmatique": {
+    "declencheur": "Fait ses comptes après une longue journée.",
+    "signes": "Calculatrice, café froid, regard las.",
+    "replique": "Douze restaurants. Douze fois plus de problèmes."
+   },
+   "atrabilaire": {
+    "declencheur": "Son premier restaurant, celui de sa mère, va fermer.",
+    "signes": "Elle fixe une vieille photo, la voix brisée.",
+    "replique": "C'est là que tout a commencé."
+   },
+   "bilieuse": {
+    "declencheur": "Un fournisseur l'a escroquée.",
+    "signes": "Elle parle vite, mélange anglais et espagnol.",
+    "replique": "¡Ladrón! Il va me rembourser jusqu'au dernier centime !"
+   },
+   "sanguine": {
+    "declencheur": "Elle vient d'ouvrir son treizième restaurant.",
+    "signes": "Elle trinque avec tout le monde, rayonnante.",
+    "replique": "Treize ! Et ce n'est qu'un début !"
+   }
+  }
+ },
+ {
+  "id": "thomas_gallagher",
+  "nom": "Thomas Gallagher",
+  "age": 59,
+  "metier": "Chef de cabinet du shérif du comté",
+  "apparence": "Un chef de cabinet irlando-américain au visage rougeaud, cheveux roux grisonnants, costume gris banal, petits yeux rusés.",
+  "lieux": [
+   "bars",
+   "quartiers-bourgeois"
+  ],
+  "compatible_vito": false,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Boit une Guinness en écoutant les conversations voisines.",
+    "signes": "Il sourit peu, retient tout.",
+    "replique": "On apprend beaucoup en se taisant."
+   },
+   "flegmatique": {
+    "declencheur": "Attend la fin d'un dîner officiel ennuyeux.",
+    "signes": "Il bâille derrière sa main.",
+    "replique": "Encore un discours sur la sécurité."
+   },
+   "atrabilaire": {
+    "declencheur": "Un ami d'enfance est mort d'une overdose.",
+    "signes": "Regard lourd, verre intact devant lui.",
+    "replique": "On jouait au base-ball ensemble."
+   },
+   "bilieuse": {
+    "declencheur": "Le shérif l'a pris pour un larbin devant témoins.",
+    "signes": "Il serre les dents, sourit trop.",
+    "replique": "Bien sûr, shérif. Je n'oublierai pas."
+   },
+   "sanguine": {
+    "declencheur": "Il a obtenu une information qui vaut de l'or.",
+    "signes": "Il fredonne un air irlandais.",
+    "replique": "Ah, Gary. Pleine de surprises."
+   }
+  }
+ },
+ {
+  "id": "isadora_klein",
+  "nom": "Isadora Klein",
+  "age": 75,
+  "metier": "Galeriste et mécène",
+  "apparence": "Une galeriste de soixante-quinze ans, carré argenté spectaculaire, col roulé noir, grand collier d'ambre, regard perçant.",
+  "lieux": [
+   "quartiers-bourgeois",
+   "bars"
+  ],
+  "compatible_vito": true,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Parle d'art avec passion à un inconnu.",
+    "signes": "Gestes amples, voix riche.",
+    "replique": "L'art, c'est ce qui reste quand tout le monde est mort."
+   },
+   "flegmatique": {
+    "declencheur": "Regarde la nuit par la fenêtre, pensive.",
+    "signes": "Immobile, verre de cognac à la main.",
+    "replique": "Les gens mystérieux sortent toujours la nuit."
+   },
+   "atrabilaire": {
+    "declencheur": "Un artiste qu'elle a lancé vient de mourir.",
+    "signes": "Elle tient son verre sans boire, les yeux brillants.",
+    "replique": "Il peignait la lumière. Il est parti dans le noir."
+   },
+   "bilieuse": {
+    "declencheur": "Un critique a démoli sa dernière exposition.",
+    "signes": "Voix aiguë, ironie tranchante.",
+    "replique": "Un critique, c'est un eunuque dans un harem."
+   },
+   "sanguine": {
+    "declencheur": "Un collectionneur a acheté toute une série.",
+    "signes": "Elle rit, embrasse les joues de tout le monde.",
+    "replique": "Vendu ! Tout ! Champagne !"
+   }
+  }
+ },
+ {
+  "id": "desmond_okoye",
+  "nom": "Desmond Okoye",
+  "age": 53,
+  "metier": "Promoteur immobilier",
+  "apparence": "Un promoteur nigérian-américain au crâne rasé, pardessus camel, montre en or, sourire charmeur et carnassier.",
+  "lieux": [
+   "quartiers-bourgeois",
+   "rue-deserte",
+   "bars"
+  ],
+  "compatible_vito": false,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Visite un bâtiment abandonné à la lampe torche.",
+    "signes": "Il prend des notes, imagine déjà.",
+    "replique": "Dans deux ans, ce sera des lofts. Vous verrez."
+   },
+   "flegmatique": {
+    "declencheur": "Attend un permis de construire qui n'arrive pas.",
+    "signes": "Il tapote la table, regard las.",
+    "replique": "La mairie de Gary, c'est un labyrinthe."
+   },
+   "atrabilaire": {
+    "declencheur": "Un de ses chantiers a pris feu.",
+    "signes": "Il fixe les cendres, silencieux.",
+    "replique": "Six mois de travail. En une nuit."
+   },
+   "bilieuse": {
+    "declencheur": "Un squatteur refuse de quitter un de ses immeubles.",
+    "signes": "Voix dure, menaçante.",
+    "replique": "J'ai les papiers. Lui, il a quoi ?"
+   },
+   "sanguine": {
+    "declencheur": "Il vient de signer le rachat d'un pâté de maisons entier.",
+    "signes": "Il serre des mains, rit fort.",
+    "replique": "Gary renaît. Et c'est moi qui la reconstruis."
+   }
+  }
+ },
+ {
+  "id": "kayla_brooks",
+  "nom": "Kayla Brooks",
+  "age": 22,
+  "metier": "Hôte",
+  "apparence": "Une étudiante noire de vingt-deux ans aux longues tresses, blazer noir un peu trop grand, sourire nerveux et lumineux.",
+  "lieux": [
+   "bars",
+   "parcs",
+   "rue-deserte"
+  ],
+  "compatible_vito": false,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Rentre de cours, téléphone à la main.",
+    "signes": "Elle tape un message en marchant.",
+    "replique": "Attends, je poste ça et je suis à toi."
+   },
+   "flegmatique": {
+    "declencheur": "Attend le bus en révisant ses notes.",
+    "signes": "Elle bâille, relit la même ligne.",
+    "replique": "Communication des organisations. Fascinant. Pas du tout."
+   },
+   "atrabilaire": {
+    "declencheur": "Elle a raté un partiel important.",
+    "signes": "Yeux rouges, elle fixe son écran.",
+    "replique": "Ma mère va me tuer."
+   },
+   "bilieuse": {
+    "declencheur": "Quelqu'un a commenté méchamment sa vidéo.",
+    "signes": "Elle tape furieusement sur son téléphone.",
+    "replique": "Tu veux la guerre ? Tu vas l'avoir."
+   },
+   "sanguine": {
+    "declencheur": "Sa vidéo a fait des milliers de vues.",
+    "signes": "Elle sautille, montre son écran à tout le monde.",
+    "replique": "Dix mille ! Dix mille, regarde !"
+   }
+  }
+ },
+ {
+  "id": "tyler_nowak",
+  "nom": "Tyler Nowak",
+  "age": 24,
+  "metier": "Hôte",
+  "apparence": "Un jeune homme aux cheveux rasés, chemise blanche bon marché et cravate unie, air sérieux et appliqué.",
+  "lieux": [
+   "parcs",
+   "rue-deserte"
+  ],
+  "compatible_vito": false,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Rentre du travail à pied, ponctuel comme toujours.",
+    "signes": "Pas réguliers, il vérifie l'heure.",
+    "replique": "23 h 12. Le bus passe à 23 h 20."
+   },
+   "flegmatique": {
+    "declencheur": "Fait ses comptes sur un carnet.",
+    "signes": "Il soupire, gomme, recompte.",
+    "replique": "Encore trois mois et je paie le semestre."
+   },
+   "atrabilaire": {
+    "declencheur": "Sa demande de bourse a été refusée.",
+    "signes": "Il fixe la lettre, abattu.",
+    "replique": "J'ai pourtant tout fait comme il fallait."
+   },
+   "bilieuse": {
+    "declencheur": "Un client l'a humilié au travail.",
+    "signes": "Mâchoire serrée, il marche vite.",
+    "replique": "Le client est roi. Le roi est un abruti."
+   },
+   "sanguine": {
+    "declencheur": "Il a été accepté en stage dans une grande entreprise.",
+    "signes": "Il sourit, appelle sa mère.",
+    "replique": "Maman ! Ils m'ont pris !"
+   }
+  }
+ },
+ {
+  "id": "marisol_vega",
+  "nom": "Marisol Vega",
+  "age": 20,
+  "metier": "Hôte",
+  "apparence": "Une jeune Latina à la queue-de-cheval impeccable, robe noire toute simple, regard timide et baissé.",
+  "lieux": [
+   "rue-deserte",
+   "bars"
+  ],
+  "compatible_vito": false,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Rentre du cercle en serrant son sac contre elle.",
+    "signes": "Pas rapides, regard au sol.",
+    "replique": "Bonsoir… pardon, je suis pressée."
+   },
+   "flegmatique": {
+    "declencheur": "Aide son père à fermer le restaurant.",
+    "signes": "Gestes mécaniques, épaules lasses.",
+    "replique": "Encore une soirée vide."
+   },
+   "atrabilaire": {
+    "declencheur": "Des hommes sont venus menacer son père.",
+    "signes": "Elle tremble, yeux humides.",
+    "replique": "Ils reviendront. Ils reviennent toujours."
+   },
+   "bilieuse": {
+    "declencheur": "Un client l'a draguée lourdement.",
+    "signes": "Pour une fois, elle relève la tête.",
+    "replique": "Je ne suis pas sur le menu, monsieur."
+   },
+   "sanguine": {
+    "declencheur": "Un client lui a laissé un énorme pourboire.",
+    "signes": "Petit sourire caché, elle serre le billet.",
+    "replique": "Papa va pouvoir payer le loyer."
+   }
+  }
+ },
+ {
+  "id": "denise_carter",
+  "nom": "Denise Carter",
+  "age": 41,
+  "metier": "Hôte",
+  "apparence": "Une femme noire de quarante ans au carré net, tailleur marine ajusté, sourire professionnel impeccable.",
+  "lieux": [
+   "bars",
+   "quartiers-bourgeois"
+  ],
+  "compatible_vito": false,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Observe la salle par habitude.",
+    "signes": "Regard qui photographie chaque visage.",
+    "replique": "Je ne vous ai jamais vu ici. Je me trompe rarement."
+   },
+   "flegmatique": {
+    "declencheur": "Attend un taxi après une longue soirée.",
+    "signes": "Elle retire ses talons, soupire.",
+    "replique": "Dix heures debout. Comme au casino."
+   },
+   "atrabilaire": {
+    "declencheur": "Elle repense au jour où on l'a renvoyée.",
+    "signes": "Regard lointain, verre à la main.",
+    "replique": "Dix ans de loyauté. Une erreur."
+   },
+   "bilieuse": {
+    "declencheur": "Un homme qu'elle connaît mal lui réclame de l'argent.",
+    "signes": "Voix basse et tendue.",
+    "replique": "On avait dit plus jamais. Plus jamais."
+   },
+   "sanguine": {
+    "declencheur": "Elle a été félicitée par un client important.",
+    "signes": "Sourire sincère, épaules détendues.",
+    "replique": "Il se souvenait de mon prénom."
+   }
+  }
+ },
+ {
+  "id": "paul_kowalczyk",
+  "nom": "Paul Kowalczyk",
+  "age": 46,
+  "metier": "Hôte",
+  "apparence": "Un homme de quarante-cinq ans au front dégarni, costume gris, expression calme et réservée.",
+  "lieux": [
+   "bars",
+   "quartiers-bourgeois"
+  ],
+  "compatible_vito": false,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Prend un café seul après son service.",
+    "signes": "Gestes économes, silence total.",
+    "replique": "Bonsoir."
+   },
+   "flegmatique": {
+    "declencheur": "Attend son bus en lisant un journal plié.",
+    "signes": "Il tourne les pages sans bruit.",
+    "replique": "Rien de neuf. Comme d'habitude."
+   },
+   "atrabilaire": {
+    "declencheur": "Sa sœur est malade et il ne peut pas l'aider.",
+    "signes": "Regard baissé, il plie et replie une serviette.",
+    "replique": "Il y a des choses qu'on ne répare pas."
+   },
+   "bilieuse": {
+    "declencheur": "Un collègue a fait une erreur grossière en salle.",
+    "signes": "Il le reprend d'un mot, sec.",
+    "replique": "Pas comme ça. Jamais comme ça."
+   },
+   "sanguine": {
+    "declencheur": "Il a reçu une lettre de remerciement d'un client.",
+    "signes": "Petit sourire, il la range avec soin.",
+    "replique": "Ça arrive. Rarement."
+   }
+  }
+ },
+ {
+  "id": "elena_petrovic",
+  "nom": "Elena Petrović",
+  "age": 35,
+  "metier": "Hôte",
+  "apparence": "Une femme d'origine serbe aux cheveux bruns en chignon élégant, robe de cocktail noire, sourire chaleureux et charmeur.",
+  "lieux": [
+   "bars",
+   "quartiers-bourgeois"
+  ],
+  "compatible_vito": false,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Bavarde en trois langues au comptoir.",
+    "signes": "Rire léger, main posée sur un bras.",
+    "replique": "Vous parlez français ? Non ? Dommage."
+   },
+   "flegmatique": {
+    "declencheur": "Attend un appel de Chicago.",
+    "signes": "Elle joue avec son téléphone, distraite.",
+    "replique": "Ils rappellent toujours. Toujours."
+   },
+   "atrabilaire": {
+    "declencheur": "Sa grand-mère est morte à Belgrade.",
+    "signes": "Elle fume dehors, yeux rougis.",
+    "replique": "Je n'ai pas pu y aller."
+   },
+   "bilieuse": {
+    "declencheur": "Son ancienne agence lui doit de l'argent.",
+    "signes": "Voix sèche, accent qui durcit.",
+    "replique": "Ils paieront. Je connais leurs clients."
+   },
+   "sanguine": {
+    "declencheur": "Un client riche l'a invitée à Paris.",
+    "signes": "Elle rit, rayonnante.",
+    "replique": "Paris ! Évidemment, j'accepte."
+   }
+  }
+ },
+ {
+  "id": "peggy_halloran",
+  "nom": "Margaret « Peggy » Halloran",
+  "age": 63,
+  "metier": "Hôte",
+  "apparence": "Une dame de soixante ans aux cheveux argent en chignon, collier de perles, regard qui sait tout.",
+  "lieux": [
+   "bars",
+   "quartiers-bourgeois",
+   "hopital-retraite"
+  ],
+  "compatible_vito": false,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Raconte une anecdote du Drake Hotel.",
+    "signes": "Voix douce, sourire complice.",
+    "replique": "En 1979, le maire de Chicago a dormi dans le hall."
+   },
+   "flegmatique": {
+    "declencheur": "Range son carnet d'adresses, épuisée.",
+    "signes": "Gestes lents, lunettes sur le nez.",
+    "replique": "Trente ans de noms. Je les ai tous gardés."
+   },
+   "atrabilaire": {
+    "declencheur": "Elle repense à ce client de 1984 qui n'avait pas vieilli.",
+    "signes": "Elle frissonne, regard fixe.",
+    "replique": "Il avait le même visage. Exactement le même."
+   },
+   "bilieuse": {
+    "declencheur": "Une jeune hôtesse lui a manqué de respect.",
+    "signes": "Sourire glacial, ton parfait.",
+    "replique": "Ma chère, j'accueillais des présidents avant votre naissance."
+   },
+   "sanguine": {
+    "declencheur": "Un ancien client célèbre lui a écrit.",
+    "signes": "Elle rit comme une jeune fille.",
+    "replique": "Il se souvient de moi ! Après tout ce temps !"
+   }
+  }
+ },
+ {
+  "id": "julien_marchetti",
+  "nom": "Julien Marchetti",
+  "age": 50,
+  "metier": "Hôte",
+  "apparence": "Un homme de cinquante ans aux cheveux poivre et sel plaqués, smoking impeccable, sourire énigmatique.",
+  "lieux": [
+   "bars",
+   "quartiers-bourgeois"
+  ],
+  "compatible_vito": false,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Déguste un verre en observant la salle.",
+    "signes": "Posture parfaite, geste élégant.",
+    "replique": "Le service, c'est un ballet. Il ne faut jamais voir les danseurs."
+   },
+   "flegmatique": {
+    "declencheur": "Lit le journal monégasque sur son téléphone.",
+    "signes": "Regard distant, soupir discret.",
+    "replique": "Monaco… une autre vie."
+   },
+   "atrabilaire": {
+    "declencheur": "Il a reçu un appel d'un ancien collègue de Monaco.",
+    "signes": "Il raccroche, pâle.",
+    "replique": "Ils ont rouvert l'enquête."
+   },
+   "bilieuse": {
+    "declencheur": "Un client l'a traité comme un laquais.",
+    "signes": "Sourire figé, yeux de glace.",
+    "replique": "Monsieur désire autre chose ? Peut-être la porte ?"
+   },
+   "sanguine": {
+    "declencheur": "Une vieille amie lui a rendu visite.",
+    "signes": "Il rit, baise la main de l'inconnue.",
+    "replique": "Comme au bon vieux temps !"
+   }
+  }
+ },
+ {
+  "id": "simone_achebe",
+  "nom": "Simone Achebe",
+  "age": 38,
+  "metier": "Hôte",
+  "apparence": "Une femme nigériane-américaine aux cheveux courts naturels, robe émeraude, regard direct et assuré.",
+  "lieux": [
+   "quartiers-bourgeois",
+   "bars"
+  ],
+  "compatible_vito": false,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Passe des coups de fil discrets dans un coin.",
+    "signes": "Voix basse, carnet ouvert.",
+    "replique": "Il faut qu'ils se rencontrent. Mais qu'ils croient que c'est un hasard."
+   },
+   "flegmatique": {
+    "declencheur": "Relit des dossiers tard le soir.",
+    "signes": "Elle se masse la nuque, fatiguée.",
+    "replique": "La politique ne dort jamais. Moi si, parfois."
+   },
+   "atrabilaire": {
+    "declencheur": "Son ancien patron l'a reniée publiquement.",
+    "signes": "Elle fixe son verre, mâchoire serrée.",
+    "replique": "Après tout ce que j'ai couvert pour lui."
+   },
+   "bilieuse": {
+    "declencheur": "Un journaliste fouine dans son passé.",
+    "signes": "Elle sourit, menaçante.",
+    "replique": "Faites attention à ce que vous trouverez. Il y a des dossiers sur tout le monde."
+   },
+   "sanguine": {
+    "declencheur": "Un candidat qu'elle conseille a gagné.",
+    "signes": "Elle lève son verre, triomphante.",
+    "replique": "Je vous l'avais dit. Je le dis toujours."
+   }
+  }
+ },
+ {
+  "id": "jake_mrozek",
+  "nom": "Jake Mrozek",
+  "age": 19,
+  "metier": "Serveur",
+  "apparence": "Un grand jeune homme dégingandé, un peu d'acné, chemise blanche mal ajustée, air gauche et plein d'espoir.",
+  "lieux": [
+   "parcs",
+   "rue-deserte",
+   "bars"
+  ],
+  "compatible_vito": false,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Rentre du travail en jouant sur son téléphone.",
+    "signes": "Il trébuche, s'excuse auprès d'un lampadaire.",
+    "replique": "Oh, pardon. Ah, c'est un poteau."
+   },
+   "flegmatique": {
+    "declencheur": "Attend un ami en retard.",
+    "signes": "Il se balance d'un pied sur l'autre.",
+    "replique": "Il a dit vingt minutes. Ça fait une heure."
+   },
+   "atrabilaire": {
+    "declencheur": "Il a cassé un plateau de verres et a peur d'être viré.",
+    "signes": "Il se ronge les ongles, livide.",
+    "replique": "Ils vont me renvoyer. C'est sûr."
+   },
+   "bilieuse": {
+    "declencheur": "Des types l'ont bousculé et se moquent de lui.",
+    "signes": "Il serre les poings, rouge.",
+    "replique": "Arrêtez ! Je… arrêtez !"
+   },
+   "sanguine": {
+    "declencheur": "Une fille lui a donné son numéro.",
+    "signes": "Il sourit bêtement, fixe le papier.",
+    "replique": "Elle a dit oui ! Elle a dit oui !"
+   }
+  }
+ },
+ {
+  "id": "destiny_howard",
+  "nom": "Destiny Howard",
+  "age": 21,
+  "metier": "Serveur",
+  "apparence": "Une jeune femme noire aux cheveux tirés en arrière, tablier de diner sur des vêtements noirs, sourire vif et assuré.",
+  "lieux": [
+   "bars",
+   "rue-deserte"
+  ],
+  "compatible_vito": false,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Fume une cigarette à la sortie du service.",
+    "signes": "Elle rit au téléphone avec une copine.",
+    "replique": "Il m'a appelée chérie, alors je l'ai appelé mon chou."
+   },
+   "flegmatique": {
+    "declencheur": "Compte ses pourboires assise sur une marche.",
+    "signes": "Gestes rapides, soupir.",
+    "replique": "Quarante dollars. Pour douze heures."
+   },
+   "atrabilaire": {
+    "declencheur": "Son ex a été vu dans le quartier.",
+    "signes": "Elle regarde sans arrêt derrière elle, tendue.",
+    "replique": "S'il me trouve, je suis morte."
+   },
+   "bilieuse": {
+    "declencheur": "Un client a refusé de payer.",
+    "signes": "Elle hausse le ton, poing sur la hanche.",
+    "replique": "Tu crois que je travaille gratuitement, mon chou ?"
+   },
+   "sanguine": {
+    "declencheur": "Elle a trouvé un appartement loin de son ex.",
+    "signes": "Elle danse presque sur le trottoir.",
+    "replique": "Nouvelle adresse, nouvelle vie !"
+   }
+  }
+ },
+ {
+  "id": "luis_ortega",
+  "nom": "Luis Ortega",
+  "age": 23,
+  "metier": "Serveur",
+  "apparence": "Un jeune homme latino aux cheveux courts, gilet noir, regard fatigué mais déterminé.",
+  "lieux": [
+   "rue-deserte",
+   "drogues",
+   "bars"
+  ],
+  "compatible_vito": false,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Rentre à pied après son service.",
+    "signes": "Capuche relevée, pas pressé.",
+    "replique": "Bonne nuit."
+   },
+   "flegmatique": {
+    "declencheur": "Attend quelqu'un au coin d'une rue.",
+    "signes": "Il regarde l'heure, mâche un chewing-gum.",
+    "replique": "Il est en retard. Comme toujours."
+   },
+   "atrabilaire": {
+    "declencheur": "Son petit frère a été arrêté.",
+    "signes": "Il fixe le sol, mâchoire tremblante.",
+    "replique": "Je lui avais dit de rester loin de tout ça."
+   },
+   "bilieuse": {
+    "declencheur": "Un dealer lui met la pression pour une livraison.",
+    "signes": "Voix basse, poings serrés dans ses poches.",
+    "replique": "J'ai dit que je le ferais. Lâche-moi."
+   },
+   "sanguine": {
+    "declencheur": "Il a reçu sa première vraie paie.",
+    "signes": "Il sourit, compte les billets deux fois.",
+    "replique": "Un vrai salaire. Pour un vrai travail."
+   }
+  }
+ },
+ {
+  "id": "rosa_delgado",
+  "nom": "Rosa Delgado",
+  "age": 34,
+  "metier": "Serveur",
+  "apparence": "Une Latina aux cheveux en chignon serré, gilet noir, expression vive et compétente.",
+  "lieux": [
+   "bars",
+   "rue-deserte"
+  ],
+  "compatible_vito": false,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Prend un verre après le service, enfin assise.",
+    "signes": "Elle masse ses poignets, souffle.",
+    "replique": "Quatre assiettes à la fois. Même dans mes rêves."
+   },
+   "flegmatique": {
+    "declencheur": "Attend que sa fille sorte de son cours du soir.",
+    "signes": "Elle somnole dans sa voiture.",
+    "replique": "Encore vingt minutes."
+   },
+   "atrabilaire": {
+    "declencheur": "Son ancien patron de Chicago est mort.",
+    "signes": "Elle regarde une vieille photo de brigade.",
+    "replique": "Il m'a tout appris."
+   },
+   "bilieuse": {
+    "declencheur": "Un collègue a perdu une commande.",
+    "signes": "Voix forte, elle reprend tout en main.",
+    "replique": "Table six ! Ça fait vingt minutes !"
+   },
+   "sanguine": {
+    "declencheur": "Sa fille a eu son diplôme.",
+    "signes": "Elle pleure de joie, montre une photo.",
+    "replique": "Infirmière ! Ma fille est infirmière !"
+   }
+  }
+ },
+ {
+  "id": "marcus_bell",
+  "nom": "Marcus Bell",
+  "age": 29,
+  "metier": "Serveur",
+  "apparence": "Un jeune homme noir rasé de près, veste de serveur blanche impeccable, regard poli et attentif.",
+  "lieux": [
+   "bars",
+   "quartiers-bourgeois"
+  ],
+  "compatible_vito": false,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Rentre du country club, le pas tranquille.",
+    "signes": "Posture droite, gestes soignés.",
+    "replique": "Bonsoir, monsieur. Belle soirée."
+   },
+   "flegmatique": {
+    "declencheur": "Regarde les résultats des courses sur son téléphone.",
+    "signes": "Il fait défiler, l'air absent.",
+    "replique": "Pas ce soir. Peut-être demain."
+   },
+   "atrabilaire": {
+    "declencheur": "Il a perdu tout son salaire aux courses.",
+    "signes": "Il fixe son écran, livide.",
+    "replique": "Encore. Encore une fois."
+   },
+   "bilieuse": {
+    "declencheur": "Son bookmaker l'a menacé.",
+    "signes": "Voix tremblante de colère, il fait les cent pas.",
+    "replique": "Je vais payer ! Laisse ma mère en dehors de ça !"
+   },
+   "sanguine": {
+    "declencheur": "Son cheval est arrivé premier.",
+    "signes": "Il crie de joie, serre son téléphone.",
+    "replique": "Vingt contre un ! Je suis riche !"
+   }
+  }
+ },
+ {
+  "id": "anna_lisowski",
+  "nom": "Anna Lisowski",
+  "age": 38,
+  "metier": "Serveur",
+  "apparence": "Une femme d'origine polonaise à la tresse blonde, uniforme noir, regard amical et vif.",
+  "lieux": [
+   "bars",
+   "rue-deserte"
+  ],
+  "compatible_vito": false,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Discute avec un client dont elle connaît la commande par cœur.",
+    "signes": "Sourire chaleureux, mémoire infaillible.",
+    "replique": "Comme d'habitude ? Vodka-citron, sans glace."
+   },
+   "flegmatique": {
+    "declencheur": "Rentre chez elle, épuisée.",
+    "signes": "Elle traîne les pieds, sac sur l'épaule.",
+    "replique": "Quinze ans de service. Mes pieds le savent."
+   },
+   "atrabilaire": {
+    "declencheur": "Le restaurant polonais où elle a travaillé a fermé.",
+    "signes": "Elle soupire, regard lointain.",
+    "replique": "Toute une communauté. Partie."
+   },
+   "bilieuse": {
+    "declencheur": "Un client a prétendu avoir commandé autre chose.",
+    "signes": "Elle croise les bras, ferme.",
+    "replique": "Non. Vous avez dit le saumon. Je me souviens de tout."
+   },
+   "sanguine": {
+    "declencheur": "Sa sœur arrive de Pologne pour s'installer.",
+    "signes": "Elle rit, parle polonais au téléphone.",
+    "replique": "Enfin ! Enfin ensemble !"
+   }
+  }
+ },
+ {
+  "id": "henri_duvall",
+  "nom": "Henri Duvall",
+  "age": 58,
+  "metier": "Serveur",
+  "apparence": "Un homme grand et mince aux cheveux gris bien peignés, queue-de-pie noire, visage impassible et digne.",
+  "lieux": [
+   "bars",
+   "quartiers-bourgeois"
+  ],
+  "compatible_vito": false,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Boit un thé dans un coin, sans un bruit.",
+    "signes": "Immobile, presque invisible.",
+    "replique": "On ne doit jamais voir le serveur. Seulement le verre plein."
+   },
+   "flegmatique": {
+    "declencheur": "Plie et repasse ses gants de service.",
+    "signes": "Gestes lents, précis, rituels.",
+    "replique": "Le détail. Toujours le détail."
+   },
+   "atrabilaire": {
+    "declencheur": "Il repense à ces soirées privées où les invités ne mangeaient pas.",
+    "signes": "Il fixe le vide, mains jointes.",
+    "replique": "J'ai appris à ne pas poser de questions."
+   },
+   "bilieuse": {
+    "declencheur": "Un collègue a servi par la droite.",
+    "signes": "Regard glacial, un mot à voix basse.",
+    "replique": "Par la gauche. Toujours par la gauche."
+   },
+   "sanguine": {
+    "declencheur": "Un ancien client du Palmer House l'a reconnu.",
+    "signes": "Il esquisse un sourire, s'incline.",
+    "replique": "Monsieur. Quel plaisir."
+   }
+  }
+ },
+ {
+  "id": "grace_okafor",
+  "nom": "Grace Okafor",
+  "age": 44,
+  "metier": "Serveur",
+  "apparence": "Une femme noire aux cheveux courts grisonnants, veste noire ajustée, regard posé et exigeant.",
+  "lieux": [
+   "hopital-retraite",
+   "bars",
+   "quartiers-bourgeois"
+  ],
+  "compatible_vito": false,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Sort de l'hôpital où elle rend visite à sa mère.",
+    "signes": "Pas rapides, sac serré.",
+    "replique": "Elle a mangé. C'est une bonne journée."
+   },
+   "flegmatique": {
+    "declencheur": "Prépare les médicaments de sa mère pour la semaine.",
+    "signes": "Gestes méthodiques, fatigue visible.",
+    "replique": "Lundi, mardi, mercredi…"
+   },
+   "atrabilaire": {
+    "declencheur": "Sa mère ne l'a pas reconnue ce soir.",
+    "signes": "Elle s'assoit sur un banc, mains tremblantes.",
+    "replique": "Elle m'a demandé qui j'étais."
+   },
+   "bilieuse": {
+    "declencheur": "Un serveur a bâclé le dressage d'une table.",
+    "signes": "Elle refait tout, voix coupante.",
+    "replique": "À New York, vous seriez déjà dehors."
+   },
+   "sanguine": {
+    "declencheur": "Un restaurant étoilé de Chicago lui propose un poste.",
+    "signes": "Elle sourit, incrédule.",
+    "replique": "Ils se souviennent de moi."
+   }
+  }
+ },
+ {
+  "id": "tom_wisniewski",
+  "nom": "Tomasz « Tom » Wiśniewski",
+  "age": 52,
+  "metier": "Serveur",
+  "apparence": "Un homme trapu à la grosse moustache, nœud papillon bordeaux, lueur malicieuse dans les yeux.",
+  "lieux": [
+   "bars",
+   "rue-deserte"
+  ],
+  "compatible_vito": false,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Raconte une anecdote sur Sinatra au comptoir.",
+    "signes": "Grands gestes, clin d'œil.",
+    "replique": "Il m'a laissé cent dollars et un conseil. Je garde le conseil."
+   },
+   "flegmatique": {
+    "declencheur": "Fait une réussite sur une table de bar.",
+    "signes": "Il pose les cartes lentement, sifflote.",
+    "replique": "La patience. C'est tout ce qui me reste."
+   },
+   "atrabilaire": {
+    "declencheur": "Son vieux contact du FBI l'a rappelé.",
+    "signes": "Il fixe son téléphone, inquiet.",
+    "replique": "Je pensais en avoir fini avec eux."
+   },
+   "bilieuse": {
+    "declencheur": "On l'a traité de menteur sur ses anecdotes.",
+    "signes": "Il rougit, frappe le comptoir.",
+    "replique": "Tout est vrai ! Demandez à n'importe qui !"
+   },
+   "sanguine": {
+    "declencheur": "Il a retrouvé une photo de lui avec une star.",
+    "signes": "Il la montre à tout le monde, ravi.",
+    "replique": "Vous voyez ? Vous voyez ?"
+   }
+  }
+ },
+ {
+  "id": "dylan_reyes",
+  "nom": "Dylan Reyes",
+  "age": 25,
+  "metier": "Barman",
+  "apparence": "Un barman latino aux avant-bras tatoués, manches retroussées, sourire plein d'énergie.",
+  "lieux": [
+   "bars",
+   "rue-deserte"
+  ],
+  "compatible_vito": false,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Fait des cocktails pour des amis après son service.",
+    "signes": "Il jongle avec un shaker, rit.",
+    "replique": "Regardez ça. Et hop."
+   },
+   "flegmatique": {
+    "declencheur": "Range le bar à une heure du matin.",
+    "signes": "Il bâille, essuie les verres.",
+    "replique": "Le dernier verre est toujours le plus long."
+   },
+   "atrabilaire": {
+    "declencheur": "Il a raté un concours de mixologie.",
+    "signes": "Il fixe son shaker, déçu.",
+    "replique": "J'étais si près."
+   },
+   "bilieuse": {
+    "declencheur": "Un client lui a dit qu'il ne connaissait rien au whisky.",
+    "signes": "Il pose le verre un peu fort.",
+    "replique": "Je mixe. Je ne suis pas sommelier, mec."
+   },
+   "sanguine": {
+    "declencheur": "Il a inventé un cocktail que tout le monde commande.",
+    "signes": "Il fanfaronne, offre des shots.",
+    "replique": "Le Reyes Special ! Retenez ce nom !"
+   }
+  }
+ },
+ {
+  "id": "brianna_kozlowski",
+  "nom": "Brianna Kozlowski",
+  "age": 23,
+  "metier": "Barman",
+  "apparence": "Une jeune rousse avec un petit anneau au nez, tablier de bar noir, yeux curieux et brillants.",
+  "lieux": [
+   "bars",
+   "parcs"
+  ],
+  "compatible_vito": false,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Prend des notes sur une bouteille inconnue.",
+    "signes": "Elle hume, écrit, re-hume.",
+    "replique": "Notes de poire… ou de pomme ?"
+   },
+   "flegmatique": {
+    "declencheur": "Rentre seule après le service, un peu pompette.",
+    "signes": "Démarche hésitante, sourire flou.",
+    "replique": "J'ai juste goûté. Un peu."
+   },
+   "atrabilaire": {
+    "declencheur": "Sa formation en ligne a fait faillite.",
+    "signes": "Elle fixe son diplôme imprimé.",
+    "replique": "Mon diplôme ne vaut plus rien."
+   },
+   "bilieuse": {
+    "declencheur": "Un client a dit que son cocktail était infect.",
+    "signes": "Elle croise les bras, vexée.",
+    "replique": "Infect ? Il y a douze ingrédients dedans !"
+   },
+   "sanguine": {
+    "declencheur": "Elle a reconnu un whisky à l'aveugle.",
+    "signes": "Elle saute de joie.",
+    "replique": "Lagavulin 16 ! Je le savais !"
+   }
+  }
+ },
+ {
+  "id": "earl_jackson",
+  "nom": "Earl Jackson",
+  "age": 61,
+  "metier": "Barman",
+  "apparence": "Un vieil homme noir à la barbe grise, casquette plate, gilet usé, regard las mais bienveillant.",
+  "lieux": [
+   "bars",
+   "rue-deserte",
+   "parcs"
+  ],
+  "compatible_vito": false,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Prend un soda au comptoir, comme tous les soirs.",
+    "signes": "Il écoute plus qu'il ne parle.",
+    "replique": "Huit ans sans une goutte. Le soda, c'est mon whisky."
+   },
+   "flegmatique": {
+    "declencheur": "Fait sa promenade du soir, lentement.",
+    "signes": "Mains dans le dos, regard tranquille.",
+    "replique": "Marcher, ça aide. Pour tout."
+   },
+   "atrabilaire": {
+    "declencheur": "Un vieux compagnon de beuverie est mort.",
+    "signes": "Il fixe une bouteille derrière le bar, longtemps.",
+    "replique": "Lui, il n'a jamais arrêté."
+   },
+   "bilieuse": {
+    "declencheur": "On lui a offert un verre en insistant.",
+    "signes": "Voix grave, il repousse le verre.",
+    "replique": "J'ai dit non. Respecte ça."
+   },
+   "sanguine": {
+    "declencheur": "Il a reçu sa médaille des huit ans de sobriété.",
+    "signes": "Il sourit, la montre fièrement.",
+    "replique": "Huit ans ! Qui l'aurait cru ?"
+   }
+  }
+ },
+ {
+  "id": "nora_fitzgerald",
+  "nom": "Nora Fitzgerald",
+  "age": 37,
+  "metier": "Barman",
+  "apparence": "Une barmaid irlando-américaine aux cheveux auburn foncé, gilet de tweed, sourire ironique et entendu.",
+  "lieux": [
+   "bars",
+   "quartiers-bourgeois"
+  ],
+  "compatible_vito": false,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Raconte l'histoire d'un whisky irlandais.",
+    "signes": "Elle verse lentement, voix douce.",
+    "replique": "Cette distillerie a brûlé trois fois. Le whisky aussi a du caractère."
+   },
+   "flegmatique": {
+    "declencheur": "Range les bouteilles en fin de soirée.",
+    "signes": "Gestes efficaces, fredonne un air irlandais.",
+    "replique": "Une de plus et je rentre."
+   },
+   "atrabilaire": {
+    "declencheur": "Son père, resté en Irlande, est malade.",
+    "signes": "Elle regarde une photo de falaises.",
+    "replique": "Il veut que je rentre. Je ne peux pas."
+   },
+   "bilieuse": {
+    "declencheur": "Un client confond whisky irlandais et écossais avec insistance.",
+    "signes": "Elle sourit, glaciale.",
+    "replique": "Dites ça à Dublin, mon vieux."
+   },
+   "sanguine": {
+    "declencheur": "Elle a gagné un prix de la meilleure barmaid de Chicago.",
+    "signes": "Elle lève son verre.",
+    "replique": "Sláinte ! À moi !"
+   }
+  }
+ },
+ {
+  "id": "samuel_adeyemi",
+  "nom": "Samuel Adeyemi",
+  "age": 33,
+  "metier": "Barman",
+  "apparence": "Un sommelier noir aux lunettes rondes, gilet bordeaux, tastevin d'argent autour du cou.",
+  "lieux": [
+   "bars",
+   "quartiers-bourgeois"
+  ],
+  "compatible_vito": false,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Initie un inconnu à la dégustation.",
+    "signes": "Patient, pédagogue, il fait tourner le verre.",
+    "replique": "Regardez la robe. Puis sentez. Ne buvez pas tout de suite."
+   },
+   "flegmatique": {
+    "declencheur": "Classe des étiquettes chez lui.",
+    "signes": "Il bâille, gestes lents.",
+    "replique": "Celle-ci… et celle-là. Encore cent."
+   },
+   "atrabilaire": {
+    "declencheur": "Son ancien patron le soupçonne de fraude.",
+    "signes": "Il fixe ses mains, nerveux.",
+    "replique": "Une étiquette. Une seule."
+   },
+   "bilieuse": {
+    "declencheur": "Un client prétentieux le corrige à tort.",
+    "signes": "Sourire tendu, voix polie mais sèche.",
+    "replique": "Je crains que vous ne fassiez erreur, monsieur."
+   },
+   "sanguine": {
+    "declencheur": "Il a réussi un concours de sommellerie.",
+    "signes": "Il rit, embrasse son tastevin.",
+    "replique": "Major de la promotion !"
+   }
+  }
+ },
+ {
+  "id": "raymond_hale",
+  "nom": "Raymond Hale",
+  "age": 45,
+  "metier": "Barman",
+  "apparence": "Un barman aux cheveux bruns gominés, veste de smoking blanche, sourire de showman sûr de lui.",
+  "lieux": [
+   "bars",
+   "quartiers-bourgeois"
+  ],
+  "compatible_vito": false,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Fait le spectacle derrière un bar, même hors service.",
+    "signes": "Il lance une bouteille, la rattrape.",
+    "replique": "Le cocktail, c'est du théâtre."
+   },
+   "flegmatique": {
+    "declencheur": "Compte sa caisse après la soirée.",
+    "signes": "Il soupire, retire son nœud papillon.",
+    "replique": "Le rideau tombe."
+   },
+   "atrabilaire": {
+    "declencheur": "Le casino où il a travaillé a fermé.",
+    "signes": "Il fixe une photo de lui en uniforme.",
+    "replique": "Vingt ans de spectacle. Fini."
+   },
+   "bilieuse": {
+    "declencheur": "Un client a ri de sa démonstration ratée.",
+    "signes": "Il serre la mâchoire, sourire figé.",
+    "replique": "Rira bien qui rira le dernier."
+   },
+   "sanguine": {
+    "declencheur": "On l'a filmé, et la vidéo tourne partout.",
+    "signes": "Il salue comme sur scène.",
+    "replique": "Merci, merci ! Je suis là toute la semaine !"
+   }
+  }
+ },
+ {
+  "id": "isabelle_moreau",
+  "nom": "Isabelle Moreau",
+  "age": 49,
+  "metier": "Barman",
+  "apparence": "Une Française aux cheveux gris en chignon élégant, robe noire, tastevin d'argent, regard exigeant.",
+  "lieux": [
+   "bars",
+   "quartiers-bourgeois"
+  ],
+  "compatible_vito": false,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Goûte un cognac à l'aveugle, pour le plaisir.",
+    "signes": "Yeux fermés, gestes précis.",
+    "replique": "1987. Peut-être 1988. Grande Champagne."
+   },
+   "flegmatique": {
+    "declencheur": "Regarde la pluie tomber, verre en main.",
+    "signes": "Immobile, pensive.",
+    "replique": "À Cognac, il pleut moins."
+   },
+   "atrabilaire": {
+    "declencheur": "Elle a reçu une lettre de son mari, en prison.",
+    "signes": "Elle la déchire lentement.",
+    "replique": "Il croit encore que je vais l'attendre."
+   },
+   "bilieuse": {
+    "declencheur": "Un client prétend que tous les cognacs se valent.",
+    "signes": "Elle le fixe, glaciale.",
+    "replique": "Alors buvez de l'eau, monsieur."
+   },
+   "sanguine": {
+    "declencheur": "Elle a identifié un cognac de 1914 que personne ne reconnaissait.",
+    "signes": "Sourire rare, presque tendre.",
+    "replique": "Avant la guerre. On le sent."
+   }
+  }
+ },
+ {
+  "id": "gus_whitmore",
+  "nom": "Augustus « Gus » Whitmore",
+  "age": 66,
+  "metier": "Barman",
+  "apparence": "Un vieil homme aux cheveux blancs, grosse moustache, costume de tweed trois-pièces, chaîne de montre en or.",
+  "lieux": [
+   "bars",
+   "quartiers-bourgeois"
+  ],
+  "compatible_vito": false,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Raconte l'histoire d'un fût légendaire.",
+    "signes": "Voix lente du Kentucky, verre en main.",
+    "replique": "Le bourbon, mon garçon, c'est du temps qu'on boit."
+   },
+   "flegmatique": {
+    "declencheur": "Somnole dans un fauteuil de bar.",
+    "signes": "Il ronfle doucement, sa montre à la main.",
+    "replique": "Je ne dors pas. Je fais vieillir."
+   },
+   "atrabilaire": {
+    "declencheur": "Il repense aux caves murées de Calloway.",
+    "signes": "Il fixe son verre, troublé.",
+    "replique": "Le fût numéro 7. Personne ne devait l'ouvrir."
+   },
+   "bilieuse": {
+    "declencheur": "Un jeune barman met de la glace dans un bourbon de vingt ans.",
+    "signes": "Il se lève, rouge de colère.",
+    "replique": "Un sacrilège ! Un sacrilège !"
+   },
+   "sanguine": {
+    "declencheur": "Une distillerie veut donner son nom à une cuvée.",
+    "signes": "Il rit, tape sur la table.",
+    "replique": "Le Whitmore Reserve ! Ha !"
+   }
+  }
+ },
+ {
+  "id": "kenji_morimoto",
+  "nom": "Kenji Morimoto",
+  "age": 41,
+  "metier": "Barman",
+  "apparence": "Un barman japonais aux cheveux noirs courts, veste blanche impeccable, expression concentrée et précise.",
+  "lieux": [
+   "bars",
+   "quartiers-bourgeois"
+  ],
+  "compatible_vito": false,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Taille un glaçon à la main, par habitude.",
+    "signes": "Gestes lents, rituels, silencieux.",
+    "replique": "Un glaçon parfait fond plus lentement. Comme une bonne soirée."
+   },
+   "flegmatique": {
+    "declencheur": "Écrit un rapport sur son téléphone, tard.",
+    "signes": "Il soupire, relit.",
+    "replique": "Encore des chiffres pour Tokyo."
+   },
+   "atrabilaire": {
+    "declencheur": "Il a reçu un ordre de rentrer au Japon.",
+    "signes": "Il fixe son téléphone, immobile.",
+    "replique": "Je commençais à aimer cette ville."
+   },
+   "bilieuse": {
+    "declencheur": "Un client a renversé son verre et s'en moque.",
+    "signes": "Il essuie en silence, regard dur.",
+    "replique": "Le respect commence par le verre."
+   },
+   "sanguine": {
+    "declencheur": "Un client a reconnu son style japonais.",
+    "signes": "Il s'incline, sourit enfin.",
+    "replique": "Vous connaissez Ginza ?"
+   }
+  }
+ },
+ {
+  "id": "brandon_szymanski",
+  "nom": "Brandon Szymanski",
+  "age": 26,
+  "metier": "Portier",
+  "apparence": "Un costaud au crâne rasé, blouson bomber noir, mine renfrognée.",
+  "lieux": [
+   "bars",
+   "rue-deserte",
+   "drogues"
+  ],
+  "compatible_vito": false,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Fume devant une boîte de nuit.",
+    "signes": "Il fait craquer sa nuque, l'air ennuyé.",
+    "replique": "Circulez. Rien à voir."
+   },
+   "flegmatique": {
+    "declencheur": "Attend son tour devant le tribunal demain.",
+    "signes": "Il fume cigarette sur cigarette.",
+    "replique": "Mon avocat dit que ça va aller. Il ment."
+   },
+   "atrabilaire": {
+    "declencheur": "Sa copine l'a quitté à cause de sa plainte.",
+    "signes": "Il fixe le sol, poings serrés.",
+    "replique": "Un coup de poing. Un seul."
+   },
+   "bilieuse": {
+    "declencheur": "Un type l'a provoqué devant ses potes.",
+    "signes": "Il s'avance, menton en avant.",
+    "replique": "Répète un peu, pour voir."
+   },
+   "sanguine": {
+    "declencheur": "La plainte contre lui a été retirée.",
+    "signes": "Il rit fort, tape dans le dos de ses amis.",
+    "replique": "Libre ! Tournée générale !"
+   }
+  }
+ },
+ {
+  "id": "deshawn_miles",
+  "nom": "DeShawn Miles",
+  "age": 22,
+  "metier": "Portier",
+  "apparence": "Un grand jeune homme noir athlétique, costume noir un peu trop serré, air sérieux et poli.",
+  "lieux": [
+   "rue-deserte",
+   "parcs",
+   "bars"
+  ],
+  "compatible_vito": false,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Rentre du travail en saluant les voisins.",
+    "signes": "Il hoche la tête, poli.",
+    "replique": "Bonsoir madame. Bonsoir monsieur."
+   },
+   "flegmatique": {
+    "declencheur": "Regarde un match de football de lycée.",
+    "signes": "Il commente à voix basse.",
+    "replique": "J'étais meilleur à leur âge. Enfin, je crois."
+   },
+   "atrabilaire": {
+    "declencheur": "Son cousin lui demande des infos sur le cercle.",
+    "signes": "Il évite son regard, mal à l'aise.",
+    "replique": "Je peux pas parler de ça, cousin."
+   },
+   "bilieuse": {
+    "declencheur": "Des types de la bande de son cousin le menacent.",
+    "signes": "Il se redresse, voix grave.",
+    "replique": "Je fais mon boulot. Laissez-moi tranquille."
+   },
+   "sanguine": {
+    "declencheur": "Il a été accepté en formation de sécurité.",
+    "signes": "Il sourit, appelle sa grand-mère.",
+    "replique": "Mamie ! Je vais avoir un diplôme !"
+   }
+  }
+ },
+ {
+  "id": "kristina_vukovic",
+  "nom": "Kristina Vuković",
+  "age": 28,
+  "metier": "Portier",
+  "apparence": "Une jeune femme athlétique aux cheveux bruns courts, costume noir, regard alerte qui surveille tout.",
+  "lieux": [
+   "parcs",
+   "rue-deserte"
+  ],
+  "compatible_vito": false,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Fait son jogging de nuit.",
+    "signes": "Foulées régulières, regard qui balaie les buissons.",
+    "replique": "Bonsoir. Le parc est sûr. Je viens de vérifier."
+   },
+   "flegmatique": {
+    "declencheur": "Attend la fin de sa garde à l'entrepôt.",
+    "signes": "Elle fait des étirements, l'air ennuyé.",
+    "replique": "Rien. Comme toutes les nuits."
+   },
+   "atrabilaire": {
+    "declencheur": "Son entraîneur de judo est mort.",
+    "signes": "Elle fixe sa ceinture marron, silencieuse.",
+    "replique": "Il devait me faire passer la noire."
+   },
+   "bilieuse": {
+    "declencheur": "Un homme a tenté de l'intimider.",
+    "signes": "Posture de combat, regard froid.",
+    "replique": "Essaie. Vraiment, essaie."
+   },
+   "sanguine": {
+    "declencheur": "Elle a gagné un tournoi régional.",
+    "signes": "Elle lève la médaille, rit.",
+    "replique": "Première !"
+   }
+  }
+ },
+ {
+  "id": "frank_russo",
+  "nom": "Frank Russo",
+  "age": 48,
+  "metier": "Portier",
+  "apparence": "Un Italo-Américain massif en pardessus sombre, oreillette, regard calme et intimidant.",
+  "lieux": [
+   "bars",
+   "rue-deserte",
+   "quartiers-bourgeois"
+  ],
+  "compatible_vito": false,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Fume devant l'entrée d'un club.",
+    "signes": "Il salue certains d'un signe, ignore les autres.",
+    "replique": "Toi, tu entres. Toi, non."
+   },
+   "flegmatique": {
+    "declencheur": "Attend un appel de Chicago.",
+    "signes": "Il fait tourner son téléphone dans sa main.",
+    "replique": "Ils appellent toujours trop tard."
+   },
+   "atrabilaire": {
+    "declencheur": "Un vieil ami de l'Outfit a été retrouvé mort.",
+    "signes": "Il fixe la rue, mâchoire serrée.",
+    "replique": "On savait tous comment ça finirait."
+   },
+   "bilieuse": {
+    "declencheur": "Quelqu'un de Chicago lui demande un service de trop.",
+    "signes": "Voix basse, menaçante.",
+    "replique": "J'ai déjà payé ma dette."
+   },
+   "sanguine": {
+    "declencheur": "Sa fille se marie.",
+    "signes": "Il sourit, montre une photo.",
+    "replique": "Ma petite Gianna. En blanc."
+   }
+  }
+ },
+ {
+  "id": "andre_thompson",
+  "nom": "Andre Thompson",
+  "age": 39,
+  "metier": "Portier",
+  "apparence": "Un homme noir à l'allure militaire, cheveux courts, costume sombre, regard calme et posé.",
+  "lieux": [
+   "parcs",
+   "rue-deserte"
+  ],
+  "compatible_vito": false,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Fait sa marche du soir au pas militaire.",
+    "signes": "Dos droit, regard qui balaie tout.",
+    "replique": "Bonsoir."
+   },
+   "flegmatique": {
+    "declencheur": "Nettoie méthodiquement ses chaussures.",
+    "signes": "Gestes lents, concentrés.",
+    "replique": "Une chaussure propre, un esprit propre."
+   },
+   "atrabilaire": {
+    "declencheur": "Un frère d'armes s'est suicidé.",
+    "signes": "Il fixe le lac, silencieux.",
+    "replique": "Il n'est jamais vraiment revenu."
+   },
+   "bilieuse": {
+    "declencheur": "Un ivrogne insulte une femme devant lui.",
+    "signes": "Il s'interpose sans lever la voix.",
+    "replique": "Tu vas t'excuser. Maintenant."
+   },
+   "sanguine": {
+    "declencheur": "Il a obtenu la garde de son fils un week-end sur deux.",
+    "signes": "Il sourit enfin.",
+    "replique": "Samedi, on va au match."
+   }
+  }
+ },
+ {
+  "id": "moira_quinn",
+  "nom": "Moira Quinn",
+  "age": 42,
+  "metier": "Portier",
+  "apparence": "Une femme aux cheveux platine courts, costume noir, regard froid qui évalue.",
+  "lieux": [
+   "bars",
+   "quartiers-bourgeois"
+  ],
+  "compatible_vito": false,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Boit un verre seule au comptoir.",
+    "signes": "Elle ne sourit pas, observe tout.",
+    "replique": "Je ne parle qu'aux clients qui paient bien."
+   },
+   "flegmatique": {
+    "declencheur": "Attend la fin d'une mission de garde.",
+    "signes": "Elle consulte sa montre, impassible.",
+    "replique": "Encore une heure."
+   },
+   "atrabilaire": {
+    "declencheur": "Un ancien client qu'elle protégeait a été tué.",
+    "signes": "Elle fixe le vide, mâchoire crispée.",
+    "replique": "Je n'étais pas de garde ce soir-là."
+   },
+   "bilieuse": {
+    "declencheur": "Un homme a posé la main sur son épaule.",
+    "signes": "Elle lui tord le poignet, sans un mot.",
+    "replique": "On ne me touche pas."
+   },
+   "sanguine": {
+    "declencheur": "Un client lui a offert un bonus énorme.",
+    "signes": "Petit sourire froid.",
+    "replique": "L'argent, ça se respecte."
+   }
+  }
+ },
+ {
+  "id": "luigi",
+  "nom": "Luigi",
+  "age": 54,
+  "metier": "Administrateur",
+  "apparence": "Un homme de cinquante ans au regard d'administrateur, toujours un dossier sous le bras.",
+  "lieux": [
+   "bars",
+   "quartiers-bourgeois"
+  ],
+  "compatible_vito": false,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Relit des factures dans un café ouvert tard.",
+    "signes": "Lunettes sur le nez, stylo rouge.",
+    "replique": "Les chiffres ne mentent pas. Les gens, si."
+   },
+   "flegmatique": {
+    "declencheur": "Classe des papiers avec méthode.",
+    "signes": "Il soupire, empile, trie.",
+    "replique": "Un dossier par client. Un client par dossier."
+   },
+   "atrabilaire": {
+    "declencheur": "Un vieil ami comptable a été condamné.",
+    "signes": "Il fixe ses mains, inquiet.",
+    "replique": "Il a signé ce qu'il ne fallait pas."
+   },
+   "bilieuse": {
+    "declencheur": "Un fournisseur a envoyé une facture truquée.",
+    "signes": "Il la tamponne d'un geste sec.",
+    "replique": "Refusé. Et prévenez-le que je l'ai vu."
+   },
+   "sanguine": {
+    "declencheur": "Les comptes de fin de mois tombent juste.",
+    "signes": "Il sourit discrètement.",
+    "replique": "Au centime près."
+   }
+  }
+ },
+ {
+  "id": "walter_kaminski",
+  "nom": "Walter Kaminski",
+  "age": 57,
+  "metier": "Portier",
+  "apparence": "Un ancien flic de cinquante-cinq ans aux cheveux gris en brosse, trench beige, regard aigu et soupçonneux.",
+  "lieux": [
+   "bars",
+   "rue-deserte",
+   "cimetieres"
+  ],
+  "compatible_vito": false,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Boit un café noir en lisant les faits divers.",
+    "signes": "Il souligne des noms au stylo.",
+    "replique": "Encore une disparition. Personne ne fait le lien."
+   },
+   "flegmatique": {
+    "declencheur": "Fait sa ronde de nuit par habitude.",
+    "signes": "Il marche lentement, observe les ombres.",
+    "replique": "La nuit, on voit ce qu'on ne voit pas le jour."
+   },
+   "atrabilaire": {
+    "declencheur": "Il repense à l'enquête qu'on lui a retirée en 2009.",
+    "signes": "Il fixe un dossier jauni.",
+    "replique": "Onze personnes. Et on m'a dit de lâcher."
+   },
+   "bilieuse": {
+    "declencheur": "Un ancien collègue se moque de son obsession.",
+    "signes": "Il frappe la table, voix dure.",
+    "replique": "Ils ont disparu ! Ils n'ont pas déménagé !"
+   },
+   "sanguine": {
+    "declencheur": "Il a trouvé un nouvel indice sur ses disparus.",
+    "signes": "Il sourit, carnet en main.",
+    "replique": "Je le savais. Je le savais."
+   }
+  }
+ },
+ {
+  "id": "ike_freeman",
+  "nom": "Isaiah « Ike » Freeman",
+  "age": 50,
+  "metier": "Portier",
+  "apparence": "Un grand homme noir au crâne rasé, barbe grise courte, costume noir impeccable, visage calme et impénétrable.",
+  "lieux": [
+   "quartiers-bourgeois",
+   "bars"
+  ],
+  "compatible_vito": false,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Prend un café dans un coin, dos au mur.",
+    "signes": "Immobile, il voit tout sans en avoir l'air.",
+    "replique": "Bonsoir."
+   },
+   "flegmatique": {
+    "declencheur": "Attend la fin d'une réception.",
+    "signes": "Il ajuste sa cravate, regard neutre.",
+    "replique": "On ne remarque jamais l'homme au fond de la salle."
+   },
+   "atrabilaire": {
+    "declencheur": "Le sénateur qu'il protégeait est mort.",
+    "signes": "Il fixe un journal, silencieux.",
+    "replique": "Quinze ans à le garder en vie."
+   },
+   "bilieuse": {
+    "declencheur": "Un homme suit une cliente de trop près.",
+    "signes": "Il se place dans son chemin, sans un mot.",
+    "replique": "Vous allez dans la mauvaise direction, monsieur."
+   },
+   "sanguine": {
+    "declencheur": "Son ancien patron lui a légué une montre.",
+    "signes": "Petit sourire, il la remonte.",
+    "replique": "Il n'oubliait jamais rien."
+   }
+  }
+ },
+ {
+  "id": "sofia_marchenko",
+  "nom": "Sofia Marchenko",
+  "age": 45,
+  "metier": "Portier",
+  "apparence": "Une Ukrainienne de quarante-cinq ans au chignon blond sévère, long manteau sombre, regard fixe qui ne cille pas.",
+  "lieux": [
+   "rue-deserte",
+   "cimetieres",
+   "bars"
+  ],
+  "compatible_vito": false,
+  "humeurs": {
+   "equilibre": {
+    "declencheur": "Marche seule dans la nuit, sans peur.",
+    "signes": "Pas réguliers, regard fixe.",
+    "replique": "…"
+   },
+   "flegmatique": {
+    "declencheur": "Attend quelqu'un qui ne viendra plus.",
+    "signes": "Immobile sous un lampadaire.",
+    "replique": "J'attends. J'ai l'habitude."
+   },
+   "atrabilaire": {
+    "declencheur": "Elle repense à son ancien maître, mort.",
+    "signes": "Elle touche une cicatrice à son poignet.",
+    "replique": "Le lien est rompu. Le vide est resté."
+   },
+   "bilieuse": {
+    "declencheur": "Un homme la suit dans la rue.",
+    "signes": "Elle se retourne, regard glacial.",
+    "replique": "Partez. Avant que je décide de ne pas vous laisser partir."
+   },
+   "sanguine": {
+    "declencheur": "Elle a senti quelque chose de familier dans la nuit.",
+    "signes": "Un trouble rare passe sur son visage.",
+    "replique": "Vous… vous êtes comme lui."
+   }
+  }
+ }
+]

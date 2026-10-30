@@ -368,6 +368,7 @@ async function init() {
     catch (e) { erreurs.push(f); }
   }
   if (erreurs.length) toast('Profils illisibles (erreur de syntaxe ?) : ' + erreurs.join(', '));
+  await chargerCercle();
   // Index des images de PNJ : id = nom du fichier sans extension ni tags
   for (const [dossier, liste] of Object.entries(M.pnj || {})) for (const f of liste) {
     const base = norm(f.replace(/\.[^.]+$/, '')); const [id, ...tags] = base.split('__');
@@ -380,7 +381,64 @@ async function init() {
 }
 // bars.jpg, bars_2.jpg, bars_3.jpg… : une variante est choisie au hasard à chaque entrée dans le lieu
 function baseLieu(f) { return norm(f.replace(/\.[^.]+$/, '')).replace(/_\d+$/, ''); }
-function imageLieu(id) { const l = (M.lieux || []).filter(f => baseLieu(f) === id); return l.length ? encodeURI('lieux/' + hasard(l)) : null; }
+function imageLieu(id) {
+  const l = (M.lieux || []).filter(f => baseLieu(f) === id); if (l.length) return encodeURI('lieux/' + hasard(l));
+  if (id === 'cercle' && VV.photos.length) return VV_SITE + hasard(VV.photos);   // photos du local choisi dans le cercle
+  return null;
+}
+
+/* ============ Pont avec le cercle de Vito (Vino Veritas) ============ */
+const VV_URL = 'https://wbqwivpjdiqucmqbfrja.supabase.co/rest/v1/rpc/';
+const VV_KEY = 'sb_publishable_UVzf4NAwvrS0diJP0rjnSQ_5l-rSn1C';
+const VV_SITE = 'https://vino-veritas-one.vercel.app/';
+const VV_CLE = 'chasse-cercle-v1';
+const VV_POSTES = { serveur: 'Serveur', barman: 'Barman', hote: 'Hôte', portier: 'Portier', administrateur: 'Administrateur' };
+const VV = { photos: [] };
+async function rpc(fn, corps) {
+  const ctl = new AbortController(), t = setTimeout(() => ctl.abort(), 6000);
+  try {
+    const r = await fetch(VV_URL + fn, { method: 'POST', signal: ctl.signal, headers: { apikey: VV_KEY, 'Content-Type': 'application/json' }, body: JSON.stringify(corps || {}) });
+    if (!r.ok) throw new Error(fn + ' ' + r.status); return r.json();
+  } finally { clearTimeout(t); }
+}
+async function chargerCercle() {
+  let lignes = null;
+  try { lignes = await rpc('chasse_pool'); try { localStorage.setItem(VV_CLE, JSON.stringify(lignes)); } catch (e) {} }
+  catch (e) { try { lignes = JSON.parse(localStorage.getItem(VV_CLE)); } catch (e2) {} }
+  if (!Array.isArray(lignes)) return;
+  for (const r of lignes) {
+    const id = r.slug.replace(/-/g, '_');
+    const p = PROFILS[id] || (PROFILS[id] = { id, lieux: [], humeurs: {} });
+    p.vv = r; p.nom = r.nom; p.age = r.age;
+    p.metier = r.t === 'p' ? (VV_POSTES[r.metier] || r.metier) + (r.statut === 'embauche' ? ' au cercle' : '') : r.metier;
+    p.compatible_vito = !!r.compatible;
+    p.portrait = VV_SITE + 'img/' + (r.t === 'm' ? 'membres' : 'personnel') + '/' + r.slug + '.jpg';
+    if (r.photos && r.photos.length) VV.photos = r.photos;
+  }
+  envoyerRepas();
+}
+// Membres actifs et personnel embauché : au cercle seulement. Les membres donnés à Vance disparaissent.
+function lieuxDe(p) {
+  if (!p.vv) return p.lieux || [];
+  const s = p.vv.statut;
+  if (s === 'vance') return [];
+  if (s === 'membre' || s === 'embauche') return ['cercle'];
+  return p.lieux || [];
+}
+// Repas sur une personne du cercle : prévient la base (anémie, risque Mascarade, journal). Rejoué plus tard si pas d'Internet.
+function repasCercle(id, dose) {
+  const p = PROFILS[id]; if (!p || !p.vv) return;
+  (SAVE.vvAttente = SAVE.vvAttente || []).push({ p_type: p.vv.t, p_slug: p.vv.slug, p_joueur: S.joueur.id, p_dose: dose });
+  if (dose === 2) p.vv.anemie = true;
+  sauver(); envoyerRepas();
+}
+async function envoyerRepas() {
+  const f = SAVE.vvAttente || []; if (!f.length || envoyerRepas.encours) return;
+  envoyerRepas.encours = true;
+  try { while (f.length) { await rpc('chasse_repas', f[0]); f.shift(); sauver(); } }
+  catch (e) { toast('Cercle injoignable : le repas sera transmis au prochain lancement.'); }
+  envoyerRepas.encours = false;
+}
 function mediaJoueur(j) {
   const f = (M.joueurs || []).find(f => norm(f.replace(/\.[^.]+$/, '')) === norm(j.id));
   if (!f) return `<div class="initiale">${esc(j.nom.charAt(0))}</div>`;
@@ -427,7 +485,7 @@ function rendreAccueil() {
 }
 function choisirJoueur(id) {
   S.joueur = JOUEURS.find(j => j.id === id); S.minutes = hm($('#heure').value); S.aube = hm($('#aube').value);
-  const an = anemies(); for (const k in an) { if (an[k] <= 0) delete an[k]; else an[k]--; } baisserPression();
+  baisserPression();
   S.vus = new Set(); majHorloge(); rendreLieux();
 }
 
@@ -447,7 +505,7 @@ function rendreLieux() {
     const l = LIEUX.find(x => x.id === p.lieu) || { nom: p.lieu };
     const an = anemies()[p.id];
     html += `<div class="lieu ${an !== undefined ? 'bloque' : ''}" ${an !== undefined ? '' : 'data-retour="1"'} style="background-image:url('${imageLieu(p.lieu) || ''}');border-color:var(--or)">
-      <small style="color:var(--or2)">${an !== undefined ? `anémié · encore ${an + 1} chasse${an > 0 ? 's' : ''}` : p.intensite === 'caillot' ? `nuit ${p.nuits}/3` : 'proie habituelle'}</small>
+      <small style="color:var(--or2)">${an !== undefined ? `anémié · encore ${joursRestants(an)} j` : p.intensite === 'caillot' ? `nuit ${p.nuits}/3` : 'proie habituelle'}</small>
       <span style="color:var(--or2)">Retrouver ${esc(p.nom)}<br><small style="position:static;background:none;padding:0;font-family:var(--ui)">${esc(l.nom)}</small></span></div>`;
   }
   html += lieuxDuJoueur().map(l => {
@@ -465,15 +523,16 @@ function rendreLieux() {
 /* ============ Tirage ============ */
 function poolLieu(l) {
   const ids = new Set();
-  for (const p of Object.values(PROFILS)) if ((p.lieux || []).includes(l.id)) ids.add(p.id);
+  for (const p of Object.values(PROFILS)) if (lieuxDe(p).includes(l.id)) ids.add(p.id);
   for (const k in IMAGES) { const im = IMAGES[k]; if (im.dossier === l.id) ids.add(im.id); }
   const autres = Object.values(SAVE.joueurs).map(e => e.proie && e.proie.id).filter(Boolean);
   const an = anemies();
-  return [...ids].filter(id => !SAVE.morts.includes(id) && !autres.includes(id) && an[id] === undefined);
+  return [...ids].filter(id => !SAVE.morts.includes(id) && !autres.includes(id) && an[id] === undefined
+    && !(PROFILS[id] && PROFILS[id].vv && PROFILS[id].vv.anemie));
 }
 function infosPNJ(id, l) {
   const p = PROFILS[id] || {}, im = IMAGES[l.id + '/' + norm(id)] || IMAGES[norm(id)];
-  return { id, p, url: im ? im.url : null, tags: im ? im.tags : new Set(), nom: p.nom || joli(id) };
+  return { id, p, url: im ? im.url : (p.portrait || null), tags: im ? im.tags : new Set(), nom: p.nom || joli(id) };
 }
 function accepte(info) {
   const f = S.joueur.filtre; if (!f) return true;
@@ -651,7 +710,7 @@ function finChoix(c, reso) {
     const e = etat(S.joueur.id), anc = e.proie; if (reso) e.reso = reso; else delete e.reso;
     e.proie = proieDe(c, 0, anc && anc.id === c.id ? (anc.visites || 0) + 1 : 0);
     if (dose === 2) anemier(c.id); sauver();
-    finRepas(`${c.nom} est gardé en doré comme proie habituelle.` + (dose === 2 ? ` Anémié pour ${ANEMIE} chasses.` : ''));
+    finRepas(`${c.nom} est gardé en doré comme proie habituelle.` + (dose === 2 ? ' Anémié pour deux semaines.' : ''));
   });
 }
 function tirerDyscrasie(type) { const l = DYSC[type] || []; return l.length ? hasard(l) : { nom: 'Dyscrasie', effet: 'À définir par le conteur.' }; }
@@ -753,11 +812,17 @@ function musique(lid) {
 }
 
 /* ============ Dose, anémie ============ */
-const ANEMIE = 3;   // chasses (tous joueurs confondus) avant qu'une proie anémiée revienne
-function anemies() { return SAVE.anemies || (SAVE.anemies = {}); }
-function anemier(id) { anemies()[id] = ANEMIE; }
+const ANEMIE_JOURS = 14;   // une proie anémiée revient deux semaines (réelles) plus tard, tous joueurs confondus
+// SAVE.anemies : id -> date de retour (ms). Les anciennes valeurs (nombre de chasses) sont converties.
+function anemies() {
+  const A = SAVE.anemies || (SAVE.anemies = {}), now = Date.now();
+  for (const k in A) { if (A[k] < 1e12) A[k] = now + ANEMIE_JOURS * 864e5; if (A[k] <= now) delete A[k]; }
+  return A;
+}
+function anemier(id) { anemies()[id] = Date.now() + ANEMIE_JOURS * 864e5; }
+function joursRestants(t) { return Math.max(1, Math.ceil((t - Date.now()) / 864e5)); }
 function doses(el, prefixe, ok0) {
-  const cible = S.famCible, ok = d => { famPlus(cible); ok0(d); };
+  const cible = S.famCible, ok = d => { famPlus(cible); repasCercle(cible, d); ok0(d); };
   const v = prefixe ? prefixe + 'boire' : 'Boire';
   el.innerHTML = `<button class="or" data-d="1">${v} 1 Soif</button><button class="rouge" data-d="2">${v} 2 Soif (anémie)</button>`;
   el.querySelectorAll('[data-d]').forEach(b => b.onclick = () => ok(+b.dataset.d));
@@ -779,7 +844,7 @@ const CHANCE_EVT = 0.15;
 function jetEvenement(lid) {
   if (Math.random() >= CHANCE_EVT) return null;
   const l = LIEUX.find(x => x.id === lid) || {};
-  const liste = (EVTS[lid] || []).concat(l.type === 'cadavres' ? [] : (EVTS.tous || []));
+  const liste = (EVTS[lid] || []).concat(l.type === 'cadavres' || l.prive ? [] : (EVTS.tous || []));
   return liste.length ? Object.assign({ type: 'evt', observe: false }, hasard(liste)) : null;
 }
 function territoires() { return SAVE.territoire || (SAVE.territoire = {}); }
